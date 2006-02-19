@@ -1,0 +1,1 @@
+pref("stantz.useVagueJargon", true);

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "chrome://stantz/locale/entities.dtd">
+<overlay
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    id="StantzBrowserOverlay"
+>
+    <menupopup id="menu_ToolsPopup">
+        <menuitem
+            id="StantzMenuItem"
+            oncommand="open(
+                'chrome://stantz/content/stantz.xul',
+                '', 
+                'chrome,minimizable,resizable'
+            );"
+            insertafter="javascriptConsole,devToolsSeparator"
+            label="&stantz.browser.menuitem.label;"
+            accesskey="&stantz.browser.menuitem.accesskey;"
+        />
+    </menupopup>
+</overlay>
