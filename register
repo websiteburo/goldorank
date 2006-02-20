@@ -2,9 +2,17 @@
 
 ID=`python -c 'from config import *; print uid'`
 
-# presuming that you're on a single-user system,
-#  you won't need to run this pkill as root
-pkill firefox-bin
-pwd > ~/.mozilla/firefox/*.default/extensions/{$ID}
-firefox &
+#On tue l'instance precedente de firefox tests
+for pid in `ps eax| grep firefox| grep tests | awk '{print $1}'`
+do
+	kill $pid
+done
+
+#On enregistre la référence à l'extension (maj de la date)
+pwd > ~/.mozilla/firefox/udgl73dj.tests/extensions/{$ID}
+
+#Relance de firefox tests
+export MOZ_NO_REMOTE=1
+firefox -P tests &
+
 

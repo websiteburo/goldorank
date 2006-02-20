@@ -17,4 +17,18 @@
             accesskey="&goldorank.browser.menuitem.accesskey;"
         />
     </menupopup>
+    
+    	<popup id="contentAreaContextMenu">
+		<menuseparator id="goldorank-context-separator"/>
+               <menuitem
+            id="GoldorankMenuItem"
+            oncommand="open(
+                'chrome://goldorank/content/goldorank.xul',
+                '', 
+                'chrome,minimizable,resizable'
+            );"
+            label="&goldorank.browser.menuitem.label;"
+            accesskey="&goldorank.browser.menuitem.accesskey;"
+        />
+        </popup>
 </overlay>
