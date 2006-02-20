@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE window SYSTEM "chrome://stantz/locale/entities.dtd">
+<!DOCTYPE window SYSTEM "chrome://goldorank/locale/entities.dtd">
 <overlay
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     id="StantzBrowserOverlay"
@@ -8,7 +8,7 @@
         <menuitem
             id="StantzMenuItem"
             oncommand="open(
-                'chrome://stantz/content/stantz.xul',
+                'chrome://goldorank/content/goldorank.xul',
                 '', 
                 'chrome,minimizable,resizable'
             );"

@@ -8,13 +8,13 @@
     </RDF:Seq>
     <RDF:Description
         about="urn:mozilla:skin:classic/1.0"
-        chrome:displayName="Stantz"
-        chrome:author="Kris Kowal"
+        chrome:displayName="Goldorank"
+        chrome:author="Henri Bourcereau"
         chrome:name="classic/1.0"
     >
         <chrome:packages>
             <RDF:Seq about="urn:mozilla:skin:classic/1.0:packages">
-                <RDF:li resource="urn:mozilla:skin:classic/1.0:stantz"/>
+                <RDF:li resource="urn:mozilla:skin:classic/1.0:goldorank"/>
             </RDF:Seq>
         </chrome:packages>
     </RDF:Description>

@@ -3,8 +3,8 @@
 
 // XPCOM constant definitions
 
-const kSCHEME = "stantz";
-const kPROTOCOL_NAME = "Stantz Protocol";
+const kSCHEME = "goldorank";
+const kPROTOCOL_NAME = "Goldorank Protocol";
 const kPROTOCOL_CONTRACTID = "@mozilla.org/network/protocol;1?name=" + kSCHEME;
 const kPROTOCOL_CID = Components.ID("eaba24a8-06d6-4557-bf2d-a629028df21e");
 
@@ -59,7 +59,7 @@ Protocol.prototype = {
         var newChannelURL = "javascript:void(0)";
 
         newWindow = hiddenWindow.open(
-            "chrome://stantz/content/stantz.xul",
+            "chrome://goldorank/content/stantz.xul",
             "stantz" + Protocol.prototype.mooshWindowNumber++,
             "chrome,resizable,minimizable"
         );

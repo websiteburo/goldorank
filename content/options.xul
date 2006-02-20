@@ -9,7 +9,7 @@
 
     <spring flex="1"/>        
     <html:html style="width: 100%; font-weight: bold; font-size: xx-large; font-family: sans-serif; text-align: center;">
-        THERE IS NO DATA.<html:br/>
+        GOLDORANK.<html:br/>
         THERE IS ONLY <html:a style="margin-left: 0.25em;" href="http://www.mozilla.org/projects/xul">XUL</html:a>.
     </html:html>
     <spring flex="1"/>        

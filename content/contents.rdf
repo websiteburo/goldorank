@@ -4,18 +4,18 @@
 
     <!-- list all the packages being supplied by this jar -->
     <RDF:Seq about="urn:mozilla:package:root">
-        <RDF:li resource="urn:mozilla:package:stantz"/>
+        <RDF:li resource="urn:mozilla:package:goldorank"/>
     </RDF:Seq>
 
     <!-- package information -->
-    <RDF:Description about="urn:mozilla:package:stantz"
-        chrome:displayName="Stantz 0.0.0+"
-        chrome:author="Kris Kowal"
-        chrome:authorURL="http://cixar.com"
-        chrome:description="A companion for Venkman"
+    <RDF:Description about="urn:mozilla:package:goldorank"
+        chrome:displayName="Goldorank 0.0.0+"
+        chrome:author="Henri Bourcereau"
+        chrome:authorURL="http://www.websiteburo.com"
+        chrome:description="Search engines position retriever"
         chrome:localeVersion=""
         chrome:extension="true"
-        chrome:name="stantz">
+        chrome:name="goldorank">
     </RDF:Description>
 
     <!-- overlay information -->
@@ -26,7 +26,7 @@
     </RDF:Seq>
     
         <RDF:Seq about="chrome://browser/content/browser.xul">
-                <RDF:li>chrome://stantz/content/browser.xul</RDF:li>
+                <RDF:li>chrome://goldorank/content/browser.xul</RDF:li>
         </RDF:Seq>
     
 
