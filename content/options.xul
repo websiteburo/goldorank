@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
 <window
-    id="thereisnodata"
+    id="goldorank_options"
     class="dialog"
     orient="vertical"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -10,7 +10,7 @@
     <spring flex="1"/>        
     <html:html style="width: 100%; font-weight: bold; font-size: xx-large; font-family: sans-serif; text-align: center;">
         GOLDORANK.<html:br/>
-        THERE IS ONLY <html:a style="margin-left: 0.25em;" href="http://www.mozilla.org/projects/xul">XUL</html:a>.
+        no options for now
     </html:html>
     <spring flex="1"/>        
 </window>

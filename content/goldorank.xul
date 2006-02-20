@@ -1,16 +1,22 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://goldorank/locale/entities.dtd">
 <window
-    id="thereisnodata"
+    id="goldorank_app"
     class="dialog"
     orient="vertical"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml">
 
-    <spring flex="1"/>        
-    <html:html style="width: 100%; font-weight: bold; font-size: xx-large; font-family: sans-serif; text-align: center;">
+    <spring flex="1" />        
+    <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDORANK.<html:br/>
-        THERE IS ONLY <html:a style="margin-left: 0.25em;" href="http://www.mozilla.org/projects/xul">XUL</html:a>.
-    </html:html>
-    <spring flex="1"/>        
+        </html:html>
+        <!-- formulaire -->
+       <textbox id="motscles" />
+        <button id="valider" label="&goldorank.goldorank.search;" oncommand="window.open(
+                'http://www.google.com/search?q='+document.getElementById('motscles').value,
+                '', 
+                'chrome,minimizable,resizable'
+            );" />       
 </window>

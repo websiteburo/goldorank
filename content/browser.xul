@@ -24,7 +24,7 @@
             id="GoldorankMenuItem"
             oncommand="open(
                 'chrome://goldorank/content/goldorank.xul',
-                '', 
+                'Goldorank', 
                 'chrome,minimizable,resizable'
             );"
             label="&goldorank.browser.menuitem.label;"
