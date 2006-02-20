@@ -59,8 +59,8 @@ Protocol.prototype = {
         var newChannelURL = "javascript:void(0)";
 
         newWindow = hiddenWindow.open(
-            "chrome://goldorank/content/stantz.xul",
-            "stantz" + Protocol.prototype.mooshWindowNumber++,
+            "chrome://goldorank/content/goldorank.xul",
+            "goldorank" + Protocol.prototype.mooshWindowNumber++,
             "chrome,resizable,minimizable"
         );
         
