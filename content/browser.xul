@@ -4,6 +4,7 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     id="GoldorankBrowserOverlay"
 >
+<script src="browser.js"></script>
     <menupopup id="menu_ToolsPopup">
         <menuitem
             id="GoldorankMenuItem"
@@ -22,7 +23,7 @@
 		<menuseparator id="goldorank-context-separator"/>
                <menuitem
             id="GoldorankMenuItem"
-            oncommand="open(
+            oncommand="alert('selection: '+window.name+window.getSelection());open(
                 'chrome://goldorank/content/goldorank.xul',
                 'Goldorank', 
                 'chrome,minimizable,resizable'
