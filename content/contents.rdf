@@ -12,7 +12,7 @@
         chrome:displayName="Goldorank 0.0.0+"
         chrome:author="Henri Bourcereau"
         chrome:authorURL="http://www.websiteburo.com"
-        chrome:description="Search engines position retriever from wsb"
+        chrome:description="Search engines position retriever"
         chrome:localeVersion=""
         chrome:extension="true"
         chrome:name="goldorank">

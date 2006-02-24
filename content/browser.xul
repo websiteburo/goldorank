@@ -23,7 +23,7 @@
 		<menuseparator id="goldorank-context-separator"/>
                <menuitem
             id="GoldorankMenuItem"
-            oncommand="alert('selection: '+window.name+window.getSelection());open(
+            oncommand="open(
                 'chrome://goldorank/content/goldorank.xul',
                 'Goldorank', 
                 'chrome,minimizable,resizable'

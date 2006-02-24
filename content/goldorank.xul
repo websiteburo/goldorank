@@ -7,7 +7,7 @@
     orient="vertical"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    onload="document.getElementById('motscles').value=window.parent.getSelection()">
+    onload="document.getElementById('motscles').value=opener.content.document.getSelection();">
 
     <spring flex="1" />        
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
