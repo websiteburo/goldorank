@@ -1,3 +1,5 @@
 <!ENTITY goldorank.browser.menuitem.label "Goldorank">
 <!ENTITY goldorank.browser.menuitem.accesskey "G">
 <!ENTITY goldorank.goldorank.search "Rechercher">
+<!ENTITY goldorank.goldorank.keywords "Mots cles">
+<!ENTITY goldorank.goldorank.page "Page">

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://goldorank/content/goldorank.css"?>
 <!DOCTYPE window SYSTEM "chrome://goldorank/locale/entities.dtd">
 <window
     id="goldorank_app"
@@ -7,17 +8,33 @@
     orient="vertical"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    onload="document.getElementById('motscles').value=opener.content.document.getSelection();">
-
+    onload="peupleValeurs();">
+    <script src="goldorank.js"></script>
     <spring flex="1" />        
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDORANK.<html:br/>
         </html:html>
         <!-- formulaire -->
+        <label control="motscles" value="&goldorank.goldorank.keywords;" style="width:50px" crop="start"/>
        <textbox id="motscles" />
-        <button id="valider" label="&goldorank.goldorank.search;" oncommand="window.open(
-                'http://www.google.com/search?q='+document.getElementById('motscles').value,
-                '', 
-                'chrome,minimizable,resizable'
-            );" />       
+        <label control="page" value="&goldorank.goldorank.page;" style="width:50px" crop="start"/>
+       <textbox id="page" />  
+            
+        <menulist id="searchEngineList" flex="1">
+          <menupopup id="searchEnginePopup" position="after_start"
+                 datasources="rdf:internetsearch"
+                 ref="NC:SearchEngineRoot"
+                 >
+            <template>
+                <menuitem type="checkbox"
+            class="menuitem-iconic engine-icon"
+            uri="rdf:*" value="rdf:*"
+            src="rdf:http://home.netscape.com/NC-rdf#Icon"
+            label="rdf:http://home.netscape.com/NC-rdf#Name"/>
+            </template>
+          </menupopup>
+        </menulist>
+            
+        <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
+            
 </window>

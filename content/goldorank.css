@@ -1,0 +1,18 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * ***** END LICENSE BLOCK ***** */
+
+#searchEngineList {
+  min-height: 24px;
+}
+
+.engine-icon > .menulist-label-box > .menulist-icon,
+.engine-icon > .menu-iconic-left > .menu-iconic-icon {
+  width: 16px;
+  height: 16px;
+  min-height: 16px;
+}
+
+.engine-icon > .menu-iconic-left {
+  display: -moz-box;
+  min-height: 16px;
+}
