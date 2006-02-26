@@ -18,7 +18,9 @@ function rechercher() {
       searchURL = makeURI(searchURL).host;
     } catch (ex) {}
     
-    window.opener.delayedSearchLoadURL(searchURL);
+    var resultsTree = document.getElementById( "resultsList" );
+    resultsTree.setAttribute("ref", decodeURI(searchURL));
+    //window.opener.delayedSearchLoadURL(searchURL);
     
     //window.open('http://www.google.com/search?q='+document.getElementById('motscles').value, '', 'chrome,minimizable,resizable')
 }
