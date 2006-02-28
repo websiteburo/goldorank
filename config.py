@@ -2,7 +2,7 @@
 
 app = 'goldorank'
 name = 'Goldorank'
-description = 'Search engines position retriever'
+description = 'Search engines position retriever from wsb'
 author = 'Henri Bourcereau'
 authorURL = "http://www.websiteburo.com"
 uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'

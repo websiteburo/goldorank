@@ -38,6 +38,46 @@
             
         <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
         
+        <!--searchpanel-->
+    <vbox class="searchpanel-outerbox" flex="1">
+        <listbox id="resultList" ref="NC:LastSearchRoot" class="plain"
+              resource="http://home.netscape.com/NC-rdf#PageRank"
+              resource2="http://home.netscape.com/NC-rdf#Name"
+              flex="1" datasources="rdf:internetsearch"
+              onclick="if (event.button == 0 &amp;&amp; event.target.localName == 'listitem') sidebarOpenURL(event.target);"
+              ondraggesture="if (event.target.localName == 'listitem') HandleResultDragGesture(event);"
+              style="-moz-user-focus:ignore !important;">
+
+          <listhead>
+            <listheader id="SortNameColumn" label="&results.label;" 
+                        sortable="true" resource="http://home.netscape.com/NC-rdf#Name"
+                        onclick="return doSort('SortNameColumn', 'http://home.netscape.com/NC-rdf#PageRank');" />
+          </listhead>
+
+          <template>
+            <rule>
+              <listitem uri="..." class="listitem-iconic searchresult-item text-link"
+                        context="contextual" flexlabel="0"                    
+                        loading="rdf:http://home.netscape.com/NC-rdf#loading"
+                        searchtype="rdf:http://home.netscape.com/NC-rdf#SearchType"
+                        image="rdf:http://home.netscape.com/NC-rdf#Icon"
+                        label="rdf:http://home.netscape.com/NC-rdf#Name"
+                        tooltip="descTooltip"/>
+            </rule>
+          </template>
+        </listbox>
+      
+        <hbox>
+          <button id="prev-results" label="&previous.button.label;" 
+                  tooltiptext="&previous.button.tooltip;"
+                  oncommand="return showMoreResults(-1);" disabled="true"/>
+          <spacer flex="1"/>
+          <button id="next-results" label="&next.button.label;"
+                  tooltiptext="&next.button.tooltip;"
+                  oncommand="return showMoreResults(1);" disabled="true"/>
+        </hbox>
+      </vbox>
+        <!-- avant -->
           <tree id="resultsList" flex="1" class="plain"
            datasources="rdf:internetsearch" context="contextual"
            onselect="return listSelect(event);"
