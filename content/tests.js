@@ -1,3 +1,4 @@
+ const RDFSERVICE_CONTRACTID    = "@mozilla.org/rdf/rdf-service;1";
  function test(){
     output('Début des tests\n\n');
     //begin
