@@ -36,8 +36,8 @@
           </menupopup>
         </menulist>
             
-        <button id="valider" label="&goldorank.goldorank.search;" oncommand="afficheResults();" />
-        <button id="aff_results" label="resultats" oncommand="rechercher();" />
+        <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
+        <button id="aff_results" label="resultats" oncommand="afficheResults();" />
         
         <!--searchpanel-->
     <vbox class="searchpanel-outerbox" flex="1">

@@ -4,25 +4,39 @@ function peupleValeurs(){
 }
 
 function afficheResults(){
-        var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
-        var ds = rdfService.GetDataSource('rdf:internetsearch');
-        
-        var tr='';
-        
-        searchroot = rdfService.GetResource('NC:LastSearchRoot');
-        predicat = rdfService.GetResource('http://home.netscape.com/NC-rdf#child');
-        rdf_url = rdfService.GetResource('http://home.netscape.com/NC-rdf#URL');
-        resultats = ds.GetTargets(searchroot, predicat, true);
-        while (resultats.hasMoreElements()) {
-            var resultat = resultats.getNext();
-            url = ds.GetTargets(resultat, rdf_url, true);
-            while (url.hasMoreElements()) {
-                var target = url.getNext();
-                if (target instanceof Components.interfaces.nsIRDFLiteral)
-                    tr+=target.Value+"\n";
+    var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
+    var ds = rdfService.GetDataSource('rdf:internetsearch');
+    
+    
+    //*
+    var observer = {
+        onBeginLoad : function(sink){},
+        onInterrupt : function(sink){},
+        onResume : function(sink){},
+        onError : function(sink,status,msg){},
+        onEndLoad : function(sink){
+            sink.removeXMLSinkObserver(this);
+            sink.QueryInterface(Components.interfaces.nsIRDFDataSource);
+            
+            var tr='';
+            var searchroot = rdfService.GetResource('NC:LastSearchRoot');
+            var predicat = rdfService.GetResource('http://home.netscape.com/NC-rdf#child');
+            var rdf_url = rdfService.GetResource('http://home.netscape.com/NC-rdf#URL');
+            var resultats = ds.GetTargets(searchroot, predicat, true);
+            while (resultats.hasMoreElements()) {
+                var resultat = resultats.getNext();
+                var url = ds.GetTarget(resultat, rdf_url, true);
+                if (url) url = url.QueryInterface(Components.interfaces.nsIRDFLiteral);
+                if (url) tr += url.Value + "\n";            
             }
+            alert(tr);
         }
-        alert(tr);
+    };
+
+    //var ds=rdfService.GetDataSource("http://www.xulplanet.com/tutorials/xultu/animals.rdf");
+    ds.QueryInterface(Components.interfaces.nsIRDFXMLSink);
+    ds.addXMLSinkObserver(observer);
+//*/
 }
 
 function rechercher() {
@@ -37,7 +51,8 @@ function rechercher() {
     
     if (searchSvc.FindInternetSearchResults(searchURL)){
         afficheResults()
-        /*var all_res=ds.GetAllResources();
+        /*
+        var all_res=ds.GetAllResources();
         regexEngine = /^engine/
         for(var r=0; all_res.hasMoreElements(); r++)  {
             var res=all_res.getNext();
@@ -45,7 +60,8 @@ function rechercher() {
             if (res instanceof Components.interfaces.nsIRDFResource)    {
                 t += r + " " + res.Value + "\n";
             }
-        }*/
+        }
+        //*/
         
     }
     
