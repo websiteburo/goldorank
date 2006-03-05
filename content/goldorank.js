@@ -1,79 +1,80 @@
+var progressCell;
+var rankCell;
+var pageCell;
+var engine;
+var nbRes;
+var searchURL;
+var numPage;
+var listeResultats = [];
+var currentNodeEngine;
+var searchText;
+var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
+var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
+var ds = rdfService.GetDataSource('rdf:internetsearch');
+var RDF_observer;
+
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
 }
 
-function rechercher() {
-    //Elements xul
-    var logoEngineCell = document.getElementById('logoEngineCell');
-    var nomEngineCell = document.getElementById('nomEngineCell');
-    var progressCell = document.getElementById('progressCell');
-    var rankCell = document.getElementById('rankCell');
-    var pageCell = document.getElementById('pageCell');
-    
+function rechercher() {   
     //Valeurs de recherche
-    var searchText = document.getElementById('motscles').value;
+    searchText = document.getElementById('motscles').value;
     searchText = searchText ? searchText : "A";
     var pageCherchee = document.getElementById('page').value;
     var maxRank = document.getElementById('maxRank').value;
-    var engine = document.getElementById("searchEngineList").value;
     
     //Initialisation du service de recherche et des éléments RDF
-    var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
-    var searchURL;
-    var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
-    var ds = rdfService.GetDataSource('rdf:internetsearch');
     var searchroot = rdfService.GetResource('NC:LastSearchRoot');
     var rdf_url = rdfService.GetResource('http://home.netscape.com/NC-rdf#URL');
-    var rdf_data = rdfService.GetResource('http://home.netscape.com/NC-rdf#data');
     var rdf_logo = rdfService.GetResource('http://home.netscape.com/NC-rdf#Icon');
     var rdf_nom = rdfService.GetResource('http://home.netscape.com/NC-rdf#Name');
-    var listeResultats = [];
     
-    //Mise en place du logo et du nom du moteur
-    var logoEngine = ds.GetTarget(rdfService.GetResource(engine), rdf_logo, true);
-    if (logoEngine instanceof Components.interfaces.nsIRDFLiteral)
-        logoEngineCell.src = logoEngine.Value;
-    var nomEngine = ds.GetTarget(rdfService.GetResource(engine), rdf_nom, true);
-    if (nomEngine instanceof Components.interfaces.nsIRDFLiteral)
-        nomEngineCell.value = nomEngine.Value;
-        
-    
-    //Détermination du nombre de résultats par page
-    var txtEngine = ds.GetTarget(rdfService.GetResource(engine), rdf_data, true);
-    if (txtEngine) txtEngine = txtEngine.QueryInterface(Components.interfaces.nsIRDFLiteral);
-    if (txtEngine) txtEngine = txtEngine.Value;
-    var nbRes = 10;//10 resultats par page par défaut
-    regexNbRes = /factor=["']?(\d+)["']?/
-    rechNbRes = txtEngine.match(regexNbRes);
-    if (rechNbRes != null){
-        nbRes = rechNbRes[1];
-    }
-    
-    var RDF_observer = {
+    RDF_observer = {
         onAssert : function(ds, src, prop, target)  {        
             if (prop == rdf_url) {
+                var lancerSuivant = 0;
                 url = target.QueryInterface(Components.interfaces.nsIRDFLiteral);
                 listeResultats.push(url.Value+"\n");
                 rankCell.value = listeResultats.length
+                //Avancement de la barre de progression
                 progressCell.value = (100 * listeResultats.length / maxRank) ;
                 //Est-ce que c'est l'url recherchée?
                 if (url.Value == pageCherchee){
                     progressCell.value = 100;
-                    alert('page: ' + (numPage+1) + ', position: ' + listeResultats.length);
-                    ds.RemoveObserver(this);
+                    lancerSuivant = 1;
                 }
                 else if (maxRank <= listeResultats.length){
                     //Fin des recherches atteintes sans avoir trouvé la page
                     rankCell.value = 'N/A';
                     pageCell.value = 'N/A';
-                    ds.RemoveObserver(this);
+                    lancerSuivant = 1;
                 }
                 else if (listeResultats.length == nbRes * (numPage+1)){
                     //On récupére les résultats de la page suivante
                     searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
                     searchSvc.FindInternetSearchResults(searchURL);
                     pageCell.value = numPage + 1;
+                }
+                
+                if (lancerSuivant){
+                    nextNode = currentNodeEngine.nextSibling;
+                    if (nextNode){
+                        //On lance les recherches pour le moteur suivant
+                        if (initEngine(nextNode)){
+                            searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
+                            searchSvc.FindInternetSearchResults(searchURL);
+                        }
+                        else {
+                            //Plus de moteur compatible
+                            ds.RemoveObserver(this);
+                        }
+                    }
+                    else {
+                        //Les recherches pour tous les moteurs sont terminées
+                        ds.RemoveObserver(this);
+                    }
                 }
             }
         },
@@ -84,13 +85,127 @@ function rechercher() {
         onEndUpdateBatch   : function(ds){}
     }
     
+    
+    var nodeEngine = document.getElementById('resultClassement').childNodes[3];
+    //On réinitialise l'affichage
+    var moteur = nodeEngine;
+    while (moteur){
+        //progressCell
+        moteur.childNodes[1].firstChild.value = '0';
+        //rankCell
+        moteur.childNodes[2].firstChild.value = '';
+        //pageCell
+        moteur.childNodes[3].firstChild.value = '';
+        moteur = moteur.nextSibling;
+    }
+    //Lancement de la recherche pour le premier moteur
+    if (initEngine(nodeEngine)){
+        ds.AddObserver(RDF_observer);
+        searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
+        searchSvc.FindInternetSearchResults(searchURL);
+        setTimeout("verifierPeriodiquementMoteurs('"+engine+"', 1)", 5000);
+    }
+    else {
+        alert('aucun moteur compatible');
+    }
+}
+
+//Regarde si un moteur est bloqué et passe au suivant si c'est le cas
+function verifierPeriodiquementMoteurs(ancienEngine, ancienRank) {
+    nbResultActuel = listeResultats.length
+    if (nbResultActuel == ancienRank && engine == ancienEngine){
+        //Blocage
+        if (nbResultActuel == 0){
+            //Format de moteur invalide
+            rankCell.value = 'Err';
+            pageCell.value = 'Err';
+        }
+        else {
+            //Tous les résultats on été affichés
+            rankCell.value = "N/A";
+            pageCell.value = "N/A";
+            progressCell.value = 100;
+        }
+        nextNode = currentNodeEngine.nextSibling;
+        if (nextNode){
+            //On lance les recherches pour le moteur suivant
+            if (initEngine(nextNode)){
+                searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
+                searchSvc.FindInternetSearchResults(searchURL);
+            }
+            else {
+                //Plus de moteur compatible
+                ds.RemoveObserver(RDF_observer);
+                return;
+            }
+        }
+        else {
+            //Les recherches pour tous les moteurs sont terminées
+            ds.RemoveObserver(RDF_observer);
+            return;
+        }
+    }
+    setTimeout("verifierPeriodiquementMoteurs('"+engine+"', "+nbResultActuel+")", 5000);
+}
+
+//Initialisation du contexte d'un moteur
+function initEngine(nodeEngine){
+    var engineInitialized = 0;
+    //Détermination des éléments xul à mettre à jour
+    progressCell = nodeEngine.childNodes[1].firstChild;
+    rankCell = nodeEngine.childNodes[2].firstChild;
+    pageCell = nodeEngine.childNodes[3].firstChild;
+    
     //Initialisation des valeurs
+    currentNodeEngine = nodeEngine;
+    engine = nodeEngine.id;
+    nbRes = getNbRes(engine);
+    listeResultats = [];
     rankCell.value = '1';
     pageCell.value = '1';
     progressCell.value = 0;
-    var trouve = 0;
-    var numPage = 0;
-    searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
-    ds.AddObserver(RDF_observer);
-    searchSvc.FindInternetSearchResults(searchURL);
+    numPage = 0;
+    engineInitialized = engineOk(engine);
+    if (!engineInitialized){
+        //Le moteur n'est pas compatible, on passe au moteur suivant s'il existe
+        rankCell.value = 'Err';
+        pageCell.value = 'Err';
+        if (nodeEngine.nextSibling) engineInitialized = initEngine(nodeEngine.nextSibling);
+    }
+    return engineInitialized;
+}
+
+//Détermine si le moteur est compatible avec l'analyse des résultats
+function engineOk(engine){
+    var estok = 1;
+    var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
+    var ds = rdfService.GetDataSource('rdf:internetsearch');
+    var rdf_data = rdfService.GetResource('http://home.netscape.com/NC-rdf#data');
+    var txtEngine = ds.GetTarget(rdfService.GetResource(engine), rdf_data, true);
+    if (txtEngine) txtEngine = txtEngine.QueryInterface(Components.interfaces.nsIRDFLiteral);
+    if (txtEngine) txtEngine = txtEngine.Value;
+    //Il doit y avoir les délimiteurs de résultats (non commentés)
+    regexDelStart = /[\n\r]\s*resultItemStart/;
+    regexDelEnd = /[\n\r]\s*resultItemEnd/;
+    if ( ! (txtEngine.match(regexDelStart) && txtEngine.match(regexDelEnd)) ){
+        estok = 0;
+    } 
+    return estok;
+}
+
+//Détermination du nombre de résultats par page pour le moteur de recherche 'engine'
+function getNbRes(engine){
+    var nbRes = 10;//10 resultats par page par défaut
+    var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
+    var ds = rdfService.GetDataSource('rdf:internetsearch');
+    var rdf_data = rdfService.GetResource('http://home.netscape.com/NC-rdf#data');
+    var txtEngine = ds.GetTarget(rdfService.GetResource(engine), rdf_data, true);
+    if (txtEngine) txtEngine = txtEngine.QueryInterface(Components.interfaces.nsIRDFLiteral);
+    if (txtEngine) txtEngine = txtEngine.Value;
+    regexNbRes = /factor=["']?(\d+)["']?/
+    rechNbRes = txtEngine.match(regexNbRes);
+    if (rechNbRes != null){
+        nbRes = rechNbRes[1];
+    }
+    return nbRes;
 }

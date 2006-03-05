@@ -13,7 +13,7 @@
     <script src="goldorank.js"></script>
     <spring flex="1" />        
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
-        GOLDORANK.<html:br/></html:html>
+        GOLDoRANK<html:br/></html:html>
     <!-- formulaire -->
     <label control="motscles" value="&goldorank.goldorank.keywords;" style="width:50px" crop="start"/>
    <textbox id="motscles" />
@@ -21,27 +21,11 @@
    <textbox id="page" />  
     <label control="maxRank" value="&goldorank.goldorank.max;" style="width:50px" crop="start"/>
    <textbox id="maxRank" value="100" />  
-   
-    <menulist id="searchEngineList" flex="1">
-      <menupopup id="searchEnginePopup" position="after_start"
-             datasources="rdf:internetsearch"
-             ref="NC:SearchEngineRoot"
-             >
-        <template>
-            <menuitem type="checkbox"
-        class="menuitem-iconic engine-icon"
-        uri="rdf:*" value="rdf:*"
-        src="rdf:http://home.netscape.com/NC-rdf#Icon"
-        label="rdf:http://home.netscape.com/NC-rdf#Name"/>
-        </template>
-      </menupopup>
-    </menulist>
-        
+      
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
         
     <vbox flex="1">
-    
-    <listbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;">
+    <listbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchEngineRoot">
       <listhead>
         <listheader label="&goldorank.goldorank.engine;" />
         <listheader label="&goldorank.goldorank.progress;" />
@@ -54,38 +38,14 @@
         <listcol/>
         <listcol/>
     </listcols>
-    <listitem>
-        <listcell><image id="logoEngineCell" /><label id="nomEngineCell" /></listcell>
-        <listcell><progressmeter id="progressCell" mode="determined" value="0"/></listcell>
+    <template>
+    <listitem uri="rdf:*" value="rdf:*" >
+        <listcell><image src="rdf:http://home.netscape.com/NC-rdf#Icon" /><label value="rdf:http://home.netscape.com/NC-rdf#Name" /></listcell>
+        <listcell><progressmeter mode="determined" value="0"/></listcell>
         <listcell><label id="rankCell" /></listcell> 
         <listcell><label id="pageCell" /></listcell> 
-    </listitem>      
+    </listitem>     
+    </template>
     </listbox>
-    
-    
-    
-        <!--<listbox id="resultList" datasources="rdf:internetsearch" ref="NC:LastSearchRoot" class="plain"
-              resource="http://home.netscape.com/NC-rdf#PageRank"
-              resource2="http://home.netscape.com/NC-rdf#Name"
-              flex="1" 
-              onclick="if (event.button == 0 &amp;&amp; event.target.localName == 'listitem') sidebarOpenURL(event.target);"
-              ondraggesture="if (event.target.localName == 'listitem') HandleResultDragGesture(event);"
-              style="-moz-user-focus:ignore !important;">
-          <listhead>
-            <listheader id="SortNameColumn" label="&results.label;" sortable="true" resource="http://home.netscape.com/NC-rdf#Name" />
-          </listhead>
-          <template>
-            <rule>
-              <listitem uri="..." class="listitem-iconic searchresult-item text-link"
-            context="contextual" flexlabel="0"                    
-            loading="rdf:http://home.netscape.com/NC-rdf#loading"
-            searchtype="rdf:http://home.netscape.com/NC-rdf#SearchType"
-            image="rdf:http://home.netscape.com/NC-rdf#Icon"
-            label="rdf:http://home.netscape.com/NC-rdf#Name"
-            tooltip="descTooltip"/>
-            </rule>
-          </template>
-          
-        </listbox>-->
       </vbox>
 </window>
