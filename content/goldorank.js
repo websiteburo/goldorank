@@ -59,6 +59,7 @@ function rechercher() {
                 progressCell.value = (100 * listeResultats.length / maxRank) ;
                 //Est-ce que c'est l'url recherchée?
                 if (url.Value == pageCherchee){
+                    progressCell.value = 100;
                     alert('page: ' + (numPage+1) + ', position: ' + listeResultats.length);
                     ds.RemoveObserver(this);
                 }
@@ -83,6 +84,10 @@ function rechercher() {
         onEndUpdateBatch   : function(ds){}
     }
     
+    //Initialisation des valeurs
+    rankCell.value = '1';
+    pageCell.value = '1';
+    progressCell.value = 0;
     var trouve = 0;
     var numPage = 0;
     searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
