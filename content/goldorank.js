@@ -16,6 +16,16 @@ var RDF_observer;
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
+    
+    //On ajoute la prise en compte des catégories de moteurs pour que le navigateur puisse interroger la catégorie Goldorank
+    var ds = rdfService.GetDataSource('rdf:internetsearch');
+    var catDS = ds.GetCategoryDataSource();
+    if (catDS) {
+        catDS = catDS.QueryInterface(Components.interfaces.nsIRDFDataSource);
+        listeMoteurs = document.getElementById('resultClassement');
+        listeMoteurs.database.AddDataSource(catDS);
+        listeMoteurs.builder.rebuild();
+    }
 }
 
 function rechercher() {   
