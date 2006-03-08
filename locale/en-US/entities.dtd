@@ -1,8 +1,12 @@
 <!ENTITY goldorank.browser.menuitem.label "Goldorank">
 <!ENTITY goldorank.browser.menuitem.accesskey "G">
-<!ENTITY goldorank.goldorank.search "Rechercher">
-<!ENTITY goldorank.goldorank.keywords "Mots cles">
+<!ENTITY goldorank.goldorank.search "Search">
+<!ENTITY goldorank.goldorank.keywords "Keywords">
 <!ENTITY goldorank.goldorank.page "Page">
+<!ENTITY goldorank.goldorank.engine "Engine">
+<!ENTITY goldorank.goldorank.progress "Progress">
+<!ENTITY goldorank.goldorank.rank "Rank">
+<!ENTITY goldorank.goldorank.max "Max rank">
 
 <!ENTITY results.title.label         "Results:">
 
