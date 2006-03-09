@@ -25,7 +25,7 @@
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
         
     <vbox flex="1">
-    <listbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchCategory?category=urn:search:category:3">
+    <listbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank">
       <listhead>
         <listheader label="&goldorank.goldorank.engine;" />
         <listheader label="&goldorank.goldorank.progress;" />

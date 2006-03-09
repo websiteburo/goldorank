@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <RDF:Description RDF:about="urn:search:category:goldorank" NC:title="Goldorank" />
+  <RDF:Seq RDF:about="NC:SearchCategoryRoot">
+    <RDF:li RDF:resource="urn:search:category:goldorank"/>
+  </RDF:Seq>
+
+    <RDF:Seq RDF:about="NC:SearchCategory?category=urn:search:category:goldorank">
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:technorati-new.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:google.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:yahoo.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:yahoo-france.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:MSN.src"/>
+  </RDF:Seq>
+</RDF:RDF>
