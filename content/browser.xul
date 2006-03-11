@@ -8,28 +8,20 @@
     <menupopup id="menu_ToolsPopup">
         <menuitem
             id="GoldorankMenuItem"
-            oncommand="open(
-                'chrome://goldorank/content/goldorank.xul',
-                '', 
-                'chrome,minimizable,resizable'
-            );"
+            oncommand="open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=500, height=600');"
             insertafter="javascriptConsole,devToolsSeparator"
             label="&goldorank.browser.menuitem.label;"
             accesskey="&goldorank.browser.menuitem.accesskey;"
         />
     </menupopup>
     
-    	<popup id="contentAreaContextMenu">
-		<menuseparator id="goldorank-context-separator"/>
-               <menuitem
-            id="GoldorankMenuItem"
-            oncommand="open(
-                'chrome://goldorank/content/goldorank.xul',
-                'Goldorank', 
-                'chrome,minimizable,resizable'
-            );"
-            label="&goldorank.browser.menuitem.label;"
-            accesskey="&goldorank.browser.menuitem.accesskey;"
-        />
-        </popup>
+    <popup id="contentAreaContextMenu">
+    <menuseparator id="goldorank-context-separator"/>
+           <menuitem
+        id="GoldorankMenuItem"
+        oncommand="open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=500, height=600');"
+        label="&goldorank.browser.menuitem.label;"
+        accesskey="&goldorank.browser.menuitem.accesskey;"
+    />
+    </popup>
 </overlay>

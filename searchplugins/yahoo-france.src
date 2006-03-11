@@ -7,7 +7,7 @@
 
 <SEARCH
     version = "7.1" 
-   name="Yahoo FR"
+   name="Yahoo_FR"
    description="Recherche Yahoo fr"
    searchForm="http://www.yahoo.com/r/so"
    method="GET"

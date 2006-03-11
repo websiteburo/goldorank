@@ -11,7 +11,6 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     onload="peupleValeurs();">
     <script src="goldorank.js"></script>
-    <spring flex="1" />        
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDoRANK<html:br/></html:html>
     <!-- formulaire -->
