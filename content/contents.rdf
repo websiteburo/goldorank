@@ -9,10 +9,10 @@
 
     <!-- package information -->
     <RDF:Description about="urn:mozilla:package:goldorank"
-        chrome:displayName="Goldorank 0.0.0+"
+        chrome:displayName="Goldorank 0.1.2+"
         chrome:author="Henri Bourcereau"
         chrome:authorURL="http://www.websiteburo.com"
-        chrome:description="Search engines position retriever from wsb"
+        chrome:description="Search engines position retriever by WebSiteBuro"
         chrome:localeVersion=""
         chrome:extension="true"
         chrome:name="goldorank">

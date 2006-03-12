@@ -1,0 +1,13 @@
+﻿<!ENTITY goldorank.browser.menuitem.label "Goldorank">
+<!ENTITY goldorank.browser.menuitem.accesskey "G">
+<!ENTITY goldorank.goldorank.search "Recherche">
+<!ENTITY goldorank.goldorank.keywords "Mots clés">
+<!ENTITY goldorank.goldorank.page "Page">
+<!ENTITY goldorank.goldorank.engine "Moteur">
+<!ENTITY goldorank.goldorank.progress "Avancement">
+<!ENTITY goldorank.goldorank.rank "Position">
+<!ENTITY goldorank.goldorank.max "Position max.">
+<!ENTITY goldorank.goldorank.results "Mieux placés">
+<!ENTITY goldorank.goldorank.see "Voir">
+
+<!ENTITY results.title.label         "Resultats:">

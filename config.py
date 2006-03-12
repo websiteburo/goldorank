@@ -2,14 +2,14 @@
 
 app = 'goldorank'
 name = 'Goldorank'
-description = 'Search engines position retriever from wsb'
+description = 'Search engines position retriever by WebSiteBuro'
 author = 'Henri Bourcereau'
 authorURL = "http://www.websiteburo.com"
 uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
 
 major_version = 0
-minor_version = 0
-build_version = 0
+minor_version = 1
+build_version = 2
 in_development = True
 
 version = "%d.%d.%d%s" % (
@@ -49,9 +49,9 @@ locales = {
         'locale_version': '1.0',
         'display_name': 'English (US)',
     },
-    'sumerian': {
+    'fr-FR': {
         'locale_version': '1.0',
-        'display_name': 'Sumerian',
+        'display_name': 'Français',
     },
 }
 

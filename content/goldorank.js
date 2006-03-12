@@ -46,7 +46,7 @@ function rechercher() {
             if (prop == rdf_url) {
                 var lancerSuivant = 0;
                 url = target.QueryInterface(Components.interfaces.nsIRDFLiteral);
-                listeResultats.push(url.Value+"\n");
+                listeResultats.push(url.Value);
                 rankCell.value = listeResultats.length
                 //Avancement de la barre de progression
                 progressCell.value = (100 * listeResultats.length / maxRank) ;
@@ -69,6 +69,24 @@ function rechercher() {
                 }
                 
                 if (lancerSuivant){
+                    //On affiche la liste des resultats dans le combo-box
+                    for (var numres=0; numres<listeResultats.length; numres++){
+                        var nodeItem = document.createElement('menuitem');
+                        var urlres = listeResultats[numres];
+                        var urltxt = (numres+1)+' '+urlres;
+                        if (urltxt.length > 35){
+                            urltxt = urltxt.substr(0, 32) + '...';
+                        }
+                        if (numres == 0){
+                            resultsCell.parentNode.setAttribute('label', urltxt);
+                        }
+                        nodeItem.setAttribute('label', urltxt);
+                        nodeItem.setAttribute('value', urlres);
+                        //alert(numres+nodeItem.label);
+                        resultsCell.appendChild(nodeItem);
+                    }
+                    resultsCell.parentNode.style.display = "block";
+                    
                     nextNode = currentNodeEngine.nextSibling;
                     if (nextNode){
                         //On lance les recherches pour le moteur suivant
@@ -165,6 +183,7 @@ function initEngine(nodeEngine){
     progressCell = nodeEngine.childNodes[1].firstChild;
     rankCell = nodeEngine.childNodes[2].firstChild;
     pageCell = nodeEngine.childNodes[3].firstChild;
+    resultsCell = nodeEngine.childNodes[4].firstChild.firstChild;
     
     //Initialisation des valeurs
     currentNodeEngine = nodeEngine;
@@ -218,4 +237,9 @@ function getNbRes(engine){
         nbRes = rechNbRes[1];
     }
     return nbRes;
+}
+
+function ouvreUrl(select){
+    var tBrowser = opener.document.getElementById("content") ;
+    tBrowser.selectedTab = tBrowser.addTab(select.value) ;
 }

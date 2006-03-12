@@ -1,4 +1,4 @@
-<!ENTITY goldorank.browser.menuitem.label "Goldorank">
+﻿<!ENTITY goldorank.browser.menuitem.label "Goldorank">
 <!ENTITY goldorank.browser.menuitem.accesskey "G">
 <!ENTITY goldorank.goldorank.search "Search">
 <!ENTITY goldorank.goldorank.keywords "Keywords">
@@ -7,36 +7,7 @@
 <!ENTITY goldorank.goldorank.progress "Progress">
 <!ENTITY goldorank.goldorank.rank "Rank">
 <!ENTITY goldorank.goldorank.max "Max rank">
+<!ENTITY goldorank.goldorank.results "Best results">
+<!ENTITY goldorank.goldorank.see "See">
 
 <!ENTITY results.title.label         "Results:">
-
-<!ENTITY name.column.label           "Name">
-<!ENTITY relevance.column.label      "Relevance">
-<!ENTITY pagerank.column.label       "Page Ranking">
-<!ENTITY price.column.label          "Price">
-<!ENTITY availability.column.label   "Availability">
-<!ENTITY date.column.label           "Date">
-<!ENTITY site.column.label           "Internet Site">
-<!ENTITY results.header.label        "Search Results">
-<!ENTITY engine.column.label         "Search Engine">
-<!ENTITY viewbyprovider.label        "View by search engine:">
-<!ENTITY allresults.title.label      "All results combined">
-<!ENTITY internetresults.title       "Search Results">
-
-<!ENTITY search.button.label      "Search">
-<!ENTITY search.results.tab       "Apply">
-<!ENTITY search.advanced.tab      "Settings for ">
-<!ENTITY allengines.label         "All Engines">
-<!ENTITY within.label             "within">
-<!ENTITY using.label              "using">
-<!ENTITY choose.label             "Choose search engines, then click Search">
-<!ENTITY results.label            "Search Results">
-<!ENTITY engine.column.label      "Search Engines">
-<!ENTITY checkbox.column.label    "Use">
-<!ENTITY stop.button.label        "Stop">
-<!ENTITY customize.menuitem.label   "Edit Categories ...">
-<!ENTITY savesearch.button.label  "Bookmark this Search">
-<!ENTITY next.button.label        "Next">
-<!ENTITY previous.button.label    "Previous">
-<!ENTITY next.button.tooltip      "Show next search results">
-<!ENTITY previous.button.tooltip  "Show previous search results">
