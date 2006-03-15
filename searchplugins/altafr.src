@@ -1,0 +1,36 @@
+#
+#	Mozilla/Netscape 6+ Mycroft Plugin for fr.Altavista.com requested by Fabian #428.
+#	Created by Ben Snider on March 17, 2004.
+#	E-Mail: homer_08@hotmail.com.
+#
+
+<search
+	version="7.1"
+	name="AltaVista France"
+	description="Altavista France - French ersion of the popular search engine AltaVista"
+	action="http://fr.altavista.com/web/results"
+	searchForm="http://fr.altavista.com/web/results"
+	method="GET"
+    queryCharset="UTF-8"
+>
+
+<input name="q" user>
+<input name="kgs" value="1">
+<input name="kls" value="1">
+<input name="avkw" value="aapt">
+
+<interpret
+	browserResultType="result"
+    charset="UTF-8"
+	resultListStart="<DIV class=xs>"
+	resultListEnd='<table border=0 cellspacing=0 cellpadding=2 WIDTH="100%">'
+	resultItemStart="<br class='lb'>"
+	resultITemEnd="<br>"
+>
+</search>
+
+<browser
+	update="http://mycroft.mozdev.org/update.php/id2/altafr.src" 
+	updateIcon="http://mycroft.mozdev.org/update.php/id2/altafr.png" 
+	updateCheckDays="7" 
+>

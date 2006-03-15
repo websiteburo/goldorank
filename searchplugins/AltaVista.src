@@ -1,0 +1,43 @@
+# Status: Working
+# Mozilla plugin file for AltaVista by Matthew A. McGuigan <webnugget.com>
+#
+# Created:  May 27, 2002
+# Last updated November 05, 2005 (CC, UTF-8 FIX)
+#
+# Known issues:
+#  
+# 1. There are several bugs in the code for the Next and Previous buttons; therefore, they are not turned on. 
+# 2. Sponsored search listings are not included in side bar results.(not a bug)
+#
+
+<SEARCH
+  version = "7.1"
+  name="AltaVista"
+  description="AltaVista - THE SEARCH COMPANY" 
+  action="http://www.altavista.com/web/results"
+  searchForm="http://www.altavista.com/"
+  method="GET"
+  queryCharset="UTF-8"
+>
+
+<input name="q" user>
+<input name="sourceid" value="mozilla-search">
+# <inputnext name="stq" factor="10">
+# <inputprev>
+
+<interpret
+  browserResultType = "result"
+  charset="UTF-8"
+  resultListStart="results</A></B>"
+  resultListEnd="<b class=m>"
+  resultItemStart="<br class='lb'>"
+  resultItemEnd="</span><br>"
+>
+
+</search>
+
+<BROWSER
+  update="http://mycroft.mozdev.org/update.php/id2/AltaVista.src"
+  updateIcon="http://mycroft.mozdev.org/update.php/id2/AltaVista.png"
+  updateCheckDays="7"
+>

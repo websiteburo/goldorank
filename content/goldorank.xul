@@ -25,6 +25,7 @@
     <vbox flex="1">
     <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank">
       <listhead>
+      <listheader label=" " width="25" />
         <listheader label="&goldorank.goldorank.engine;" width="165" />
         <listheader label="&goldorank.goldorank.progress;" width="135" />
         <listheader label="&goldorank.goldorank.rank;" width="70px" />
@@ -32,6 +33,7 @@
         <listheader label="&goldorank.goldorank.results;" flex="1" />
       </listhead>
     <listcols>
+        <listcol width="7" />
         <listcol width="160" />
         <listcol width="130" />
         <listcol width="55px" />
@@ -40,6 +42,7 @@
     </listcols>
     <template>
     <richlistitem uri="rdf:*" value="rdf:*" >
+        <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
         <listcell width="160"><image src="rdf:http://home.netscape.com/NC-rdf#Icon" /><label value="rdf:http://home.netscape.com/NC-rdf#Name" /></listcell>
         <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
         <listcell><label id="rankCell" width="55px" /></listcell> 

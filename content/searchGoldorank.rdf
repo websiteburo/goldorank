@@ -12,5 +12,15 @@
     <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:yahoo.src"/>
     <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:yahoo-france.src"/>
     <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:MSN.src"/>
+    
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:a9.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:alltheweb.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:altafr.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:AltaVista.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:ask_fr.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:clusty_fr.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:clusty.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:Lycos.src"/>
+
   </RDF:Seq>
 </RDF:RDF>

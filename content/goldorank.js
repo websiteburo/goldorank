@@ -119,11 +119,11 @@ function rechercher() {
     var moteur = nodeEngine;
     while (moteur){
         //progressCell
-        moteur.childNodes[1].firstChild.value = '0';
+        moteur.childNodes[2].firstChild.value = '0';
         //rankCell
-        moteur.childNodes[2].firstChild.value = '';
-        //pageCell
         moteur.childNodes[3].firstChild.value = '';
+        //pageCell
+        moteur.childNodes[4].firstChild.value = '';
         moteur = moteur.nextSibling;
     }
     //Lancement de la recherche pour le premier moteur
@@ -180,25 +180,31 @@ function verifierPeriodiquementMoteurs(ancienEngine, ancienRank) {
 function initEngine(nodeEngine){
     var engineInitialized = 0;
     //Détermination des éléments xul à mettre à jour
-    progressCell = nodeEngine.childNodes[1].firstChild;
-    rankCell = nodeEngine.childNodes[2].firstChild;
-    pageCell = nodeEngine.childNodes[3].firstChild;
-    resultsCell = nodeEngine.childNodes[4].firstChild.firstChild;
+    checkedCell = nodeEngine.childNodes[0].firstChild;
+    progressCell = nodeEngine.childNodes[2].firstChild;
+    rankCell = nodeEngine.childNodes[3].firstChild;
+    pageCell = nodeEngine.childNodes[4].firstChild;
+    resultsCell = nodeEngine.childNodes[5].firstChild.firstChild;
     
     //Initialisation des valeurs
     currentNodeEngine = nodeEngine;
     engine = nodeEngine.id;
-    nbRes = getNbRes(engine);
-    listeResultats = [];
-    rankCell.value = '1';
-    pageCell.value = '1';
     progressCell.value = 0;
     numPage = 0;
-    engineInitialized = engineOk(engine);
+    if (checkedCell.checked){
+        nbRes = getNbRes(engine);
+        listeResultats = [];
+        rankCell.value = '1';
+        pageCell.value = '1';
+        engineInitialized = engineOk(engine);
+        if (!engineInitialized){
+            //Le moteur n'est pas compatible
+            rankCell.value = 'Err';
+            pageCell.value = 'Err';
+        }
+    }
     if (!engineInitialized){
-        //Le moteur n'est pas compatible, on passe au moteur suivant s'il existe
-        rankCell.value = 'Err';
-        pageCell.value = 'Err';
+        //On passe au moteur suivant s'il existe
         if (nodeEngine.nextSibling) engineInitialized = initEngine(nodeEngine.nextSibling);
     }
     return engineInitialized;
