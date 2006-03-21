@@ -13,6 +13,28 @@ var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService
 var ds = rdfService.GetDataSource('rdf:internetsearch');
 var RDF_observer;
 
+//debug
+avec_debug = 1;
+function initDebug(){
+    if (avec_debug){
+        bodytag = document.getElementById('debugzone');
+        zoneDebug = document.createElement('textbox');
+        zoneDebug.multiline = 'true';
+        bodytag.appendChild(zoneDebug);
+        zoneDebug.id = 'zoneDebug';
+        
+        zoneDebug.value = "debug:";
+        debug('test');
+    }
+}
+
+function debug(text){
+    if (avec_debug){
+        var zoneDebug = document.getElementById('zoneDebug');
+        zoneDebug.value = zoneDebug.value + "\n" + text; 
+    }
+}
+
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
@@ -93,6 +115,7 @@ function rechercher() {
                         if (initEngine(nextNode)){
                             searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
                             searchSvc.FindInternetSearchResults(searchURL);
+                            debug(searchURL);
                         }
                         else {
                             //Plus de moteur compatible
@@ -131,6 +154,7 @@ function rechercher() {
         ds.AddObserver(RDF_observer);
         searchURL = searchSvc.GetInternetSearchURL(engine, encodeURIComponent(searchText), 0, numPage, {value:0});
         searchSvc.FindInternetSearchResults(searchURL);
+        debug(searchURL);
         setTimeout("verifierPeriodiquementMoteurs('"+engine+"', 1)", 5000);
     }
     else {
@@ -140,7 +164,8 @@ function rechercher() {
 
 //Regarde si un moteur est bloqué et passe au suivant si c'est le cas
 function verifierPeriodiquementMoteurs(ancienEngine, ancienRank) {
-    nbResultActuel = listeResultats.length
+    var nbResultActuel = listeResultats.length
+    var nextNode;
     if (nbResultActuel == ancienRank && engine == ancienEngine){
         //Blocage
         if (nbResultActuel == 0){
@@ -220,8 +245,8 @@ function engineOk(engine){
     if (txtEngine) txtEngine = txtEngine.QueryInterface(Components.interfaces.nsIRDFLiteral);
     if (txtEngine) txtEngine = txtEngine.Value;
     //Il doit y avoir les délimiteurs de résultats (non commentés)
-    regexDelStart = /[\n\r]\s*resultItemStart/;
-    regexDelEnd = /[\n\r]\s*resultItemEnd/;
+    var regexDelStart = /[\n\r]\s*resultItemStart/;
+    var regexDelEnd = /[\n\r]\s*resultItemEnd/;
     if ( ! (txtEngine.match(regexDelStart) && txtEngine.match(regexDelEnd)) ){
         estok = 0;
     } 
@@ -237,8 +262,8 @@ function getNbRes(engine){
     var txtEngine = ds.GetTarget(rdfService.GetResource(engine), rdf_data, true);
     if (txtEngine) txtEngine = txtEngine.QueryInterface(Components.interfaces.nsIRDFLiteral);
     if (txtEngine) txtEngine = txtEngine.Value;
-    regexNbRes = /factor=["']?(\d+)["']?/
-    rechNbRes = txtEngine.match(regexNbRes);
+    var regexNbRes = /factor=["']?(\d+)["']?/
+    var rechNbRes = txtEngine.match(regexNbRes);
     if (rechNbRes != null){
         nbRes = rechNbRes[1];
     }

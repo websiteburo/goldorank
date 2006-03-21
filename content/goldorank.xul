@@ -9,7 +9,7 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    onload="peupleValeurs();">
+    onload="peupleValeurs();initDebug();">
     <script src="goldorank.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDoRANK<html:br/></html:html>
@@ -23,7 +23,8 @@
       
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
     <vbox flex="1">
-    <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank">
+   <!-- <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank"> -->
+        <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchEngineRoot">
       <listhead>
       <listheader label=" " width="25" />
         <listheader label="&goldorank.goldorank.engine;" width="165" />
@@ -52,4 +53,5 @@
     </template>
     </richlistbox>
       </vbox>
+      <vbox id="debugzone"></vbox>
 </window>
