@@ -19,7 +19,7 @@ function initDebug(){
     if (avec_debug){
         bodytag = document.getElementById('debugzone');
         zoneDebug = document.createElement('textbox');
-        zoneDebug.multiline = 'true';
+        zoneDebug.multilines = 'true';
         bodytag.appendChild(zoneDebug);
         zoneDebug.id = 'zoneDebug';
         
@@ -64,7 +64,7 @@ function rechercher() {
     var rdf_nom = rdfService.GetResource('http://home.netscape.com/NC-rdf#Name');
     
     RDF_observer = {
-        onAssert : function(ds, src, prop, target)  {        
+        onAssert : function(ds, src, prop, target)  {
             if (prop == rdf_url) {
                 var lancerSuivant = 0;
                 url = target.QueryInterface(Components.interfaces.nsIRDFLiteral);
@@ -127,6 +127,9 @@ function rechercher() {
                         ds.RemoveObserver(this);
                     }
                 }
+            }
+            else { 
+            //debug ('.');
             }
         },
         onUnassert : function(ds, src, prop, target){},
@@ -249,6 +252,7 @@ function engineOk(engine){
     var regexDelEnd = /[\n\r]\s*resultItemEnd/;
     if ( ! (txtEngine.match(regexDelStart) && txtEngine.match(regexDelEnd)) ){
         estok = 0;
+        debug(txtEngine);
     } 
     return estok;
 }

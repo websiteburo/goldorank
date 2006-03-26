@@ -11,6 +11,7 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     onload="peupleValeurs();initDebug();">
     <script src="goldorank.js"></script>
+    <script src="searchEngine.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDoRANK<html:br/></html:html>
     <!-- formulaire -->
@@ -21,7 +22,7 @@
     <label control="maxRank" value="&goldorank.goldorank.max;" style="width:50px" crop="start"/>
    <textbox id="maxRank" value="100" />  
       
-    <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercher();" />
+    <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
     <vbox flex="1">
    <!-- <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank"> -->
         <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchEngineRoot">
