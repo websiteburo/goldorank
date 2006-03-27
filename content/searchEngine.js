@@ -1,3 +1,7 @@
+    function traiteRecherche(originalRequest){
+        alert('finsdfcherche');
+    }
+
 function SearchEngine(nomEngine){
     var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
     var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
@@ -20,11 +24,18 @@ function SearchEngine(nomEngine){
     }
     
     //this.getProp = getProp;
-    this.search = search;
+    this.recherche = recherche;
     
-    function search(searchText, numPage){
+    function traiteRecherche(originalRequest){
+        alert(originalRequest.responseText);
+    }
+    
+    function recherche(searchText, numPage){
         searchURL = searchSvc.GetInternetSearchURL(nomEngine, encodeURIComponent(searchText), 0, numPage, {value:0});
-        alert(searchURL);
+        alert('debut recherche'+searchURL);
+        searchURL = "http://www.google.com";
+        var myAjax = new Ajax.Request(searchURL, {method: 'get', onComplete: traiteRecherche});
+        //alert(searchURL);
     }
 
     function getProp(prop){
@@ -41,6 +52,10 @@ function SearchEngine(nomEngine){
 function rechercherS(){
     var test = "<yo>\n<ii \nto='kk' \nta='tyt'>lkj</ii>\n<e></e>\n</yo>";
     
-    var engine = new SearchEngine('google', 2);
-    engine.search('miaou');
+    //~ var nodeEngine = document.getElementById('resultClassement').childNodes[3];
+    //~ var engine = new SearchEngine(nodeEngine.id);
+    //~ engine.recherche('miaou', 2);
+    
+            searchURL = "http://www.google.com";
+        var myAjax = new Ajax.Request(searchURL, {method: 'get', onComplete: traiteRecherche});
 }

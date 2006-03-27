@@ -10,6 +10,7 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
     onload="peupleValeurs();initDebug();">
+    <script src="prototype-1.4.0.js"></script>
     <script src="goldorank.js"></script>
     <script src="searchEngine.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
