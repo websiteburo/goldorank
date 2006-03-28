@@ -1,6 +1,18 @@
-    function traiteRecherche(originalRequest){
-        alert('finsdfcherche');
+function wget(url){ 
+    contenu = "";
+    p = new XMLHttpRequest();
+    p.onload = null;
+    p.open("GET",url, false);
+    p.send(null);
+
+    if ( p.status != "200" ) {
+      alert("Réception erreur " + p.status);
+    } 
+    else {
+      contenu=p.responseText;
     }
+    return contenu;
+}
 
 function SearchEngine(nomEngine){
     var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
@@ -25,22 +37,45 @@ function SearchEngine(nomEngine){
     
     //this.getProp = getProp;
     this.recherche = recherche;
-    
-    function traiteRecherche(originalRequest){
-        alert(originalRequest.responseText);
-    }
+    //this.getResultats = getResultats;
     
     function recherche(searchText, numPage){
         searchURL = searchSvc.GetInternetSearchURL(nomEngine, encodeURIComponent(searchText), 0, numPage, {value:0});
-        alert('debut recherche'+searchURL);
-        searchURL = "http://www.google.com";
-        var myAjax = new Ajax.Request(searchURL, {method: 'get', onComplete: traiteRecherche});
-        //alert(searchURL);
+        debug(searchURL);
+        strPage = wget(searchURL);
+        resultats = getResultats(strPage);
+    }
+
+    function getResultats(strPage){
+        var listeRes = new Array();
+        //On réduit la page à la zone utile
+        debutZone = strPage.indexOf(this.resultListStart);
+        if ( debutZone >= 0){
+            strPage = strPage.substring(debutZone);
+        }
+        finZone = strPage.indexOf(this.resultListEnd);
+        if (finZone >= 0){
+            strPage = strPage.substring(0, finZone);
+        }
+        //On recherche l'ensemble des resultats
+        var regex = new RegExp(this.resultItemStart + '(.*?)' + this.resultItemEnd, "g");
+        while ((resultats = regex.exec(strPage))!=null){
+            listeRes.push(resultats[1]);
+            alert(resultats[1]);
+        }
+        //~ for (i=0; i<resultats.length; i++){
+            //~ if (i % 2 > 0){
+                //~ listeRes.push(resultats[i]);
+                //~ alert(resultats[i]);
+            //~ }
+        //~ }
+        return listeRes;
     }
 
     function getProp(prop){
         var valeur;
-        var regex = new RegExp('[\n\r]\s*'+prop+'\s*=\s*[\'"]([^\'"]*)[\'"]');
+        //var regex = new RegExp('[\n\r]\s*'+prop+'\s*=\s*[\'"]([^\'"]*)[\'"]');
+        var regex = new RegExp(prop+'\s*=\s*[\'"]([^\'"]*)[\'"]');
         res = regex.exec(this.txtEngine);
         if (res){
             valeur = res[1];
@@ -50,12 +85,8 @@ function SearchEngine(nomEngine){
 }
 
 function rechercherS(){
-    var test = "<yo>\n<ii \nto='kk' \nta='tyt'>lkj</ii>\n<e></e>\n</yo>";
+    var nodeEngine = document.getElementById('resultClassement').childNodes[3];
+    var engine = new SearchEngine(nodeEngine.id);
+    engine.recherche('miaou', 2);
     
-    //~ var nodeEngine = document.getElementById('resultClassement').childNodes[3];
-    //~ var engine = new SearchEngine(nodeEngine.id);
-    //~ engine.recherche('miaou', 2);
-    
-            searchURL = "http://www.google.com";
-        var myAjax = new Ajax.Request(searchURL, {method: 'get', onComplete: traiteRecherche});
 }
