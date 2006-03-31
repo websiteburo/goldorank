@@ -25,8 +25,8 @@
       
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
     <vbox flex="1">
-   <!-- <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank"> -->
-        <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchEngineRoot">
+   <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank">
+        <!-- <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchEngineRoot"> -->
       <listhead>
       <listheader label=" " width="25" />
         <listheader label="&goldorank.goldorank.engine;" width="165" />

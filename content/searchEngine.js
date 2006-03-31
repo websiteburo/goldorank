@@ -15,6 +15,19 @@ var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internets
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 var ds = rdfService.GetDataSource('rdf:internetsearch');
 
+RegExp.escape = function(text) {
+  if (!arguments.callee.sRE) {
+    var specials = [
+      '/', '.', '*', '+', '?', '|',
+      '(', ')', '[', ']', '{', '}', '\\'
+    ];
+    arguments.callee.sRE = new RegExp(
+      '(\\' + specials.join('|\\') + ')', 'g'
+    );
+  }
+  return text.replace(arguments.callee.sRE, '\\$1');
+}
+
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
@@ -46,20 +59,32 @@ function wget(url){
     return contenu;
 }
 
+var nodeButton = document.createElement('button');
+nodeButton.height="25";
+nodeButton.setAttribute('label', 'STOP');
+nodeButton.setAttribute('oncommand', 'interruptionMoteur();');
+
+var stopMoteur = 0;
+function interruptionMoteur(){
+    stopMoteur = 1;
+}
+
 var nodeEngine;
 var listeResultats = new Array();
 var trouve = 0;
+
 var moteur;
 function fulguropoing(){
-    if (!trouve && maxRank > listeResultats.length){
+    if (!trouve && (maxRank > listeResultats.length) && !stopMoteur){
         //On récupére les résultats de la page suivante
         searchURL = searchSvc.GetInternetSearchURL(moteur.nomEngine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
-        pageCell.value = numPage + 1;
+        pageCell.value = numPage;
         strPage = wget(searchURL);
         trouve = moteur.getResultats(strPage);
         setTimeout("fulguropoing()", 1);
     }
     else {
+        resultsCell.parentNode.parentNode.removeChild(nodeButton);
         //On affiche la liste des resultats dans le combo-box
         for (var numres=0; numres<listeResultats.length; numres++){
             var nodeItem = document.createElement('menuitem');
@@ -88,6 +113,7 @@ function nextEngine(){
         //alert(nodeEngine.id);
         engine = new SearchEngine(nodeEngine);
         if (engine.engineInitialized){
+            resultsCell.parentNode.parentNode.appendChild(nodeButton);
             engine.recherche(searchText);
         }
         else {
@@ -122,7 +148,7 @@ function engineGetResultats(strPage){
         //Avancement de la barre de progression
         progressCell.value = (100 * listeResultats.length / maxRank) ;
         //Est-ce que c'est l'url recherchée?
-        if (urltrouvee == pageCherchee){
+        if (String(urltrouvee).match(regexPageCherchee)){
             progressCell.value = 100;
             trouve=1;
             break;
@@ -184,6 +210,7 @@ function SearchEngine(nodeEngine){
     engine = nodeEngine.id;
     progressCell.value = 0;
     numPage = 0;
+    stopMoteur = 0;
     if (checkedCell.checked){
         listeResultats = [];
         rankCell.value = '1';
@@ -207,7 +234,8 @@ function SearchEngine(nodeEngine){
         this.resultItemEnd = this.getProp('resultItemEnd', this.txtEngine);
         this.engineInitialized = (this.resultItemStart && this.resultItemEnd);
         if (!this.engineInitialized) {
-        
+            rankCell.value = 'Err';
+            pageCell.value = 'Err';
             alert('pb initialisation: resultItems');
         }
     }
@@ -220,6 +248,7 @@ function rechercherS(){
     searchText = document.getElementById('motscles').value;
     searchText = searchText ? searchText : "A";
     pageCherchee = document.getElementById('page').value;
+    regexPageCherchee = new RegExp('(http://)?'+RegExp.escape(pageCherchee)+'/?');
     maxRank = document.getElementById('maxRank').value;
     
     //Initialisation du service de recherche et des éléments RDF
@@ -243,13 +272,14 @@ function rechercherS(){
 
     var engine;
     if (nodeEngine){
-        alert(nodeEngine.id);
         engine = new SearchEngine(nodeEngine);
         if (engine.engineInitialized){
             //On effectue la recherche
             //alert('recherche sur '+nodeEngine.id);
+            resultsCell.parentNode.parentNode.appendChild(nodeButton);
             engine.recherche(searchText);
         }
+        else nextEngine();
     }    
 }
 
