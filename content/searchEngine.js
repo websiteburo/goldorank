@@ -46,6 +46,56 @@ function wget(url){
     return contenu;
 }
 
+var nodeEngine;
+var listeResultats = new Array();
+var trouve = 0;
+var moteur;
+function fulguropoing(){
+    if (!trouve && maxRank > listeResultats.length){
+        //On récupére les résultats de la page suivante
+        searchURL = searchSvc.GetInternetSearchURL(moteur.nomEngine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
+        pageCell.value = numPage + 1;
+        strPage = wget(searchURL);
+        trouve = moteur.getResultats(strPage);
+        setTimeout("fulguropoing()", 1);
+    }
+    else {
+        //On affiche la liste des resultats dans le combo-box
+        for (var numres=0; numres<listeResultats.length; numres++){
+            var nodeItem = document.createElement('menuitem');
+            var urlres = listeResultats[numres];
+            var urltxt = (numres+1)+' '+urlres;
+            if (urltxt.length > 35){
+                urltxt = urltxt.substr(0, 32) + '...';
+            }
+            if (numres == 0){
+                resultsCell.parentNode.setAttribute('label', urltxt);
+            }
+            nodeItem.setAttribute('label', urltxt);
+            nodeItem.setAttribute('value', urlres);
+            //alert(numres+nodeItem.label);
+            resultsCell.appendChild(nodeItem);
+        }
+        resultsCell.parentNode.style.display = "block";
+        //On lance le  moteur suivant
+        setTimeout("nextEngine()", 1);
+    }
+}
+
+function nextEngine(){
+    nodeEngine = nodeEngine.nextSibling;
+    if (nodeEngine){
+        //alert(nodeEngine.id);
+        engine = new SearchEngine(nodeEngine);
+        if (engine.engineInitialized){
+            engine.recherche(searchText);
+        }
+        else {
+            nextEngine();
+        }
+    } 
+}
+
 
 /********** OBJET SearchEngine **************/
 //Fonctions
@@ -67,17 +117,17 @@ function engineGetResultats(strPage){
     var regex = new RegExp(this.resultItemStart + '(.*?)' + this.resultItemEnd, "g");
     while ((resultats = regex.exec(strPage))!=null){
         urltrouvee = /http:\/\/[^'"]*/.exec(resultats[1]);
-        this.listeResultats.push(urltrouvee);
-        rankCell.value = this.listeResultats.length;
+        listeResultats.push(urltrouvee);
+        rankCell.value = listeResultats.length;
         //Avancement de la barre de progression
-        progressCell.value = (100 * this.listeResultats.length / maxRank) ;
+        progressCell.value = (100 * listeResultats.length / maxRank) ;
         //Est-ce que c'est l'url recherchée?
         if (urltrouvee == pageCherchee){
             progressCell.value = 100;
             trouve=1;
             break;
         }
-        else if (maxRank <= this.listeResultats.length){
+        else if (maxRank <= listeResultats.length){
             //Fin des recherches atteintes sans avoir trouvé la page
             rankCell.value = 'N/A';
             pageCell.value = 'N/A';
@@ -90,15 +140,20 @@ function engineGetResultats(strPage){
 function engineRecherche(searchText){
     numPage = 0;
     trouve = 0;
-    while (!trouve && maxRank > this.listeResultats.length){
-        //On récupére les résultats de la page suivante
-        searchURL = searchSvc.GetInternetSearchURL(this.nomEngine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
-        pageCell.value = numPage + 1;
-        strPage = wget(searchURL);
-        alert(searchURL);
-        trouve = this.getResultats(strPage);
-    }
-    return this.listeResultats;
+    //~ while (!trouve && maxRank > this.listeResultats.length){
+        //~ //On récupére les résultats de la page suivante
+        //~ searchURL = searchSvc.GetInternetSearchURL(this.nomEngine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
+        //~ pageCell.value = numPage + 1;
+        //~ strPage = wget(searchURL);
+        //~ alert(searchURL);
+        //~ trouve = this.getResultats(strPage);
+    //~ }
+    //~ return this.listeResultats;
+    listeResultats = new Array();
+    numPage = 0;
+    trouve = 0;
+    moteur = this;
+    setTimeout('fulguropoing()', 1);
 }
 
 function engineGetProp(prop){
@@ -114,7 +169,7 @@ function engineGetProp(prop){
 //Constructeur
 function SearchEngine(nodeEngine){
     this.nomEngine = nodeEngine.id;
-    this.listeResultats = new Array();
+    //this.listeResultats = new Array();
     
    //Initialisation du contexte d'un moteur
     this.engineInitialized = 0;
@@ -173,7 +228,7 @@ function rechercherS(){
     var rdf_logo = rdfService.GetResource('http://home.netscape.com/NC-rdf#Icon');
     var rdf_nom = rdfService.GetResource('http://home.netscape.com/NC-rdf#Name');
     
-    var nodeEngine = document.getElementById('resultClassement').childNodes[3];
+    nodeEngine = document.getElementById('resultClassement').childNodes[3];
     //On réinitialise l'affichage
     var moteur = nodeEngine;
     while (moteur){
@@ -187,32 +242,14 @@ function rechercherS(){
     }
 
     var engine;
-    while (nodeEngine){
+    if (nodeEngine){
         alert(nodeEngine.id);
         engine = new SearchEngine(nodeEngine);
         if (engine.engineInitialized){
             //On effectue la recherche
             //alert('recherche sur '+nodeEngine.id);
-            listeResultats = engine.recherche(searchText);
-            //On affiche la liste des resultats dans le combo-box
-            for (var numres=0; numres<listeResultats.length; numres++){
-                var nodeItem = document.createElement('menuitem');
-                var urlres = listeResultats[numres];
-                var urltxt = (numres+1)+' '+urlres;
-                if (urltxt.length > 35){
-                    urltxt = urltxt.substr(0, 32) + '...';
-                }
-                if (numres == 0){
-                    resultsCell.parentNode.setAttribute('label', urltxt);
-                }
-                nodeItem.setAttribute('label', urltxt);
-                nodeItem.setAttribute('value', urlres);
-                //alert(numres+nodeItem.label);
-                resultsCell.appendChild(nodeItem);
-            }
-            resultsCell.parentNode.style.display = "block";
+            engine.recherche(searchText);
         }
-        nodeEngine = nodeEngine.nextSibling;
     }    
 }
 
