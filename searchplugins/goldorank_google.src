@@ -24,8 +24,3 @@
 >
 </search>
 
-<browser
-    update="https://addons.mozilla.org/searchplugins/updates/google.src"
-    updateIcon="https://addons.mozilla.org/searchplugins/updates/google.gif"
-    updateCheckDays="1"
->

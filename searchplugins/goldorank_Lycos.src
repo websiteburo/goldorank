@@ -1,0 +1,22 @@
+# Lycos Sherlock for Netscape 7
+
+<SEARCH
+    version = "7.1"
+  name = "Lycos fr"
+  method = "Get"
+  description="Lycos FR"
+  action = "http://vachercher.lycos.fr/cgi-bin/pursuit" 
+  >
+
+<input name=query user>
+
+<interpret
+
+  resultListStart = '<div class="resultset">'
+  resultListEnd = "</div>"
+
+  resultItemStart = 'class="result"'
+  resultItemEnd = "<br /><br />"
+  >
+</search>
+

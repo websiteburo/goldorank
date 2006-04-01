@@ -22,15 +22,9 @@
 <interpret
 	browserResultType="result"
     charset="UTF-8"
-	resultListStart="<DIV class=xs>"
-	resultListEnd='<table border=0 cellspacing=0 cellpadding=2 WIDTH="100%">'
-	resultItemStart="<br class='lb'>"
-	resultITemEnd="<br>"
+	resultListStart="sultats</A>"
+	resultListEnd='<b class=m>Pages de r'
+	resultItemStart="<a class='res'"
+	resultITemEnd="<br><br>"
 >
 </search>
-
-<browser
-	update="http://mycroft.mozdev.org/update.php/id2/altafr.src" 
-	updateIcon="http://mycroft.mozdev.org/update.php/id2/altafr.png" 
-	updateCheckDays="7" 
->

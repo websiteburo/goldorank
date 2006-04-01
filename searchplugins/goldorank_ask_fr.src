@@ -25,15 +25,8 @@
   charset="ISO-8859-1"
   resultListStart='sultats Web</td>'
   resultListEnd='<div class="op nw">'
-  resultItemStart='<div class="m10_0_16">'
-  resultItemEnd='<div class="T1"'
+  resultItemStart='<div class="m10_0_16'
+  resultItemEnd='Enregistrer</a>'
 >
 
 </SEARCH>
-
-
-<BROWSER
-  update="http://mycroft.mozdev.org/update.php/id0/ask_fr.src" 
-  updateIcon="http://mycroft.mozdev.org/update.php/id0/ask_fr.gif" 
-  updateCheckDays="7"
->

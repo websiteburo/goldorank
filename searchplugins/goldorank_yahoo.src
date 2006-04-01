@@ -1,0 +1,26 @@
+# Yahoo Search Plug-in for Mozilla
+#
+# Created by Henri Bourcereau
+# Last Edited April 01, 2006
+
+<SEARCH
+    version = "7.1" 
+   name="Yahoo"
+   description="Yahoo Search"
+   searchForm="http://www.yahoo.com/r/so"
+   method="GET"
+   action="http://search.yahoo.com/search" 
+>
+
+<input name="p" user>
+<input name="ei" value="UTF-8">
+
+<interpret 
+    browserResultType="result" 
+    resultListStart="WEB RESULTS" 
+    resultListEnd="<b>Results Page" 
+    resultItemStart="<a class=yschttl" 
+    resultItemEnd="</div>"
+>
+
+</search>
