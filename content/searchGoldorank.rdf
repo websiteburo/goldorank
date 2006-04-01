@@ -6,21 +6,20 @@
     <RDF:li RDF:resource="urn:search:category:goldorank"/>
   </RDF:Seq>
 
-    <RDF:Seq RDF:about="NC:SearchCategory?category=urn:search:category:goldorank">
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:technorati-new.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:google.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:yahoo.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:yahoo-france.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:MSN.src"/>
+  <RDF:Seq RDF:about="NC:SearchCategory?category=urn:search:category:goldorank">
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_technorati.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_google.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_yahoo.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_yahoo-france.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_MSN.src"/>
     
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:a9.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:alltheweb.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:altafr.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:AltaVista.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:ask_fr.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:clusty_fr.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:clusty.src"/>
-    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:Lycos.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_alltheweb.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_altafr.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_AltaVista.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_ask_fr.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_clusty_fr.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_clusty.src"/>
+    <RDF:li RDF:resource="NC:SearchCategory?engine=urn:search:engine:goldorank_Lycos.src"/>
 
   </RDF:Seq>
 </RDF:RDF>

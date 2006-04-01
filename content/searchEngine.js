@@ -19,7 +19,7 @@ RegExp.escape = function(text) {
   if (!arguments.callee.sRE) {
     var specials = [
       '/', '.', '*', '+', '?', '|',
-      '(', ')', '[', ']', '{', '}', '\\'
+      '(', ')', '[', ']', '{', '}'
     ];
     arguments.callee.sRE = new RegExp(
       '(\\' + specials.join('|\\') + ')', 'g'
@@ -67,6 +67,8 @@ nodeButton.setAttribute('oncommand', 'interruptionMoteur();');
 var stopMoteur = 0;
 function interruptionMoteur(){
     stopMoteur = 1;
+    ouvreUrl(searchURL);
+    alert(moteur.resultListStart+"\n"+moteur.resultListEnd+"\n--\n"+moteur.resultItemStart+"\n"+moteur.resultItemEnd);
 }
 
 var nodeEngine;
@@ -140,9 +142,11 @@ function engineGetResultats(strPage){
     strPage = strPage.replace(/\n/g, "");
     strPage = strPage.replace(/\r/g, "");
     //On recherche l'ensemble des resultats
-    var regex = new RegExp(this.resultItemStart + '(.*?)' + this.resultItemEnd, "g");
+    var regex = new RegExp(RegExp.escape(this.resultItemStart) + '(.*?)' + RegExp.escape(this.resultItemEnd), "g");
     while ((resultats = regex.exec(strPage))!=null){
-        urltrouvee = /http:\/\/[^'"]*/.exec(resultats[1]);
+        //Gestion de l'encodage %3a pour les sites de type yahoo
+        urltrouvee = /http(?::|%3a)\/\/[^'"]*/.exec(resultats[1]);
+        urltrouvee = String(urltrouvee).replace('%3a',':');
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
         //Avancement de la barre de progression
@@ -184,7 +188,7 @@ function engineRecherche(searchText){
 
 function engineGetProp(prop){
     var valeur;
-    var regex = new RegExp(prop+'\s*=\s*[\'"]([^\'"]*)[\'"]');
+    var regex = new RegExp(prop+"\\s*=\\s*['\"](.*)['\"]\\s*\\n");
     res = regex.exec(this.txtEngine);
     if (res){
         valeur = res[1];
@@ -283,7 +287,7 @@ function rechercherS(){
     }    
 }
 
-function ouvreUrl(select){
+function ouvreUrl(url){
     var tBrowser = opener.document.getElementById("content") ;
-    tBrowser.selectedTab = tBrowser.addTab(select.value) ;
+    tBrowser.selectedTab = tBrowser.addTab(url) ;
 }

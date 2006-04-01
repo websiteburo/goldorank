@@ -50,7 +50,7 @@
         <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
         <listcell><label id="rankCell" width="55px" /></listcell> 
         <listcell><label id="pageCell" width="43px" /></listcell> 
-        <listcell flex="1" ><menulist oncommand="ouvreUrl(this);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
+        <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
     </richlistitem>     
     </template>
     </richlistbox>
