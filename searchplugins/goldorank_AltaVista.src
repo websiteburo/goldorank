@@ -22,8 +22,7 @@
 
 <input name="q" user>
 <input name="sourceid" value="mozilla-search">
-# <inputnext name="stq" factor="10">
-# <inputprev>
+<inputnext name="stq" factor="10">
 
 <interpret
   browserResultType = "result"

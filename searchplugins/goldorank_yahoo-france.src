@@ -15,6 +15,7 @@
 
 <input name="p" user>
 <input name="ie" value="UTF-8">
+<inputnext name="b" factor="10">
 
 <interpret 
     browserResultType="result" 
@@ -22,7 +23,8 @@
     resultListStart="RESULTATS WEB" 
     resultListEnd="</ol>" 
     resultItemStart="<li>" 
-    resultItemEnd="</li>"
+    resultItemEnd="search/cache"
+    goldorank_offset="1"
 >
 
 </search>

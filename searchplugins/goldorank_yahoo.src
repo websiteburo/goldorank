@@ -14,13 +14,15 @@
 
 <input name="p" user>
 <input name="ei" value="UTF-8">
+<inputnext name="b" factor="10">
 
 <interpret 
     browserResultType="result" 
     resultListStart="WEB RESULTS" 
-    resultListEnd="<b>Results Page" 
-    resultItemStart="<a class=yschttl" 
-    resultItemEnd="</div>"
+    resultListEnd="</ol>" 
+    resultItemStart="<li>" 
+    resultItemEnd="search/cache"
+    goldorank_offset="1"
 >
 
 </search>

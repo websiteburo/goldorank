@@ -11,7 +11,7 @@
 
 <SEARCH
   version = "7.1"
-  name="Ask.com France"
+  name="Ask.com FR"
   description="Ask en français"
   method="GET"
   action="http://fr.ask.com/web"
@@ -20,6 +20,7 @@
 >
 
 <input name="q" user>
+<inputnext name="page" factor="1">
 
 <INTERPRET
   charset="ISO-8859-1"
@@ -27,6 +28,7 @@
   resultListEnd='<div class="op nw">'
   resultItemStart='<div class="m10_0_16'
   resultItemEnd='Enregistrer</a>'
+  goldorank_offsetPage="1"
 >
 
 </SEARCH>

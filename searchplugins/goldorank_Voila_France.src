@@ -1,0 +1,47 @@
+#----------------------------------------------------------------------
+# Sherlock Plugin
+# Copyright (c)1999 Netscape Communications Corp.
+# Author: Netscape, Erich Iseli
+# Version: 1.3, Last updated: Fri Dec 27 11:48:16 CET 2002
+#----------------------------------------------------------------------
+# Made with Search Plugins Generator.
+# Copyright (C) 2002 by the MozillaPL Team.
+# http://www.mozillapl.org/
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+# Version 2.0 Revised by Alan Bramley
+# Status: Working 
+#
+# Last updated: August 23, 2003
+#
+# Known issues: None
+# 
+
+<SEARCH
+    version = "7.1"
+ name="Voila FR"
+ description="Voila FR"
+ method="get"
+ action="http://search.ke.voila.fr/S/voila"
+ searchForm="http://www.voila.fr/"
+ >
+
+<input name="kw" user>
+<input name="sev" value="2">
+<input name="ref" value="Voila_hp">
+<input name="lg" value="fr">
+<input name="dblg" value="fr">
+<input name="db" value="web">
+<input name="ctx" value="voila">
+<input name="sourceid" value="mozilla-search">
+<inputnext name="keap" factor="10">
+
+<interpret
+ browserResultType="result"
+ resultListStart="<!-- LISTE REPONSE -->"
+ resultListEnd="<!-- END LISTE REPONSE -->"
+ resultItemStart='<div class="lr_bloc">'
+ resultItemEnd="</a></div>"
+ goldorank_offset="1"
+ >
+</search >

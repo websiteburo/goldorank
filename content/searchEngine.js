@@ -67,8 +67,8 @@ nodeButton.setAttribute('oncommand', 'interruptionMoteur();');
 var stopMoteur = 0;
 function interruptionMoteur(){
     stopMoteur = 1;
-    ouvreUrl(searchURL);
-    alert(moteur.resultListStart+"\n"+moteur.resultListEnd+"\n--\n"+moteur.resultItemStart+"\n"+moteur.resultItemEnd);
+    //ouvreUrl(searchURL);
+    //alert(moteur.resultListStart+"\n"+moteur.resultListEnd+"\n--\n"+moteur.resultItemStart+"\n"+moteur.resultItemEnd);
 }
 
 var nodeEngine;
@@ -79,7 +79,15 @@ var moteur;
 function fulguropoing(){
     if (!trouve && (maxRank > listeResultats.length) && !stopMoteur){
         //On récupére les résultats de la page suivante
-        searchURL = searchSvc.GetInternetSearchURL(moteur.nomEngine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
+        searchURL = searchSvc.GetInternetSearchURL(moteur.nomEngine, encodeURIComponent(searchText), 0, (++numPage - 1 + parseInt(moteur.goldorank_offsetPage)), {value:0});
+        if (moteur.goldorank_offset){
+            //Récupération du numéro de page calculé
+            regex = new RegExp(moteur.strNumPage+"=([^\\s&]*)");
+            if ((resultats = regex.exec(searchURL))!=null){
+                searchURL = String(searchURL).replace(resultats[1], (parseInt(resultats[1]) + parseInt(moteur.goldorank_offset)));
+            }
+            else{alert('pb offset')};
+        }
         pageCell.value = numPage;
         strPage = wget(searchURL);
         trouve = moteur.getResultats(strPage);
@@ -144,9 +152,22 @@ function engineGetResultats(strPage){
     //On recherche l'ensemble des resultats
     var regex = new RegExp(RegExp.escape(this.resultItemStart) + '(.*?)' + RegExp.escape(this.resultItemEnd), "g");
     while ((resultats = regex.exec(strPage))!=null){
+        urltrouvee = /http:\/\/[^'"]*/.exec(resultats[1]);
+        
         //Gestion de l'encodage %3a pour les sites de type yahoo
-        urltrouvee = /http(?::|%3a)\/\/[^'"]*/.exec(resultats[1]);
-        urltrouvee = String(urltrouvee).replace('%3a',':');
+        urlyahoo = /http%3a\/\/[^'"]*/.exec(urltrouvee);
+        if (urlyahoo){
+            urltrouvee = String(urlyahoo).replace('%3a',':');
+        }
+        
+        //Gestion de voila
+        urlvoila = /http%3A%2F%2F[^&]*/.exec(urltrouvee);
+        if (urlvoila){
+            urltrouvee = String(urlvoila).replace('%3A',':');
+            urltrouvee = urltrouvee.replace(/%2F/g,'/');
+        }
+        //else alert(urltrouvee);
+        
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
         //Avancement de la barre de progression
@@ -159,8 +180,8 @@ function engineGetResultats(strPage){
         }
         else if (maxRank <= listeResultats.length){
             //Fin des recherches atteintes sans avoir trouvé la page
-            rankCell.value = 'N/A';
-            pageCell.value = 'N/A';
+            rankCell.value = '>'+maxRank;
+            pageCell.value = '>'+numPage;
             break;
         }
     }
@@ -236,6 +257,22 @@ function SearchEngine(nodeEngine){
         this.resultListEnd = this.getProp('resultListEnd', this.txtEngine);
         this.resultItemStart = this.getProp('resultItemStart', this.txtEngine);
         this.resultItemEnd = this.getProp('resultItemEnd', this.txtEngine);
+        
+        //Recherche du terme designant le numero de page
+        var regex = new RegExp("<inputnext name=\"([^\"]*)\"");
+        res = regex.exec(this.txtEngine);
+        if (res){
+            this.strNumPage = res[1];
+        }
+        
+        this.goldorank_offset = this.getProp('goldorank_offset', this.txtEngine);
+        if (!this.goldorank_offset){
+            this.goldorank_offset = 0;
+        }
+        this.goldorank_offsetPage = this.getProp('goldorank_offsetPage', this.txtEngine);
+        if (!this.goldorank_offsetPage){
+            this.goldorank_offsetPage = 0;
+        }
         this.engineInitialized = (this.resultItemStart && this.resultItemEnd);
         if (!this.engineInitialized) {
             rankCell.value = 'Err';
@@ -271,6 +308,16 @@ function rechercherS(){
         moteur.childNodes[3].firstChild.value = '';
         //pageCell
         moteur.childNodes[4].firstChild.value = '';
+        //resultsCell
+        resultsCell = moteur.childNodes[5].firstChild.firstChild
+        while (resultsCell.firstChild){
+            resultsCell.removeChild(resultsCell.firstChild);
+        }
+        resultsCell.parentNode.style.display = "none";
+        //Bouton stop
+        if (resultsCell.parentNode.parentNode.length == 2){
+            resultsCell.parentNode.parentNode.removeChild(nodeButton);
+        }
         moteur = moteur.nextSibling;
     }
 

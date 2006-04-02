@@ -6,7 +6,7 @@
 
 <search
 	version="7.1"
-	name="AltaVista France"
+	name="AltaVista FR"
 	description="Altavista France - French ersion of the popular search engine AltaVista"
 	action="http://fr.altavista.com/web/results"
 	searchForm="http://fr.altavista.com/web/results"
@@ -18,13 +18,14 @@
 <input name="kgs" value="1">
 <input name="kls" value="1">
 <input name="avkw" value="aapt">
+<inputnext name="stq" factor="10">
 
 <interpret
 	browserResultType="result"
     charset="UTF-8"
 	resultListStart="sultats</A>"
-	resultListEnd='<b class=m>Pages de r'
+	resultListEnd="<b class=m>Pages de r"
 	resultItemStart="<a class='res'"
-	resultITemEnd="<br><br>"
+	resultItemEnd="<br><br>"
 >
 </search>

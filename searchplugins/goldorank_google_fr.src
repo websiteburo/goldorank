@@ -1,15 +1,15 @@
 # Mozilla/Google plug-in by amitp+mozilla@google.com
 
 <search 
-   name="Google"
-   description="Google Search"
+   name="Google FR"
+   description="Google Search FR"
    method="GET"
-   action="http://www.google.com/search"
+   action="http://www.google.fr/search"
    queryCharset="utf-8"
 >
 
 <input name="q" user>
-<input name="hl" value="en">
+<input name="hl" value="fr">
 <inputnext name="start" factor="10">
 <inputprev>
 <input name="ie" value="utf-8">
