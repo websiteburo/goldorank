@@ -5,8 +5,9 @@ sys.path.append('.')
 from config import *
 
 print >> file('www/update.rdf', 'w'), """\
+<RDF:RDF xmlns:RDF="httphttp://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="httphttp://www.mozilla.org/2004/em-rdf#">
 <RDF:Description about="urn:mozilla:extension:%(uid)s">
   <em:version>%(version)s</em:version>
   <em:updateLink>%(updateLink)s</em:updateLink>
-</RDF:Description>""" % vars()
-
+</RDF:Description>
+</RDF:RDF>""" % vars()
