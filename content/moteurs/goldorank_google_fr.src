@@ -1,0 +1,27 @@
+# Mozilla/Google plug-in by amitp+mozilla@google.com
+
+<search 
+   name="Google FR"
+   description="Google Search FR"
+   method="GET"
+   action="http://www.google.fr/search"
+   queryCharset="utf-8"
+>
+
+<input name="q" user>
+<input name="hl" value="fr">
+<inputnext name="start" factor="10">
+<inputprev>
+<input name="ie" value="utf-8">
+<input name="oe" value="utf-8">
+
+<interpret 
+    browserResultType="result" 
+    charset = "UTF-8"
+    resultListStart="<!--a-->" 
+    resultListEnd="<!--z-->" 
+    resultItemStart="<!--m-->" 
+    resultItemEnd="<!--n-->"
+>
+</search>
+

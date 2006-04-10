@@ -12,6 +12,7 @@
     onload="peupleValeurs();">
     <script src="prototype-1.4.0.js"></script>
     <!--<script src="goldorank.js"></script>-->
+    <script src="listeMoteurs.js"></script>
     <script src="searchEngine.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDoRANK<html:br/></html:html>
@@ -25,8 +26,7 @@
       
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
     <vbox flex="1">
-   <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch searchGoldorank.rdf" ref="NC:SearchCategory?category=urn:search:category:goldorank">
-        <!-- <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="rdf:internetsearch" ref="NC:SearchEngineRoot"> -->
+   <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
       <listhead>
       <listheader label=" " width="25" />
         <listheader label="&goldorank.goldorank.engine;" width="165" />
@@ -46,7 +46,7 @@
     <template>
     <richlistitem uri="rdf:*" value="rdf:*" >
         <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
-        <listcell width="160"><image src="rdf:http://home.netscape.com/NC-rdf#Icon" /><label value="rdf:http://home.netscape.com/NC-rdf#Name" /></listcell>
+        <listcell width="160"><image src="rdf:urn:goldorank#logo" /><label value="rdf:urn:goldorank#nom" /></listcell>
         <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
         <listcell><label id="rankCell" width="55px" /></listcell> 
         <listcell><label id="pageCell" width="43px" /></listcell> 
