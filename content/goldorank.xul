@@ -25,6 +25,8 @@
    <textbox id="maxRank" value="100" />  
       
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
+
+    
     <vbox flex="1">
    <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
       <listhead>
@@ -46,7 +48,7 @@
     <template>
     <richlistitem uri="rdf:*" value="rdf:*" >
         <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
-        <listcell width="160"><image src="rdf:urn:goldorank#logo" /><label value="rdf:urn:goldorank#nom" /></listcell>
+        <listcell width="160"><image src="rdf:urn:goldorank:rdf#logo" /><label value="rdf:urn:goldorank:rdf#nom" /></listcell>
         <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
         <listcell><label id="rankCell" width="55px" /></listcell> 
         <listcell><label id="pageCell" width="43px" /></listcell> 
@@ -54,6 +56,7 @@
     </richlistitem>     
     </template>
     </richlistbox>
+    
       </vbox>
       <vbox id="debugzone"></vbox>
 </window>
