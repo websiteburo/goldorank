@@ -5,7 +5,7 @@
 			<RDF:Description about="urn:goldorank:moteurs:google">
 				<goldorank:nom>Google</goldorank:nom>
                                 <goldorank:description>Google</goldorank:description>
-				<goldorank:logo>moteurs/goldorank_google.gif</goldorank:logo>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_google.gif</goldorank:logo>
                 
                             <goldorank:serveur>www.google.com</goldorank:serveur>
                             <goldorank:url>/search?p=</goldorank:url>
@@ -20,7 +20,7 @@
 			<RDF:Description about="urn:goldorank:moteurs:yahoo">
 				<goldorank:nom>Yahoo</goldorank:nom>
                                 <goldorank:description>Yahoo</goldorank:description>
-				<goldorank:logo>goldorank_Yahoo.gif</goldorank:logo>
+				<goldorank:logo>chrome://goldorank/content/goldorank_Yahoo.gif</goldorank:logo>
                 
                             <goldorank:serveur>www.Yahoo.com</goldorank:serveur>
                             <goldorank:url>/search?p=</goldorank:url>

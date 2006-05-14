@@ -13,8 +13,7 @@ var maxRank;
 
 var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
-var ds_search = rdfService.GetDataSource('rdf:internetsearch');
-var ds_moteurs = rdfService.GetDataSource('moteurs/listeMoteurs.rdf');
+var ds = rdfService.GetDataSource('rdf:internetsearch');
 
 RegExp.escape = function(text) {
   if (!arguments.callee.sRE) {
@@ -220,7 +219,7 @@ function engineGetProp(prop){
 
 //Constructeur
 function SearchEngine(nodeEngine){
-    this.nomEngine = nodeEngine.uri;
+    this.nomEngine = nodeEngine.id;
     //this.listeResultats = new Array();
     
    //Initialisation du contexte d'un moteur
@@ -247,14 +246,13 @@ function SearchEngine(nodeEngine){
         this.recherche = engineRecherche;
         this.getResultats = engineGetResultats;
         
-        //Recuperation des valeurs utiles du moteur
-        //Serveur
-        var rdf_serveur = rdfService.GetResource('rdf:urn:goldorank:rdf#serveur');
-        var txtServeur = ds_moteurs.GetTarget(rdfService.GetResource(nodeEngine.id), rdf_serveur, true);
-        if (txtServeur) txtServeur = txtServeur.QueryInterface(Components.interfaces.nsIRDFLiteral);
-        if (txtServeur) this.txtServeur = txtServeur.Value;
-        alert(txtServeur);
+        //Recuperation du xml descriptif du moteur
+        var rdf_data = rdfService.GetResource('http://home.netscape.com/NC-rdf#data');
+        var txtEngine = ds.GetTarget(rdfService.GetResource(nodeEngine.id), rdf_data, true);
+        if (txtEngine) txtEngine = txtEngine.QueryInterface(Components.interfaces.nsIRDFLiteral);
+        if (txtEngine) this.txtEngine = txtEngine.Value;
         
+        //Recuperation des valeurs utiles du moteur
         this.resultListStart = this.getProp('resultListStart', this.txtEngine);
         this.resultListEnd = this.getProp('resultListEnd', this.txtEngine);
         this.resultItemStart = this.getProp('resultItemStart', this.txtEngine);
@@ -294,8 +292,11 @@ function rechercherS(){
     regexPageCherchee = new RegExp('(http://)?'+RegExp.escape(pageCherchee)+'/?');
     maxRank = document.getElementById('maxRank').value;
     
-    //Initialisation du service de recherche
+    //Initialisation du service de recherche et des éléments RDF
     var searchroot = rdfService.GetResource('NC:LastSearchRoot');
+    var rdf_url = rdfService.GetResource('http://home.netscape.com/NC-rdf#URL');
+    var rdf_logo = rdfService.GetResource('http://home.netscape.com/NC-rdf#Icon');
+    var rdf_nom = rdfService.GetResource('http://home.netscape.com/NC-rdf#Name');
     
     nodeEngine = document.getElementById('resultClassement').childNodes[3];
     //On réinitialise l'affichage
