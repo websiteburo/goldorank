@@ -14,7 +14,7 @@ var maxRank;
 var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 var ds_search = rdfService.GetDataSource('rdf:internetsearch');
-var ds_moteurs = rdfService.GetDataSource('moteurs/listeMoteurs.rdf');
+var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
 
 RegExp.escape = function(text) {
   if (!arguments.callee.sRE) {
@@ -209,12 +209,10 @@ function engineRecherche(searchText){
 }
 
 function engineGetProp(prop){
-    var valeur;
-    var regex = new RegExp(prop+"\\s*=\\s*['\"](.*)['\"]\\s*\\n");
-    res = regex.exec(this.txtEngine);
-    if (res){
-        valeur = res[1];
-    }
+    var rdf_prop = rdfService.GetResource('urn:goldorank:rdf#'+prop);
+    var txtProp = ds_moteurs.GetTarget(rdfService.GetResource(nodeEngine.id), rdf_prop, true);
+    if (txtProp) txtProp = txtProp.QueryInterface(Components.interfaces.nsIRDFLiteral);
+    if (txtProp) valeur = txtProp.Value;
     return valeur;
 }
 
@@ -249,11 +247,7 @@ function SearchEngine(nodeEngine){
         
         //Recuperation des valeurs utiles du moteur
         //Serveur
-        var rdf_serveur = rdfService.GetResource('rdf:urn:goldorank:rdf#serveur');
-        var txtServeur = ds_moteurs.GetTarget(rdfService.GetResource(nodeEngine.id), rdf_serveur, true);
-        if (txtServeur) txtServeur = txtServeur.QueryInterface(Components.interfaces.nsIRDFLiteral);
-        if (txtServeur) this.txtServeur = txtServeur.Value;
-        alert(txtServeur);
+        alert(engine+ ' -> '+this.getProp('serveur'));
         
         this.resultListStart = this.getProp('resultListStart', this.txtEngine);
         this.resultListEnd = this.getProp('resultListEnd', this.txtEngine);
