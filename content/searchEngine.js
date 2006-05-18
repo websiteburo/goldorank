@@ -247,9 +247,19 @@ function SearchEngine(nodeEngine){
         
         //Recuperation des valeurs utiles du moteur
         //Serveur
-        alert(engine+ ' -> '+this.getProp('serveur'));
+        //alert(engine+ ' -> '+this.getProp('serveur'));
         
-        this.resultListStart = this.getProp('resultListStart', this.txtEngine);
+        this.serveur = this.getProp('serveur');
+        this.nom = this.getProp('nom');
+        this.serveur = this.getProp('serveur');
+        this.url = this.getProp('url');
+        this.regexPos = this.getProp('regexPos');
+        this.strDebutPage = this.getProp('strDebutPage');
+        this.taillePage = this.getProp('taillePage');
+        this.decalageDebut = this.getProp('decalageDebut');
+        this.parPage = this.getProp('parPage');
+        
+        /*this.resultListStart = this.getProp('resultListStart', this.txtEngine);
         this.resultListEnd = this.getProp('resultListEnd', this.txtEngine);
         this.resultItemStart = this.getProp('resultItemStart', this.txtEngine);
         this.resultItemEnd = this.getProp('resultItemEnd', this.txtEngine);
@@ -259,22 +269,23 @@ function SearchEngine(nodeEngine){
         res = regex.exec(this.txtEngine);
         if (res){
             this.strNumPage = res[1];
-        }
+        }*/
         
-        this.goldorank_offset = this.getProp('goldorank_offset', this.txtEngine);
+        this.goldorank_offset = this.getProp('goldorank_offset');
         if (!this.goldorank_offset){
             this.goldorank_offset = 0;
         }
-        this.goldorank_offsetPage = this.getProp('goldorank_offsetPage', this.txtEngine);
+        this.goldorank_offsetPage = this.getProp('goldorank_offsetPage');
         if (!this.goldorank_offsetPage){
             this.goldorank_offsetPage = 0;
         }
-        this.engineInitialized = (this.resultItemStart && this.resultItemEnd);
+        this.engineInitialized = 1;
+       /*this.engineInitialized = (this.resultItemStart && this.resultItemEnd);
         if (!this.engineInitialized) {
             rankCell.value = 'Err';
             pageCell.value = 'Err';
             alert('pb initialisation: resultItems');
-        }
+        }*/
     }
 }
 
