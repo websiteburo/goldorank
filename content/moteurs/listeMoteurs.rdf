@@ -14,6 +14,11 @@
                             <goldorank:parpage>false</goldorank:parpage>
                             <goldorank:taillepage>10</goldorank:taillepage>
                             <goldorank:decalagedebut>0</goldorank:decalagedebut>
+                            
+                            <goldorank:resultListStart><!--a--></goldorank:resultListStart>
+                            <goldorank:resultListEnd><!--z--></goldorank:resultListEnd>
+                            <goldorank:resultItemStart><!--m--></goldorank:resultItemStart>
+                            <goldorank:resultItemEnd><!--n--></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
         		<RDF:li>

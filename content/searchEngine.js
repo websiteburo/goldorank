@@ -80,7 +80,9 @@ var moteur;
 function fulguropoing(){
     if (!trouve && (maxRank > listeResultats.length) && !stopMoteur){
         //On récupére les résultats de la page suivante
+        alert('1');
         searchURL = searchSvc.GetInternetSearchURL(moteur.nomEngine, encodeURIComponent(searchText), 0, (++numPage - 1 + parseInt(moteur.goldorank_offsetPage)), {value:0});
+        alert('2');
         if (moteur.goldorank_offset){
             //Récupération du numéro de page calculé
             regex = new RegExp(moteur.strNumPage+"=([^\\s&]*)");
@@ -259,13 +261,13 @@ function SearchEngine(nodeEngine){
         this.decalageDebut = this.getProp('decalageDebut');
         this.parPage = this.getProp('parPage');
         
-        /*this.resultListStart = this.getProp('resultListStart', this.txtEngine);
-        this.resultListEnd = this.getProp('resultListEnd', this.txtEngine);
-        this.resultItemStart = this.getProp('resultItemStart', this.txtEngine);
-        this.resultItemEnd = this.getProp('resultItemEnd', this.txtEngine);
+        this.resultListStart = this.getProp('resultListStart');
+        this.resultListEnd = this.getProp('resultListEnd');
+        this.resultItemStart = this.getProp('resultItemStart');
+        this.resultItemEnd = this.getProp('resultItemEnd');
         
         //Recherche du terme designant le numero de page
-        var regex = new RegExp("<inputnext name=\"([^\"]*)\"");
+        /*var regex = new RegExp("<inputnext name=\"([^\"]*)\"");
         res = regex.exec(this.txtEngine);
         if (res){
             this.strNumPage = res[1];
