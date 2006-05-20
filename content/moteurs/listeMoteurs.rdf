@@ -3,37 +3,43 @@
 	<RDF:Seq about="urn:goldorank:moteurs">
 		<RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:google">
-				<goldorank:nom>Google</goldorank:nom>
-                                <goldorank:description>Google</goldorank:description>
+				<goldorank:nom>Google FR</goldorank:nom>
+                                <goldorank:description>Google FR</goldorank:description>
 				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_google.gif</goldorank:logo>
                 
-                            <goldorank:serveur>www.google.com</goldorank:serveur>
-                            <goldorank:url>/search?p=</goldorank:url>
-                            <goldorank:regexpos>&lt;a class='res'(.*?)&gt;\/a</goldorank:regexpos>
-                            <goldorank:strdebutpage>&amp;page=</goldorank:strdebutpage>
-                            <goldorank:parpage>false</goldorank:parpage>
-                            <goldorank:taillepage>10</goldorank:taillepage>
-                            <goldorank:decalagedebut>0</goldorank:decalagedebut>
+                            <goldorank:serveur>www.google.fr</goldorank:serveur>
+                            <goldorank:url>/search?hl=fr&amp;q=</goldorank:url>
+                            <goldorank:strDebutPage>&amp;start=</goldorank:strDebutPage>
+                            <goldorank:parPage>false</goldorank:parPage>
+                            <goldorank:decalageDebut>0</goldorank:decalageDebut>
                             
-                            <goldorank:resultListStart><!--a--></goldorank:resultListStart>
-                            <goldorank:resultListEnd><!--z--></goldorank:resultListEnd>
-                            <goldorank:resultItemStart><!--m--></goldorank:resultItemStart>
-                            <goldorank:resultItemEnd><!--n--></goldorank:resultItemEnd>
+                            <goldorank:strNumPage>start</goldorank:strNumPage>
+                            <goldorank:resultListStart><![CDATA[<!--a-->]]></goldorank:resultListStart>
+                            <goldorank:resultListEnd><![CDATA[<!--z-->]]></goldorank:resultListEnd>
+                            <goldorank:resultItemStart><![CDATA[<!--m-->]]></goldorank:resultItemStart>
+                            <goldorank:resultItemEnd><![CDATA[<!--n-->]]></goldorank:resultItemEnd>
+                            
+                            <goldorank:regexpos>&lt;a class='res'(.*?)&gt;\/a</goldorank:regexpos>
+                            <goldorank:taillepage>10</goldorank:taillepage>
 			</RDF:Description>
 		</RDF:li>
         		<RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:yahoo">
 				<goldorank:nom>Yahoo</goldorank:nom>
                                 <goldorank:description>Yahoo</goldorank:description>
-				<goldorank:logo>chrome://goldorank/content/goldorank_Yahoo.gif</goldorank:logo>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_yahoo.gif</goldorank:logo>
                 
-                            <goldorank:serveur>www.Yahoo.com</goldorank:serveur>
-                            <goldorank:url>/search?p=</goldorank:url>
-                            <goldorank:regexpos>&lt;a class='res'(.*?)&gt;\/a</goldorank:regexpos>
-                            <goldorank:strdebutpage>&amp;page=</goldorank:strdebutpage>
-                            <goldorank:parpage>false</goldorank:parpage>
-                            <goldorank:taillepage>10</goldorank:taillepage>
-                            <goldorank:decalagedebut>0</goldorank:decalagedebut>
+                                <goldorank:serveur>fr.search.yahoo.com</goldorank:serveur>
+                                <goldorank:url>/search?p=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;b=</goldorank:strDebutPage>
+                                <goldorank:parPage>false</goldorank:parPage>
+                                <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                
+                                <goldorank:strNumPage>b</goldorank:strNumPage>
+                                <goldorank:resultListStart>RESULTATS WEB</goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[</ol>]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<li>]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[myresults/]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
 	</RDF:Seq>

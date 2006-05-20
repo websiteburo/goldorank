@@ -11,9 +11,7 @@ var searchText;
 var pageRecherchee;
 var maxRank;
 
-var searchSvc = Components.classes["@mozilla.org/rdf/datasource;1?name=internetsearch"].getService(Components.interfaces.nsIInternetSearchService);
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
-var ds_search = rdfService.GetDataSource('rdf:internetsearch');
 var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
 
 RegExp.escape = function(text) {
@@ -32,19 +30,9 @@ RegExp.escape = function(text) {
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
-    
-    //On ajoute la prise en compte des catégories de moteurs pour que le navigateur puisse interroger la catégorie Goldorank
-    var ds = rdfService.GetDataSource('rdf:internetsearch');
-    var catDS = ds.GetCategoryDataSource();
-    if (catDS) {
-        catDS = catDS.QueryInterface(Components.interfaces.nsIRDFDataSource);
-        listeMoteurs = document.getElementById('resultClassement');
-        listeMoteurs.database.AddDataSource(catDS);
-        listeMoteurs.builder.rebuild();
-    }
 }
 
-function wget(url){ 
+function wget(url){
     contenu = "";
     p = new XMLHttpRequest();
     p.onload = null;
@@ -68,8 +56,6 @@ nodeButton.setAttribute('oncommand', 'interruptionMoteur();');
 var stopMoteur = 0;
 function interruptionMoteur(){
     stopMoteur = 1;
-    //ouvreUrl(searchURL);
-    //alert(moteur.resultListStart+"\n"+moteur.resultListEnd+"\n--\n"+moteur.resultItemStart+"\n"+moteur.resultItemEnd);
 }
 
 var nodeEngine;
@@ -77,20 +63,26 @@ var listeResultats = new Array();
 var trouve = 0;
 
 var moteur;
+
 function fulguropoing(){
     if (!trouve && (maxRank > listeResultats.length) && !stopMoteur){
         //On récupére les résultats de la page suivante
-        alert('1');
-        searchURL = searchSvc.GetInternetSearchURL(moteur.nomEngine, encodeURIComponent(searchText), 0, (++numPage - 1 + parseInt(moteur.goldorank_offsetPage)), {value:0});
-        alert('2');
-        if (moteur.goldorank_offset){
-            //Récupération du numéro de page calculé
-            regex = new RegExp(moteur.strNumPage+"=([^\\s&]*)");
-            if ((resultats = regex.exec(searchURL))!=null){
-                searchURL = String(searchURL).replace(resultats[1], (parseInt(resultats[1]) + parseInt(moteur.goldorank_offset)));
-            }
-            else{alert('pb offset')};
+        numPage++;
+        searchURL = 'http://' + moteur.serveur + moteur.url + encodeURIComponent(searchText) + moteur.strDebutPage;
+        if (moteur.parPage == 'true'){
+            searchURL = searchURL + (numPage -1 + parseInt(moteur.decalageDebut));
         }
+        else {
+            searchURL = searchURL + (listeResultats.length + parseInt(moteur.decalageDebut));
+        }
+        //~ if (moteur.decalageDebut){
+            //~ //Récupération du numéro de page calculé
+            //~ regex = new RegExp(moteur.strNumPage+"=([^\\s&]*)");
+            //~ if ((resultats = regex.exec(searchURL))!=null){
+                //~ searchURL = String(searchURL).replace(resultats[1], (parseInt(resultats[1]) + parseInt(moteur.decalageDebut)));
+            //~ }
+            //~ else{alert('pb offset')};
+        //~ }
         pageCell.value = numPage;
         strPage = wget(searchURL);
         trouve = moteur.getResultats(strPage);
@@ -123,7 +115,6 @@ function fulguropoing(){
 function nextEngine(){
     nodeEngine = nodeEngine.nextSibling;
     if (nodeEngine){
-        //alert(nodeEngine.id);
         engine = new SearchEngine(nodeEngine);
         if (engine.engineInitialized){
             resultsCell.parentNode.parentNode.appendChild(nodeButton);
@@ -169,7 +160,6 @@ function engineGetResultats(strPage){
             urltrouvee = String(urlvoila).replace('%3A',':');
             urltrouvee = urltrouvee.replace(/%2F/g,'/');
         }
-        //else alert(urltrouvee);
         
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
@@ -194,15 +184,6 @@ function engineGetResultats(strPage){
 function engineRecherche(searchText){
     numPage = 0;
     trouve = 0;
-    //~ while (!trouve && maxRank > this.listeResultats.length){
-        //~ //On récupére les résultats de la page suivante
-        //~ searchURL = searchSvc.GetInternetSearchURL(this.nomEngine, encodeURIComponent(searchText), 0, ++numPage, {value:0});
-        //~ pageCell.value = numPage + 1;
-        //~ strPage = wget(searchURL);
-        //~ alert(searchURL);
-        //~ trouve = this.getResultats(strPage);
-    //~ }
-    //~ return this.listeResultats;
     listeResultats = new Array();
     numPage = 0;
     trouve = 0;
@@ -221,7 +202,6 @@ function engineGetProp(prop){
 //Constructeur
 function SearchEngine(nodeEngine){
     this.nomEngine = nodeEngine.uri;
-    //this.listeResultats = new Array();
     
    //Initialisation du contexte d'un moteur
     this.engineInitialized = 0;
@@ -247,17 +227,13 @@ function SearchEngine(nodeEngine){
         this.recherche = engineRecherche;
         this.getResultats = engineGetResultats;
         
-        //Recuperation des valeurs utiles du moteur
-        //Serveur
-        //alert(engine+ ' -> '+this.getProp('serveur'));
-        
+        //Recuperation des valeurs utiles du moteur        
         this.serveur = this.getProp('serveur');
         this.nom = this.getProp('nom');
-        this.serveur = this.getProp('serveur');
         this.url = this.getProp('url');
-        this.regexPos = this.getProp('regexPos');
+        //this.regexPos = this.getProp('regexPos');
         this.strDebutPage = this.getProp('strDebutPage');
-        this.taillePage = this.getProp('taillePage');
+        //this.taillePage = this.getProp('taillePage');
         this.decalageDebut = this.getProp('decalageDebut');
         this.parPage = this.getProp('parPage');
         
@@ -265,29 +241,23 @@ function SearchEngine(nodeEngine){
         this.resultListEnd = this.getProp('resultListEnd');
         this.resultItemStart = this.getProp('resultItemStart');
         this.resultItemEnd = this.getProp('resultItemEnd');
+        this.strNumPage = this.getProp('strNumPage');
         
-        //Recherche du terme designant le numero de page
-        /*var regex = new RegExp("<inputnext name=\"([^\"]*)\"");
-        res = regex.exec(this.txtEngine);
-        if (res){
-            this.strNumPage = res[1];
-        }*/
-        
-        this.goldorank_offset = this.getProp('goldorank_offset');
-        if (!this.goldorank_offset){
-            this.goldorank_offset = 0;
-        }
-        this.goldorank_offsetPage = this.getProp('goldorank_offsetPage');
-        if (!this.goldorank_offsetPage){
-            this.goldorank_offsetPage = 0;
-        }
+        //~ this.goldorank_offset = this.getProp('goldorank_offset');
+        //~ if (!this.goldorank_offset){
+            //~ this.goldorank_offset = 0;
+        //~ }
+        //~ this.goldorank_offsetPage = this.getProp('goldorank_offsetPage');
+        //~ if (!this.goldorank_offsetPage){
+            //~ this.goldorank_offsetPage = 0;
+        //~ }
         this.engineInitialized = 1;
-       /*this.engineInitialized = (this.resultItemStart && this.resultItemEnd);
+       //this.engineInitialized = (this.resultItemStart && this.resultItemEnd);
         if (!this.engineInitialized) {
             rankCell.value = 'Err';
             pageCell.value = 'Err';
             alert('pb initialisation: resultItems');
-        }*/
+        }
     }
 }
 
