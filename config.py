@@ -8,9 +8,9 @@ authorURL = "http://www.websiteburo.com"
 uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
 
 major_version = 0
-minor_version = 3
-build_version = 1
-in_development = True
+minor_version = 5
+build_version = 3
+in_development = False
 
 version = "%d.%d.%d%s" % (
     major_version,
@@ -26,7 +26,7 @@ updateFile = "%(app)s-%(version)s.xpi" % vars()
 updateLink = "%(homepageURL)s/%(updateFile)s" % vars()
 firefoxUID = 'ec8030f7-c20a-464f-9b0e-13a3a9e97384'
 firefoxMinVersion = '1.5'
-firefoxMaxVersion = '1.5'
+firefoxMaxVersion = '1.9'
 
 overlays = (
     # overlay this on that

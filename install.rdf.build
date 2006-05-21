@@ -42,10 +42,10 @@ print >> file('install.rdf', 'w'), """\
 <em:homepageURL>%(homepageURL)s</em:homepageURL>
 <em:updateURL>%(updateURL)s</em:updateURL>
 
-<!-- Front End Integration Hooks (used by Extension Manager)-->
+<!-- Front End Integration Hooks (used by Extension Manager)
 <em:optionsURL>chrome://%(app)s/content/options.xul</em:optionsURL>
 <em:aboutURL>chrome://%(app)s/content/about.xul</em:aboutURL>
-<em:iconURL>chrome://%(app)s/content/icon.png</em:iconURL>
+<em:iconURL>chrome://%(app)s/content/icon.png</em:iconURL>-->
 
 <!-- Packages, Skins and Locales that this extension registers -->
 <em:file>
