@@ -1,6 +1,6 @@
-<RDF:RDF xmlns:RDF="httphttp://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="httphttp://www.mozilla.org/2004/em-rdf#">
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 <RDF:Description about="urn:mozilla:extension:e4b43b01-1ccb-476a-92d2-9a193ad4ff50">
-  <em:version>0.5.1+</em:version>
-  <em:updateLink>http://www.websiteburo.com/goldorank/goldorank-0.5.1+.xpi</em:updateLink>
+  <em:version>0.5.2</em:version>
+  <em:updateLink>http://www.websiteburo.com/goldorank/goldorank-0.5.2.xpi</em:updateLink>
 </RDF:Description>
 </RDF:RDF>
