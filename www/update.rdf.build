@@ -5,9 +5,28 @@ sys.path.append('.')
 from config import *
 
 print >> file('www/update.rdf', 'w'), """\
-<RDF:RDF xmlns:RDF="httphttp://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="httphttp://www.mozilla.org/2004/em-rdf#">
-<RDF:Description about="urn:mozilla:extension:%(uid)s">
-  <em:version>%(version)s</em:version>
-  <em:updateLink>%(updateLink)s</em:updateLink>
-</RDF:Description>
-</RDF:RDF>""" % vars()
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+   <rdf:Description rdf:about="urn:mozilla:extension:{%(uid)s}">
+       <em:updates><!-- Liste des mises a jour -->
+           <rdf:Seq>
+               <rdf:li rdf:resource="urn:mozilla:extension:{%(uid)s}:%(version)s"/>
+           </rdf:Seq>
+       </em:updates>
+       <em:version>%(version)s</em:version>
+       <em:updateLink>%(updateLink)s</em:updateLink>
+   </rdf:Description>
+
+   <!-- Mise a jour 1 -->
+   <rdf:Description rdf:about="urn:mozilla:extension:{%(uid)s}:%(version)s">
+       <em:version>%(version)s</em:version>
+       <em:targetApplication><!-- Application cible : Firefox -->
+           <rdf:Description>
+               <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+               <em:minVersion>%(firefoxMinVersion)s</em:minVersion>
+               <em:maxVersion>%(firefoxMaxVersion)s</em:maxVersion>
+               <em:updateLink>%(updateLink)s</em:updateLink>
+           </rdf:Description>
+       </em:targetApplication>
+   </rdf:Description>
+</rdf:RDF>""" % vars()
