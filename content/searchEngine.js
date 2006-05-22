@@ -85,7 +85,19 @@ function fulguropoing(){
         //~ }
         pageCell.value = numPage;
         strPage = wget(searchURL);
+        pageTestNext = strPage;
         trouve = moteur.getResultats(strPage);
+        //On verifie qu'il y a des resultats dans les pages suivantes
+        regexpHasMore = new RegExp(moteur.hasNextPage);
+        nextRes = regexpHasMore.exec(pageTestNext);
+        if (!nextRes){
+            if (!trouve){
+                rankCell.value = 'N/A';
+                pageCell.value = 'N/A';
+            }
+            //On stoppe la recherche pour ne pas boucler ad infinitum
+            interruptionMoteur();
+        }
         setTimeout("fulguropoing()", 1);
     }
     else {
@@ -242,6 +254,7 @@ function SearchEngine(nodeEngine){
         this.resultItemStart = this.getProp('resultItemStart');
         this.resultItemEnd = this.getProp('resultItemEnd');
         this.strNumPage = this.getProp('strNumPage');
+        this.hasNextPage = this.getProp('hasNextPage');
         
         //~ this.goldorank_offset = this.getProp('goldorank_offset');
         //~ if (!this.goldorank_offset){
@@ -302,7 +315,6 @@ function rechercherS(){
         engine = new SearchEngine(nodeEngine);
         if (engine.engineInitialized){
             //On effectue la recherche
-            //alert('recherche sur '+nodeEngine.id);
             resultsCell.parentNode.parentNode.appendChild(nodeButton);
             engine.recherche(searchText);
         }

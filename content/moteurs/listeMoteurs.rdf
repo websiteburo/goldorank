@@ -12,6 +12,7 @@
                             <goldorank:strDebutPage>&amp;start=</goldorank:strDebutPage>
                             <goldorank:parPage>false</goldorank:parPage>
                             <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                            <goldorank:hasNextPage><![CDATA[Suivant</a>]]></goldorank:hasNextPage>
                             
                             <goldorank:strNumPage>start</goldorank:strNumPage>
                             <goldorank:resultListStart><![CDATA[<!--a-->]]></goldorank:resultListStart>
@@ -34,6 +35,7 @@
                             <goldorank:strDebutPage>&amp;start=</goldorank:strDebutPage>
                             <goldorank:parPage>false</goldorank:parPage>
                             <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                            <goldorank:hasNextPage><![CDATA[Next</a>]]></goldorank:hasNextPage>
                             
                             <goldorank:strNumPage>start</goldorank:strNumPage>
                             <goldorank:resultListStart><![CDATA[<!--a-->]]></goldorank:resultListStart>
@@ -56,6 +58,7 @@
                                 <goldorank:strDebutPage>&amp;b=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[<b>Suiv.</b></a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>b</goldorank:strNumPage>
                                 <goldorank:resultListStart>RESULTATS WEB</goldorank:resultListStart>
@@ -75,6 +78,7 @@
                                 <goldorank:strDebutPage>&amp;b=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[<b>Next</b></a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>b</goldorank:strNumPage>
                                 <goldorank:resultListStart>WEB RESULTS</goldorank:resultListStart>
@@ -94,7 +98,8 @@
                                 <goldorank:strDebutPage>&amp;first=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
-                                
+                                <goldorank:hasNextPage><![CDATA[>Suivant</a>]]></goldorank:hasNextPage>
+                              
                                 <goldorank:strNumPage>first</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[sultats</h2>]]></goldorank:resultListStart>
                                 <goldorank:resultListEnd><![CDATA[ </ul></li> </ul></div>]]></goldorank:resultListEnd>
@@ -113,6 +118,7 @@
                                 <goldorank:strDebutPage>&amp;first=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[>Next</a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>first</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[Results</h2>]]></goldorank:resultListStart>
@@ -132,6 +138,7 @@
                                 <goldorank:strDebutPage>&amp;keap=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[Suivant&nbsp;&gt;&gt;</a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>keap</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[<!-- LISTE REPONSE -->]]></goldorank:resultListStart>
@@ -151,6 +158,7 @@
                                 <goldorank:strDebutPage>&amp;stq=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[Suiv. &gt;&gt;</a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>stq</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[sultats</A>]]></goldorank:resultListStart>
@@ -165,11 +173,12 @@
                                 <goldorank:description>Altavista</goldorank:description>
 				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_AltaVista.png</goldorank:logo>
                 
-                                <goldorank:serveur>www.altavista.com</goldorank:serveur>
-                                <goldorank:url>/web/results?q=</goldorank:url>
+                                <goldorank:serveur>us.altavista.com</goldorank:serveur>
+                                <goldorank:url>/web/results?itag=ody&amp;kgs=1&amp;kls=0&amp;q=</goldorank:url>
                                 <goldorank:strDebutPage>&amp;stq=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[target="_self">Next]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>stq</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[results</A></B>]]></goldorank:resultListStart>
@@ -189,6 +198,7 @@
                                 <goldorank:strDebutPage>&amp;o=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[Next</a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>o</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[<!--RS-->]]></goldorank:resultListStart>
@@ -208,6 +218,7 @@
                                 <goldorank:strDebutPage>&amp;pag=</goldorank:strDebutPage>
                                 <goldorank:parPage>true</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[Suivant</a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>pag</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[<div class="resultset">]]></goldorank:resultListStart>
@@ -227,6 +238,7 @@
                                 <goldorank:strDebutPage>&amp;offset=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[class="linkRosso">Suivante]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>offset</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[LES RESULTATS]]></goldorank:resultListStart>
@@ -246,6 +258,7 @@
                                 <goldorank:strDebutPage>&amp;page=</goldorank:strDebutPage>
                                 <goldorank:parPage>true</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[class="L14">Suivante]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>page</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[sultats Web</td>]]></goldorank:resultListStart>
@@ -265,6 +278,7 @@
                                 <goldorank:strDebutPage>&amp;offset=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[ Suivant ]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>offset</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[<!-- BEFORE SEARCH RESULTS -->]]></goldorank:resultListStart>
@@ -284,6 +298,7 @@
                                 <goldorank:strDebutPage>&amp;start=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[class="next-page">Next]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>start</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[<div id="results">]]></goldorank:resultListStart>
