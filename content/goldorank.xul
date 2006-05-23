@@ -28,7 +28,14 @@
 
     
     <vbox flex="1">
-   <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
+    <tabbox>
+   <tabs>
+     <tab label="FR"/>
+     <tab label="US"/>
+   </tabs>
+   <tabpanels>
+     <tabpanel id="fr">
+        <richlistbox id="resultClassement_fr" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs_fr.rdf" ref="urn:goldorank:moteurs_fr">
       <listhead>
       <listheader label=" " width="25" />
         <listheader label="&goldorank.goldorank.engine;" width="165" />
@@ -56,7 +63,39 @@
     </richlistitem>     
     </template>
     </richlistbox>
-    
+     </tabpanel>
+     <tabpanel id="us">
+        <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs_us.rdf" ref="urn:goldorank:moteurs">
+      <listhead>
+      <listheader label=" " width="25" />
+        <listheader label="&goldorank.goldorank.engine;" width="165" />
+        <listheader label="&goldorank.goldorank.progress;" width="135" />
+        <listheader label="&goldorank.goldorank.rank;" width="70px" />
+        <listheader label="&goldorank.goldorank.page;" width="50px" />
+        <listheader label="&goldorank.goldorank.results;" flex="1" />
+      </listhead>
+    <listcols>
+        <listcol width="7" />
+        <listcol width="160" />
+        <listcol width="130" />
+        <listcol width="55px" />
+        <listcol width="43px" />
+        <listcol flex="1" />
+    </listcols>
+    <template>
+    <richlistitem uri="rdf:*" value="rdf:*" >
+        <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
+        <listcell width="160"><image src="rdf:urn:goldorank:rdf#logo" /><label value="rdf:urn:goldorank:rdf#nom" /></listcell>
+        <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+        <listcell><label id="rankCell" width="55px" /></listcell> 
+        <listcell><label id="pageCell" width="43px" /></listcell> 
+        <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
+    </richlistitem>     
+    </template>
+    </richlistbox>
+     </tabpanel>
+   </tabpanels>
+</tabbox> 
       </vbox>
       <vbox id="debugzone"></vbox>
 </window>

@@ -173,6 +173,12 @@ function engineGetResultats(strPage){
             urltrouvee = urltrouvee.replace(/%2F/g,'/');
         }
         
+        //Gestion de MSN.com
+        urlMsn = /\?http:\/\/.*/.exec(urltrouvee);
+        if (urlMsn){
+            urltrouvee = String(urlMsn).substr(1);
+        }
+        
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
         //Avancement de la barre de progression
@@ -283,9 +289,6 @@ function rechercherS(){
     pageCherchee = document.getElementById('page').value;
     regexPageCherchee = new RegExp('(http://)?'+RegExp.escape(pageCherchee)+'/?');
     maxRank = document.getElementById('maxRank').value;
-    
-    //Initialisation du service de recherche
-    var searchroot = rdfService.GetResource('NC:LastSearchRoot');
     
     nodeEngine = document.getElementById('resultClassement').childNodes[3];
     //On réinitialise l'affichage
