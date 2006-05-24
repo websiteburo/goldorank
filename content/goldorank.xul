@@ -28,14 +28,13 @@
 
     
     <vbox flex="1">
-    <tabbox>
+    <tabbox datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
    <tabs>
-     <tab label="FR"/>
-     <tab label="US"/>
+     <tab uri="rdf:*" value="rdf:*" label="rdf:urn:goldorank:rdf#langue"/>
    </tabs>
    <tabpanels>
-     <tabpanel id="fr">
-        <richlistbox id="resultClassement_fr" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs_fr.rdf" ref="urn:goldorank:moteurs_fr">
+     <tabpanel uri="rdf:*" value="rdf:*">
+        <richlistbox flex="1" style="-moz-user-focus:ignore !important;">
       <listhead>
       <listheader label=" " width="25" />
         <listheader label="&goldorank.goldorank.engine;" width="165" />
@@ -64,6 +63,8 @@
     </template>
     </richlistbox>
      </tabpanel>
+     
+     
      <tabpanel id="us">
         <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs_us.rdf" ref="urn:goldorank:moteurs">
       <listhead>

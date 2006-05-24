@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:goldorank="urn:goldorank:rdf#">
 	<RDF:Seq about="urn:goldorank:moteurs">
+                <RDF:li rdf:resource="urn:goldorank:moteurs_fr" />
+		<RDF:li rdf:resource="urn:goldorank:moteurs_us" />
+        </RDF:Seq>
+        
+	<RDF:Seq about="urn:goldorank:moteurs_fr">
+            <goldorank:langue>FR</goldorank:langue>
+            <goldorank:logo_langue>chrome://goldorank/content/moteurs/france.gif</goldorank:logo_langue>
 		<RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:google_fr">
 				<goldorank:nom>Google FR</goldorank:nom>
@@ -13,29 +20,6 @@
                             <goldorank:parPage>false</goldorank:parPage>
                             <goldorank:decalageDebut>0</goldorank:decalageDebut>
                             <goldorank:hasNextPage><![CDATA[Suivant</a>]]></goldorank:hasNextPage>
-                            
-                            <goldorank:strNumPage>start</goldorank:strNumPage>
-                            <goldorank:resultListStart><![CDATA[<!--a-->]]></goldorank:resultListStart>
-                            <goldorank:resultListEnd><![CDATA[<!--z-->]]></goldorank:resultListEnd>
-                            <goldorank:resultItemStart><![CDATA[<!--m-->]]></goldorank:resultItemStart>
-                            <goldorank:resultItemEnd><![CDATA[<!--n-->]]></goldorank:resultItemEnd>
-                            
-                            <goldorank:regexpos>&lt;a class='res'(.*?)&gt;\/a</goldorank:regexpos>
-                            <goldorank:taillepage>10</goldorank:taillepage>
-			</RDF:Description>
-		</RDF:li>
-               <RDF:li>
-			<RDF:Description about="urn:goldorank:moteurs:google">
-				<goldorank:nom>Google</goldorank:nom>
-                                <goldorank:description>Google</goldorank:description>
-				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_google.gif</goldorank:logo>
-                
-                            <goldorank:serveur>www.google.com</goldorank:serveur>
-                            <goldorank:url>/search?hl=en&amp;q=</goldorank:url>
-                            <goldorank:strDebutPage>&amp;start=</goldorank:strDebutPage>
-                            <goldorank:parPage>false</goldorank:parPage>
-                            <goldorank:decalageDebut>0</goldorank:decalageDebut>
-                            <goldorank:hasNextPage><![CDATA[Next</a>]]></goldorank:hasNextPage>
                             
                             <goldorank:strNumPage>start</goldorank:strNumPage>
                             <goldorank:resultListStart><![CDATA[<!--a-->]]></goldorank:resultListStart>
@@ -68,26 +52,6 @@
 			</RDF:Description>
 		</RDF:li>
                 <RDF:li>
-			<RDF:Description about="urn:goldorank:moteurs:yahoo">
-				<goldorank:nom>Yahoo</goldorank:nom>
-                                <goldorank:description>Yahoo</goldorank:description>
-				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_yahoo.gif</goldorank:logo>
-                
-                                <goldorank:serveur>search.yahoo.com</goldorank:serveur>
-                                <goldorank:url>/search?p=</goldorank:url>
-                                <goldorank:strDebutPage>&amp;b=</goldorank:strDebutPage>
-                                <goldorank:parPage>false</goldorank:parPage>
-                                <goldorank:decalageDebut>1</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[<b>Next</b></a>]]></goldorank:hasNextPage>
-                                
-                                <goldorank:strNumPage>b</goldorank:strNumPage>
-                                <goldorank:resultListStart>WEB RESULTS</goldorank:resultListStart>
-                                <goldorank:resultListEnd><![CDATA[</ol>]]></goldorank:resultListEnd>
-                                <goldorank:resultItemStart><![CDATA[<li>]]></goldorank:resultItemStart>
-                                <goldorank:resultItemEnd><![CDATA[myresults/]]></goldorank:resultItemEnd>
-			</RDF:Description>
-		</RDF:li>
-                <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:msn_fr">
 				<goldorank:nom>MSN FR</goldorank:nom>
                                 <goldorank:description>MSN FR</goldorank:description>
@@ -102,26 +66,6 @@
                               
                                 <goldorank:strNumPage>first</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[sultats</h2>]]></goldorank:resultListStart>
-                                <goldorank:resultListEnd><![CDATA[ </ul></li> </ul></div>]]></goldorank:resultListEnd>
-                                <goldorank:resultItemStart><![CDATA[<h3>]]></goldorank:resultItemStart>
-                                <goldorank:resultItemEnd><![CDATA[</h3>]]></goldorank:resultItemEnd>
-			</RDF:Description>
-		</RDF:li>
-                <RDF:li>
-			<RDF:Description about="urn:goldorank:moteurs:msn">
-				<goldorank:nom>MSN</goldorank:nom>
-                                <goldorank:description>MSN</goldorank:description>
-				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_MSN.png</goldorank:logo>
-                
-                                <goldorank:serveur>search.msn.com</goldorank:serveur>
-                                <goldorank:url>/results.aspx?q=</goldorank:url>
-                                <goldorank:strDebutPage>&amp;first=</goldorank:strDebutPage>
-                                <goldorank:parPage>false</goldorank:parPage>
-                                <goldorank:decalageDebut>1</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[>Next</a>]]></goldorank:hasNextPage>
-                                
-                                <goldorank:strNumPage>first</goldorank:strNumPage>
-                                <goldorank:resultListStart><![CDATA[Results</h2>]]></goldorank:resultListStart>
                                 <goldorank:resultListEnd><![CDATA[ </ul></li> </ul></div>]]></goldorank:resultListEnd>
                                 <goldorank:resultItemStart><![CDATA[<h3>]]></goldorank:resultItemStart>
                                 <goldorank:resultItemEnd><![CDATA[</h3>]]></goldorank:resultItemEnd>
@@ -165,46 +109,6 @@
                                 <goldorank:resultListEnd><![CDATA[<b class=m>Pages de r]]></goldorank:resultListEnd>
                                 <goldorank:resultItemStart><![CDATA[<a class='res']]></goldorank:resultItemStart>
                                 <goldorank:resultItemEnd><![CDATA[<br><br>]]></goldorank:resultItemEnd>
-			</RDF:Description>
-		</RDF:li>
-                <RDF:li>
-			<RDF:Description about="urn:goldorank:moteurs:altavista">
-				<goldorank:nom>Altavista</goldorank:nom>
-                                <goldorank:description>Altavista</goldorank:description>
-				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_AltaVista.png</goldorank:logo>
-                
-                                <goldorank:serveur>us.altavista.com</goldorank:serveur>
-                                <goldorank:url>/web/results?itag=ody&amp;kgs=1&amp;kls=0&amp;q=</goldorank:url>
-                                <goldorank:strDebutPage>&amp;stq=</goldorank:strDebutPage>
-                                <goldorank:parPage>false</goldorank:parPage>
-                                <goldorank:decalageDebut>0</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[target="_self">Next]]></goldorank:hasNextPage>
-                                
-                                <goldorank:strNumPage>stq</goldorank:strNumPage>
-                                <goldorank:resultListStart><![CDATA[results</A></B>]]></goldorank:resultListStart>
-                                <goldorank:resultListEnd><![CDATA[<b class=m>]]></goldorank:resultListEnd>
-                                <goldorank:resultItemStart><![CDATA[<br class='lb'>]]></goldorank:resultItemStart>
-                                <goldorank:resultItemEnd><![CDATA[</span><br>]]></goldorank:resultItemEnd>
-			</RDF:Description>
-		</RDF:li>
-                <RDF:li>
-			<RDF:Description about="urn:goldorank:moteurs:alltheweb">
-				<goldorank:nom>Alltheweb</goldorank:nom>
-                                <goldorank:description>Alltheweb</goldorank:description>
-				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_alltheweb.png</goldorank:logo>
-                
-                                <goldorank:serveur>www.alltheweb.com</goldorank:serveur>
-                                <goldorank:url>/search?sourceid=Mozilla-search&amp;cat=web&amp;cs=iso88591&amp;rys=0&amp;_sb_lang=pref&amp;q=</goldorank:url>
-                                <goldorank:strDebutPage>&amp;o=</goldorank:strDebutPage>
-                                <goldorank:parPage>false</goldorank:parPage>
-                                <goldorank:decalageDebut>0</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[Next</a>]]></goldorank:hasNextPage>
-                                
-                                <goldorank:strNumPage>o</goldorank:strNumPage>
-                                <goldorank:resultListStart><![CDATA[<!--RS-->]]></goldorank:resultListStart>
-                                <goldorank:resultListEnd><![CDATA[<!--RE-->]]></goldorank:resultListEnd>
-                                <goldorank:resultItemStart><![CDATA[<!--IS-->]]></goldorank:resultItemStart>
-                                <goldorank:resultItemEnd><![CDATA[<!--IE-->]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
                 <RDF:li>
@@ -287,6 +191,114 @@
                                 <goldorank:resultItemEnd><![CDATA[</div>]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
+	</RDF:Seq>
+
+	<RDF:Seq about="urn:goldorank:moteurs_us">
+                <goldorank:langue>US</goldorank:langue>
+            <goldorank:logo_langue>chrome://goldorank/content/moteurs/us.gif</goldorank:logo_langue>
+               <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:google">
+				<goldorank:nom>Google</goldorank:nom>
+                                <goldorank:description>Google</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_google.gif</goldorank:logo>
+                
+                            <goldorank:serveur>www.google.com</goldorank:serveur>
+                            <goldorank:url>/search?hl=en&amp;q=</goldorank:url>
+                            <goldorank:strDebutPage>&amp;start=</goldorank:strDebutPage>
+                            <goldorank:parPage>false</goldorank:parPage>
+                            <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                            <goldorank:hasNextPage><![CDATA[Next</a>]]></goldorank:hasNextPage>
+                            
+                            <goldorank:strNumPage>start</goldorank:strNumPage>
+                            <goldorank:resultListStart><![CDATA[<!--a-->]]></goldorank:resultListStart>
+                            <goldorank:resultListEnd><![CDATA[<!--z-->]]></goldorank:resultListEnd>
+                            <goldorank:resultItemStart><![CDATA[<!--m-->]]></goldorank:resultItemStart>
+                            <goldorank:resultItemEnd><![CDATA[<!--n-->]]></goldorank:resultItemEnd>
+                            
+                            <goldorank:regexpos>&lt;a class='res'(.*?)&gt;\/a</goldorank:regexpos>
+                            <goldorank:taillepage>10</goldorank:taillepage>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:yahoo">
+				<goldorank:nom>Yahoo</goldorank:nom>
+                                <goldorank:description>Yahoo</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_yahoo.gif</goldorank:logo>
+                
+                                <goldorank:serveur>search.yahoo.com</goldorank:serveur>
+                                <goldorank:url>/search?p=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;b=</goldorank:strDebutPage>
+                                <goldorank:parPage>false</goldorank:parPage>
+                                <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[<b>Next</b></a>]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>b</goldorank:strNumPage>
+                                <goldorank:resultListStart>WEB RESULTS</goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[</ol>]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<li>]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[myresults/]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:msn">
+				<goldorank:nom>MSN</goldorank:nom>
+                                <goldorank:description>MSN</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_MSN.png</goldorank:logo>
+                
+                                <goldorank:serveur>search.msn.com</goldorank:serveur>
+                                <goldorank:url>/results.aspx?q=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;first=</goldorank:strDebutPage>
+                                <goldorank:parPage>false</goldorank:parPage>
+                                <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[>Next</a>]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>first</goldorank:strNumPage>
+                                <goldorank:resultListStart><![CDATA[Results</h2>]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[ </ul></li> </ul></div>]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<h3>]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[&amp;&amp;]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:altavista">
+				<goldorank:nom>Altavista</goldorank:nom>
+                                <goldorank:description>Altavista</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_AltaVista.png</goldorank:logo>
+                
+                                <goldorank:serveur>us.altavista.com</goldorank:serveur>
+                                <goldorank:url>/web/results?itag=ody&amp;kgs=1&amp;kls=0&amp;q=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;stq=</goldorank:strDebutPage>
+                                <goldorank:parPage>false</goldorank:parPage>
+                                <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[target="_self">Next]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>stq</goldorank:strNumPage>
+                                <goldorank:resultListStart><![CDATA[results</A></B>]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[<b class=m>]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<br class='lb'>]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[</span><br>]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:alltheweb">
+				<goldorank:nom>Alltheweb</goldorank:nom>
+                                <goldorank:description>Alltheweb</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_alltheweb.png</goldorank:logo>
+                
+                                <goldorank:serveur>www.alltheweb.com</goldorank:serveur>
+                                <goldorank:url>/search?sourceid=Mozilla-search&amp;cat=web&amp;cs=iso88591&amp;rys=0&amp;_sb_lang=pref&amp;q=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;o=</goldorank:strDebutPage>
+                                <goldorank:parPage>false</goldorank:parPage>
+                                <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[Next</a>]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>o</goldorank:strNumPage>
+                                <goldorank:resultListStart><![CDATA[<!--RS-->]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[<!--RE-->]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<!--IS-->]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[<!--IE-->]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
                 <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:technorati">
 				<goldorank:nom>Technorati</goldorank:nom>
@@ -308,4 +320,5 @@
 			</RDF:Description>
 		</RDF:li>
 	</RDF:Seq>
+
 </RDF:RDF>
