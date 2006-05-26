@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://goldorank/content/goldorank.css"?>
+<!DOCTYPE window SYSTEM "chrome://goldorank/locale/entities.dtd">
+<window
+    id="goldorank_app"
+    class="dialog"
+    orient="vertical"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml">
+
+    <vbox flex="1">
+    <tabbox datasources="listeMoteurs.rdf" ref="urn:goldorank:moteurs">
+    <template>
+        <rule>
+            <conditions>
+                <content uri="?uri" />
+                <member container="?uri" child="?child" />
+                <member container="?child" child="?moteur" />
+            </conditions>
+        <bindings>
+            <binding subject="?child" predicate="urn:goldorank:rdf#A" object="?A" />
+            <binding subject="?moteur" predicate="urn:goldorank:rdf#AA" object="?AA" />
+        </bindings>
+        
+        <action>
+        <tabs><tab uri="?child" label="?A"/></tabs>
+       <tabpanels>
+            <tabpanel uri="?child">
+                <richlistbox flex="1" style="-moz-user-focus:ignore !important;">
+                    <listhead>
+                        <listheader label="ici : AA" width="165" />
+                    </listhead>
+                    <listcols>
+                        <listcol width="165" />
+                    </listcols>
+                    <richlistitem uri="?moteur" >
+                        <listcell width="160"><label value="?AA" /></listcell>
+                    </richlistitem>     
+                </richlistbox>
+            </tabpanel>
+           </tabpanels>
+        </action>
+        
+    </rule>
+</template>
+</tabbox> 
+      </vbox>
+</window>
