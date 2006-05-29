@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://goldorank/content/goldorank.css"?>
+<!DOCTYPE window SYSTEM "chrome://goldorank/locale/entities.dtd">
+<window
+    id="goldorank_app"
+    class="dialog"
+    orient="vertical"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    onload="peupleValeurs();">
+        <script src="prototype-1.4.0.js"></script>
+    <script language="javascript">
+<![CDATA[
+function peupleValeurs(){
+    nodeTabPanel = document.getElementById("tabpanel_modele");
+    nodeRichListItem = document.getElementById("richlistitem_modele");
+    
+    nodeTabs = document.getElementById('lestabs');
+    nodeTabPanels = document.getElementById(lestabpanels');
+    
+    
+    var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
+    var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
+    
+    var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
+    var rdf_langue = rdfService.GetResource('urn:goldorank:rdf#langue');
+    
+    var container = Components.classes["@mozilla.org/rdf/container;1"].createInstance(Components.interfaces.nsIRDFContainer);
+    container.Init(ds_moteurs, rdf_moteurs);
+    
+    var moteurs_langues = container.GetElements();
+    while (moteurs_langues.hasMoreElements()){
+      var langue = moteurs_langues.getNext();
+      if (langue instanceof Components.interfaces.nsIRDFResource){
+        var strLangue = ds_moteurs.GetTarget(langue, rdf_langue, true);
+        if (strLangue instanceof Components.interfaces.nsIRDFLiteral){
+          strLangue = strLangue.Value;
+          alert(strLangue);
+          /*
+          untab = document.createElement('tab');
+          untab.setAttribute('label', strLangue);
+          nodeTabs.appendChild(untab);
+          
+          alert(strLangue);*/
+        }
+      }
+    }
+}
+]]>
+</script>
+
+<tabpanel id="tabpanel_modele" style="display:none;">
+<richlistbox name="resultClassement">
+<listhead>
+            <listheader label=" " width="25" />
+            <listheader label="&goldorank.goldorank.engine;" width="165" />
+            <listheader label="&goldorank.goldorank.progress;" width="135" />
+            <listheader label="&goldorank.goldorank.rank;" width="70px" />
+            <listheader label="&goldorank.goldorank.page;" width="50px" />
+            <listheader label="&goldorank.goldorank.results;" flex="1" />
+          </listhead>
+        <listcols>
+            <listcol width="7" />
+            <listcol width="160" />
+            <listcol width="130" />
+            <listcol width="55px" />
+            <listcol width="43px" />
+            <listcol flex="1" />
+        </listcols>        
+    </richlistbox>
+</tabpanel>
+        
+<richlistitem id="richlistitem_modele" style="display:none;" >
+    <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
+    <listcell width="160"><image src="?logo" /><label value="?nom" /></listcell>
+    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+    <listcell><label id="rankCell" width="55px" /></listcell> 
+    <listcell><label id="pageCell" width="43px" /></listcell> 
+    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
+</richlistitem>   
+        
+
+    <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
+        GOLDoRANK<html:br/></html:html>
+    <!-- formulaire -->
+    <label control="motscles" value="&goldorank.goldorank.keywords;" style="width:50px" crop="start"/>
+   <textbox id="motscles" />
+    <label control="page" value="&goldorank.goldorank.page;" style="width:50px" crop="start"/>
+   <textbox id="page" />  
+    <label control="maxRank" value="&goldorank.goldorank.max;" style="width:50px" crop="start"/>
+   <textbox id="maxRank" value="100" />  
+      
+    <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
+
+    
+    
+    
+<vbox flex="1">
+    <tabcontrol>
+        <tabbox> 
+            <tabs id="lestabs"></tabs>
+            <tabpanels id="lestabpanels"></tabpanels>
+        </tabbox> 
+    </tabcontrol> 
+</vbox>
+    
+    
+    
+    
+    
+    <vbox flex="1">
+    <tabcontrol datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
+    
+        <template>
+            <rule>
+                <conditions>
+                    <content uri="?listemoteurs"/>
+                    <member container="?listemoteurs" child="?moteurs_langues"/>
+                    <member container="?moteurs_langues" child="?moteurs"/>
+          
+              </conditions>
+              <bindings>
+              <binding  subject="?moteurs_langues" predicate="urn:goldorank:rdf#langue" object="?langue"/>
+             <binding  subject="?moteurs" predicate="urn:goldorank:rdf#nom" object="?nom"/>
+                <binding  subject="?moteurs" predicate="urn:goldorank:rdf#logo" object="?logo"/>
+            </bindings>
+              <action>
+              <tabbox > 
+                    <tabs><tab uri="?moteurs_langues" label="?langue" /></tabs>
+                       <tabpanels>
+<tabpanel uri="?moteurs_langues">
+<richlistbox name="resultClassement">
+        <listhead>
+                    <listheader label=" " width="25" />
+                    <listheader label="&goldorank.goldorank.engine;" width="165" />
+                    <listheader label="&goldorank.goldorank.progress;" width="135" />
+                    <listheader label="&goldorank.goldorank.rank;" width="70px" />
+                    <listheader label="&goldorank.goldorank.page;" width="50px" />
+                    <listheader label="&goldorank.goldorank.results;" flex="1" />
+                  </listhead>
+                <listcols>
+                    <listcol width="7" />
+                    <listcol width="160" />
+                    <listcol width="130" />
+                    <listcol width="55px" />
+                    <listcol width="43px" />
+                    <listcol flex="1" />
+                </listcols>
+
+                     <richlistitem uri="?moteurs" >
+                    <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
+                    <listcell width="160"><image src="?logo" /><label value="?nom" /></listcell>
+                    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+                    <listcell><label id="rankCell" width="55px" /></listcell> 
+                    <listcell><label id="pageCell" width="43px" /></listcell> 
+                    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
+                </richlistitem>   
+        
+            </richlistbox>
+        </tabpanel>
+   </tabpanels>
+   </tabbox> 
+   
+
+
+</action>
+</rule>
+              
+    </template>
+      </tabcontrol> 
+
+      </vbox>
+</window>

@@ -11,8 +11,6 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     onload="peupleValeurs();">
     <script src="prototype-1.4.0.js"></script>
-    <!--<script src="goldorank.js"></script>-->
-    <script src="listeMoteurs.js"></script>
     <script src="searchEngine.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         GOLDoRANK<html:br/></html:html>
@@ -29,10 +27,10 @@
     
     <vbox flex="1">
     <tabbox datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
-   <tabs>
-     <tab uri="rdf:*" value="rdf:*" label="rdf:urn:goldorank:rdf#langue"/>
+   <tabs><template>
+     <tab uri="rdf:*" value="rdf:*" label="rdf:urn:goldorank:rdf#langue"/></template>
    </tabs>
-   <tabpanels>
+   <tabpanels><template>
      <tabpanel uri="rdf:*" value="rdf:*">
         <richlistbox flex="1" style="-moz-user-focus:ignore !important;">
       <listhead>
@@ -62,7 +60,7 @@
     </richlistitem>     
     </template>
     </richlistbox>
-     </tabpanel>
+     </tabpanel></template>
      
      
      <tabpanel id="us">

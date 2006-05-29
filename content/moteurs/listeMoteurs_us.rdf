@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:goldorank="urn:goldorank:rdf#">
-	<RDF:Seq about="urn:goldorank:moteurs_us">
+    <RDF:Description about="urn:goldorank:moteurs_us">
                 <goldorank:langue>US</goldorank:langue>
             <goldorank:logo_langue>chrome://goldorank/content/moteurs/us.gif</goldorank:logo_langue>
+        </RDF:Description>
+	<RDF:Seq about="urn:goldorank:moteurs_us">
                <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:google">
 				<goldorank:nom>Google</goldorank:nom>
