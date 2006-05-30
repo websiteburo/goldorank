@@ -24,46 +24,54 @@ function peupleValeurs(){
     var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
     var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
     var rdf_langue = rdfService.GetResource('urn:goldorank:rdf#langue');
+    var rdf_logo_langue = rdfService.GetResource('urn:goldorank:rdf#logo_langue');
     var rdf_nom = rdfService.GetResource('urn:goldorank:rdf#nom');
     var rdf_logo = rdfService.GetResource('urn:goldorank:rdf#logo');
     var container = Components.classes["@mozilla.org/rdf/container;1"].createInstance(Components.interfaces.nsIRDFContainer);
     container.Init(ds_moteurs, rdf_moteurs);
     var moteurs_langues = container.GetElements();
     while (moteurs_langues.hasMoreElements()){
+      untab = document.createElement('tab');
       var langue = moteurs_langues.getNext();
       if (langue instanceof Components.interfaces.nsIRDFResource){
         var strLangue = ds_moteurs.GetTarget(langue, rdf_langue, true);
         if (strLangue instanceof Components.interfaces.nsIRDFLiteral){
           strLangue = strLangue.Value;
-          untab = document.createElement('tab');
           untab.setAttribute('label', strLangue);
-          nodeTabs.appendChild(untab);
-          untab.selected = 'true';
-          
-          untabpanel = nodeTabPanel.cloneNode(true);
-          untabpanel.setAttribute('style', 'display:block;');
-          container.Init(ds_moteurs, langue);
-          lesmoteurs = container.GetElements();
-          while (lesmoteurs.hasMoreElements()){
-            desc_moteur = lesmoteurs.getNext();
-            if (desc_moteur instanceof Components.interfaces.nsIRDFResource){
-                strNom = ds_moteurs.GetTarget(desc_moteur, rdf_nom, true);
-                if (strNom instanceof Components.interfaces.nsIRDFLiteral){
-                  strNom = strNom.Value;
-                }
-                strLogo = ds_moteurs.GetTarget(desc_moteur, rdf_logo, true);
-                if (strLogo instanceof Components.interfaces.nsIRDFLiteral){
-                  strLogo = strLogo.Value;
-                }
-            }
-            unrichlistitem = nodeRichListItem.cloneNode(true);
-            unrichlistitem.setAttribute('style', 'display:block;');
-            unrichlistitem.firstChild.nextSibling.firstChild.setAttribute('src', strLogo);
-            unrichlistitem.firstChild.nextSibling.firstChild.nextSibling.setAttribute('value', strNom);
-            untabpanel.appendChild(unrichlistitem);
-          }
-          nodeTabPanels.appendChild(untabpanel);
         }
+        var strLogolangue = ds_moteurs.GetTarget(langue, rdf_logo_langue, true);
+        if (strLogolangue instanceof Components.interfaces.nsIRDFLiteral){
+          strLogolangue = strLogolangue.Value;
+          unlogo = document.createElement('img');
+          unlogo.setAttribute('src', strLogolangue);
+          //untab.appendChild(unlogo);
+        }
+        nodeTabs.appendChild(untab);
+        
+        untabpanel = nodeTabPanel.cloneNode(true);
+        untabpanel.setAttribute('style', 'display:block;');
+        container.Init(ds_moteurs, langue);
+        lesmoteurs = container.GetElements();
+        while (lesmoteurs.hasMoreElements()){
+        desc_moteur = lesmoteurs.getNext();
+        if (desc_moteur instanceof Components.interfaces.nsIRDFResource){
+            strNom = ds_moteurs.GetTarget(desc_moteur, rdf_nom, true);
+            if (strNom instanceof Components.interfaces.nsIRDFLiteral){
+              strNom = strNom.Value;
+            }
+            strLogo = ds_moteurs.GetTarget(desc_moteur, rdf_logo, true);
+            if (strLogo instanceof Components.interfaces.nsIRDFLiteral){
+              strLogo = strLogo.Value;
+            }
+        }
+        unrichlistitem = nodeRichListItem.cloneNode(true);
+        unrichlistitem.setAttribute('style', 'display:block;');
+        unrichlistitem.firstChild.nextSibling.firstChild.setAttribute('src', strLogo);
+        unrichlistitem.firstChild.nextSibling.firstChild.nextSibling.setAttribute('value', strNom);
+        untabpanel.appendChild(unrichlistitem);
+        }
+        nodeTabPanels.appendChild(untabpanel);
+        nodeTabs.firstChild.selected='true';
       }
     }
 }
