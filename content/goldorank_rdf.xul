@@ -35,16 +35,18 @@ function peupleValeurs(){
       var langue = moteurs_langues.getNext();
       if (langue instanceof Components.interfaces.nsIRDFResource){
         var strLangue = ds_moteurs.GetTarget(langue, rdf_langue, true);
-        if (strLangue instanceof Components.interfaces.nsIRDFLiteral){
-          strLangue = strLangue.Value;
-          untab.setAttribute('label', strLangue);
-        }
         var strLogolangue = ds_moteurs.GetTarget(langue, rdf_logo_langue, true);
         if (strLogolangue instanceof Components.interfaces.nsIRDFLiteral){
           strLogolangue = strLogolangue.Value;
-          unlogo = document.createElement('img');
+          unlogo = document.createElement('image');
           unlogo.setAttribute('src', strLogolangue);
-          //untab.appendChild(unlogo);
+          untab.appendChild(unlogo);
+        }
+        if (strLangue instanceof Components.interfaces.nsIRDFLiteral){
+          strLangue = strLangue.Value;
+          unlabel = document.createElement('label');
+          unlabel.setAttribute('value', strLangue);
+          untab.appendChild(unlabel);
         }
         nodeTabs.appendChild(untab);
         
