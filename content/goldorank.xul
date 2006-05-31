@@ -9,93 +9,36 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
+    title="Goldorank"
     onload="peupleValeurs();">
     <script src="prototype-1.4.0.js"></script>
     <script src="searchEngine.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
-        GOLDoRANK<html:br/></html:html>
+        Goldorank<html:br/></html:html>
+        
     <!-- formulaire -->
-    <label control="motscles" value="&goldorank.goldorank.keywords;" style="width:50px" crop="start"/>
-   <textbox id="motscles" />
-    <label control="page" value="&goldorank.goldorank.page;" style="width:50px" crop="start"/>
-   <textbox id="page" />  
-    <label control="maxRank" value="&goldorank.goldorank.max;" style="width:50px" crop="start"/>
-   <textbox id="maxRank" value="100" />  
-      
-    <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
-
-    <!--
-    <vbox flex="1">
-    <tabbox datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
-   <tabs><template>
-     <tab uri="rdf:*" value="rdf:*" label="rdf:urn:goldorank:rdf#langue"/></template>
-   </tabs>
-   <tabpanels><template>
-     <tabpanel uri="rdf:*" value="rdf:*">
-        <richlistbox flex="1" style="-moz-user-focus:ignore !important;">
-      <listhead>
-      <listheader label=" " width="25" />
-        <listheader label="&goldorank.goldorank.engine;" width="165" />
-        <listheader label="&goldorank.goldorank.progress;" width="135" />
-        <listheader label="&goldorank.goldorank.rank;" width="70px" />
-        <listheader label="&goldorank.goldorank.page;" width="50px" />
-        <listheader label="&goldorank.goldorank.results;" flex="1" />
-      </listhead>
-    <listcols>
-        <listcol width="7" />
-        <listcol width="160" />
-        <listcol width="130" />
-        <listcol width="55px" />
-        <listcol width="43px" />
-        <listcol flex="1" />
-    </listcols>
-    <template>
-    <richlistitem uri="rdf:*" value="rdf:*" >
-        <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
-        <listcell width="160"><image src="rdf:urn:goldorank:rdf#logo" /><label value="rdf:urn:goldorank:rdf#nom" /></listcell>
-        <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
-        <listcell><label id="rankCell" width="55px" /></listcell> 
-        <listcell><label id="pageCell" width="43px" /></listcell> 
-        <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
-    </richlistitem>     
-    </template>
-    </richlistbox>
-     </tabpanel></template>
-     
-     
-     <tabpanel id="us">
-        <richlistbox id="resultClassement" flex="1" style="-moz-user-focus:ignore !important;" datasources="moteurs/listeMoteurs_us.rdf" ref="urn:goldorank:moteurs">
-      <listhead>
-      <listheader label=" " width="25" />
-        <listheader label="&goldorank.goldorank.engine;" width="165" />
-        <listheader label="&goldorank.goldorank.progress;" width="135" />
-        <listheader label="&goldorank.goldorank.rank;" width="70px" />
-        <listheader label="&goldorank.goldorank.page;" width="50px" />
-        <listheader label="&goldorank.goldorank.results;" flex="1" />
-      </listhead>
-    <listcols>
-        <listcol width="7" />
-        <listcol width="160" />
-        <listcol width="130" />
-        <listcol width="55px" />
-        <listcol width="43px" />
-        <listcol flex="1" />
-    </listcols>
-    <template>
-    <richlistitem uri="rdf:*" value="rdf:*" >
-        <listcell><checkbox id="checkedCell" checked="false" width="7" /></listcell> 
-        <listcell width="160"><image src="rdf:urn:goldorank:rdf#logo" /><label value="rdf:urn:goldorank:rdf#nom" /></listcell>
-        <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
-        <listcell><label id="rankCell" width="55px" /></listcell> 
-        <listcell><label id="pageCell" width="43px" /></listcell> 
-        <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup id="resultsCell"></menupopup></menulist></listcell>
-    </richlistitem>     
-    </template>
-    </richlistbox>
-     </tabpanel>
-   </tabpanels>
-</tabbox> 
-      </vbox>-->
+    <hbox>
+        <vbox>
+            <hbox style="-moz-box-align:baseline;">
+                <label control="motscles" value="&goldorank.goldorank.keywords; :" style="width:150px" crop="start"/>
+                <textbox id="motscles"  style="width:350px" />
+            </hbox>
+            <hbox>
+                <label control="page" value="&goldorank.goldorank.page; :" style="width:150px;" crop="start"/>
+                <textbox id="page"  style="width:350px;" /> 
+            </hbox>
+            <hbox>
+                <label control="maxRank" value="&goldorank.goldorank.max; :" style="width:150px" crop="start"/>
+                <textbox id="maxRank" value="100"  style="width:350px" />
+            </hbox>
+            <hbox style="-moz-box-pack:center;" flex='1'>
+                <vbox style="-moz-box-pack:center;">
+                        <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" style="height:30px;margin:10px;" />
+                </vbox>
+            </hbox>
+        </vbox>
+    </hbox>
+            
       
 <vbox flex="1">
     <tabcontrol>
