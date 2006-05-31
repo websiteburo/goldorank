@@ -10,9 +10,20 @@ var currentNodeEngine;
 var searchText;
 var pageRecherchee;
 var maxRank;
+var nodeTabPanel;
+var nodeRichListItem;
+var nodeTabs;
+var nodeTabPanels;
+var comptePanels=0;
 
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
+var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
+var rdf_langue = rdfService.GetResource('urn:goldorank:rdf#langue');
+var rdf_logo_langue = rdfService.GetResource('urn:goldorank:rdf#logo_langue');
+var rdf_nom = rdfService.GetResource('urn:goldorank:rdf#nom');
+var rdf_logo = rdfService.GetResource('urn:goldorank:rdf#logo');
+var container = Components.classes["@mozilla.org/rdf/container;1"].createInstance(Components.interfaces.nsIRDFContainer);
 
 RegExp.escape = function(text) {
   if (!arguments.callee.sRE) {
@@ -30,6 +41,64 @@ RegExp.escape = function(text) {
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
+    
+    nodeTabPanel = document.getElementById("tabpanel_modele");
+    nodeRichListItem = document.getElementById("richlistitem_modele");
+    nodeTabs = document.getElementById('lestabs');
+    nodeTabPanels = document.getElementById('lestabpanels');
+    
+    // Construction des tabs et des moteurs à partir du fichier rdf
+    container.Init(ds_moteurs, rdf_moteurs);
+    var moteurs_langues = container.GetElements();
+    while (moteurs_langues.hasMoreElements()){
+      untab = document.createElement('tab');
+      var langue = moteurs_langues.getNext();
+      if (langue instanceof Components.interfaces.nsIRDFResource){
+        var strLangue = ds_moteurs.GetTarget(langue, rdf_langue, true);
+        var strLogolangue = ds_moteurs.GetTarget(langue, rdf_logo_langue, true);
+        if (strLogolangue instanceof Components.interfaces.nsIRDFLiteral){
+          strLogolangue = strLogolangue.Value;
+          unlogo = document.createElement('image');
+          unlogo.setAttribute('src', strLogolangue);
+          untab.appendChild(unlogo);
+        }
+        if (strLangue instanceof Components.interfaces.nsIRDFLiteral){
+          strLangue = strLangue.Value;
+          unlabel = document.createElement('label');
+          unlabel.setAttribute('value', strLangue);
+          untab.appendChild(unlabel);
+          
+        }
+        nodeTabs.appendChild(untab);
+        
+        untabpanel = nodeTabPanel.cloneNode(true);
+        untabpanel.firstChild.firstChild.firstChild.setAttribute('label', comptePanels);
+        comptePanels = comptePanels + 1;
+        container.Init(ds_moteurs, langue);
+        lesmoteurs = container.GetElements();
+        while (lesmoteurs.hasMoreElements()){
+            desc_moteur = lesmoteurs.getNext();
+            if (desc_moteur instanceof Components.interfaces.nsIRDFResource){
+                strNom = ds_moteurs.GetTarget(desc_moteur, rdf_nom, true);
+                if (strNom instanceof Components.interfaces.nsIRDFLiteral){
+                  strNom = strNom.Value;
+                }
+                strLogo = ds_moteurs.GetTarget(desc_moteur, rdf_logo, true);
+                if (strLogo instanceof Components.interfaces.nsIRDFLiteral){
+                  strLogo = strLogo.Value;
+                }
+            }
+            unrichlistitem = nodeRichListItem.cloneNode(true);
+            unrichlistitem.setAttribute('style', 'display:block;');
+            unrichlistitem.firstChild.nextSibling.firstChild.setAttribute('src', strLogo);
+            unrichlistitem.firstChild.nextSibling.firstChild.nextSibling.setAttribute('value', strNom);
+            untabpanel.firstChild.appendChild(unrichlistitem);
+        }
+        nodeTabPanels.appendChild(untabpanel);
+        untabpanel.setAttribute('style', 'display:block;');
+        nodeTabs.firstChild.selected='true';
+      }
+    }
 }
 
 function wget(url){
@@ -290,7 +359,8 @@ function rechercherS(){
     regexPageCherchee = new RegExp('(http://)?'+RegExp.escape(pageCherchee)+'/?');
     maxRank = document.getElementById('maxRank').value;
     
-    nodeEngine = document.getElementById('resultClassement').childNodes[3];
+    //nodeEngine = document.getElementById('resultClassement').childNodes[3];
+    nodeEngine = nodeTabPanels.childNodes[nodeTabPanels.selectedIndex].firstChild.childNodes[3];
     //On réinitialise l'affichage
     var moteur = nodeEngine;
     while (moteur){

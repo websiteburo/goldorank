@@ -24,7 +24,7 @@
       
     <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" />
 
-    
+    <!--
     <vbox flex="1">
     <tabbox datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
    <tabs><template>
@@ -95,6 +95,46 @@
      </tabpanel>
    </tabpanels>
 </tabbox> 
-      </vbox>
-      <vbox id="debugzone"></vbox>
+      </vbox>-->
+      
+      <vbox flex="1">
+    <tabcontrol>
+        <tabbox> 
+            <tabs id="lestabs"></tabs>
+            <tabpanels id="lestabpanels"></tabpanels>
+        </tabbox> 
+    </tabcontrol> 
+</vbox>
+
+<!-- Modeles utilisés par cloneNode() -->
+<tabpanel id="tabpanel_modele" style="display:none;">
+  <richlistbox>
+        <listhead>
+            <listheader label=" " width="25" />
+            <listheader label="&goldorank.goldorank.engine;" width="165" />
+            <listheader label="&goldorank.goldorank.progress;" width="135" />
+            <listheader label="&goldorank.goldorank.rank;" width="70px" />
+            <listheader label="&goldorank.goldorank.page;" width="50px" />
+            <listheader label="&goldorank.goldorank.results;" flex="1" />
+          </listhead>
+        <listcols>
+            <listcol width="7" />
+            <listcol width="160" />
+            <listcol width="130" />
+            <listcol width="55px" />
+            <listcol width="43px" />
+            <listcol flex="1" />
+        </listcols>        
+    </richlistbox>
+</tabpanel>
+        
+<richlistitem id="richlistitem_modele" style="display:none;" >
+    <listcell><checkbox checked="false" width="7" /></listcell> 
+    <listcell width="160"><image /><label /></listcell>
+    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+    <listcell><label width="55px" /></listcell> 
+    <listcell><label width="43px" /></listcell> 
+    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
+</richlistitem>   
+
 </window>
