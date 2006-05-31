@@ -14,7 +14,6 @@ var nodeTabPanel;
 var nodeRichListItem;
 var nodeTabs;
 var nodeTabPanels;
-var comptePanels=0;
 
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
@@ -72,8 +71,7 @@ function peupleValeurs(){
         nodeTabs.appendChild(untab);
         
         untabpanel = nodeTabPanel.cloneNode(true);
-        untabpanel.firstChild.firstChild.firstChild.setAttribute('label', comptePanels);
-        comptePanels = comptePanels + 1;
+        //untabpanel = getNodeTabpanel();
         container.Init(ds_moteurs, langue);
         lesmoteurs = container.GetElements();
         while (lesmoteurs.hasMoreElements()){
@@ -89,16 +87,18 @@ function peupleValeurs(){
                 }
             }
             unrichlistitem = nodeRichListItem.cloneNode(true);
-            unrichlistitem.setAttribute('style', 'display:block;');
+            unrichlistitem.setAttribute('name', strNom);
+            unrichlistitem.setAttribute('id', desc_moteur.Value);
             unrichlistitem.firstChild.nextSibling.firstChild.setAttribute('src', strLogo);
             unrichlistitem.firstChild.nextSibling.firstChild.nextSibling.setAttribute('value', strNom);
             untabpanel.firstChild.appendChild(unrichlistitem);
         }
         nodeTabPanels.appendChild(untabpanel);
-        untabpanel.setAttribute('style', 'display:block;');
-        nodeTabs.firstChild.selected='true';
       }
     }
+    nodeTabs.firstChild.selected='true';
+    nodeTabPanel.setAttribute('style', 'display:none;');
+    nodeRichListItem.setAttribute('style', 'display:none;');
 }
 
 function wget(url){
@@ -281,14 +281,18 @@ function engineRecherche(searchText){
 function engineGetProp(prop){
     var rdf_prop = rdfService.GetResource('urn:goldorank:rdf#'+prop);
     var txtProp = ds_moteurs.GetTarget(rdfService.GetResource(nodeEngine.id), rdf_prop, true);
-    if (txtProp) txtProp = txtProp.QueryInterface(Components.interfaces.nsIRDFLiteral);
-    if (txtProp) valeur = txtProp.Value;
+    if (txtProp) {
+        txtProp = txtProp.QueryInterface(Components.interfaces.nsIRDFLiteral);
+        if (txtProp) {
+            valeur = txtProp.Value;
+        }
+    }
     return valeur;
 }
 
 //Constructeur
 function SearchEngine(nodeEngine){
-    this.nomEngine = nodeEngine.uri;
+    this.nomEngine = nodeEngine.name;
     
    //Initialisation du contexte d'un moteur
     this.engineInitialized = 0;
@@ -360,7 +364,7 @@ function rechercherS(){
     maxRank = document.getElementById('maxRank').value;
     
     //nodeEngine = document.getElementById('resultClassement').childNodes[3];
-    nodeEngine = nodeTabPanels.childNodes[nodeTabPanels.selectedIndex].firstChild.childNodes[3];
+    nodeEngine = nodeTabPanels.childNodes[nodeTabs.selectedIndex].firstChild.childNodes[2];
     //On réinitialise l'affichage
     var moteur = nodeEngine;
     while (moteur){
@@ -393,6 +397,81 @@ function rechercherS(){
         }
         else nextEngine();
     }    
+}
+
+function getNodeTabpanel() {
+/* renvoie la structure suivante :
+<tabpanel>
+  <richlistbox>
+        <listhead>
+            <listheader label=" " width="25" />
+            <listheader label="&goldorank.goldorank.engine;" width="165" />
+            <listheader label="&goldorank.goldorank.progress;" width="135" />
+            <listheader label="&goldorank.goldorank.rank;" width="70px" />
+            <listheader label="&goldorank.goldorank.page;" width="50px" />
+            <listheader label="&goldorank.goldorank.results;" flex="1" />
+          </listhead>
+        <listcols>
+            <listcol width="7" />
+            <listcol width="160" />
+            <listcol width="130" />
+            <listcol width="55px" />
+            <listcol width="43px" />
+            <listcol flex="1" />
+        </listcols>        
+    </richlistbox>
+</tabpanel>
+*/
+    nodeListheader = document.createElement('listheader');
+    nodeListheader2 = nodeListheader.cloneNode(false);
+    nodeListheader3 = nodeListheader.cloneNode(false);
+    nodeListheader4 = nodeListheader.cloneNode(false);
+    nodeListheader5 = nodeListheader.cloneNode(false);
+    nodeListheader6 = nodeListheader.cloneNode(false);
+    nodeListheader.setAttribute('label', ' ');
+    nodeListheader.setAttribute('width', '25');
+    nodeListheader2.setAttribute('label', '&goldorank.goldorank.engine;');
+    nodeListheader2.setAttribute('width', '165');
+    nodeListheader3.setAttribute('label', '&goldorank.goldorank.progress;');
+    nodeListheader3.setAttribute('width', '135');
+    nodeListheader4.setAttribute('label', '&goldorank.goldorank.rank;');
+    nodeListheader4.setAttribute('width', '70px');
+    nodeListheader5.setAttribute('label', '&goldorank.goldorank.page;');
+    nodeListheader5.setAttribute('width', '50px');
+    nodeListheader6.setAttribute('label', '&goldorank.goldorank.results;');
+    nodeListheader6.setAttribute('flex', '1');
+    nodeListhead = document.createElement('listhead');
+    nodeListhead.appendChild(nodeListheader);
+    nodeListhead.appendChild(nodeListheader2);
+    nodeListhead.appendChild(nodeListheader3);
+    nodeListhead.appendChild(nodeListheader4);
+    nodeListhead.appendChild(nodeListheader5);
+    nodeListhead.appendChild(nodeListheader6);
+    nodeListcol = document.createElement("listcol");
+    nodeListcol2 = nodeListcol.cloneNode(false);
+    nodeListcol3 = nodeListcol.cloneNode(false);
+    nodeListcol4 = nodeListcol.cloneNode(false);
+    nodeListcol5 = nodeListcol.cloneNode(false);
+    nodeListcol6 = nodeListcol.cloneNode(false);
+    nodeListcol.setAttribute("width", "7");
+    nodeListcol2.setAttribute("width", "160");
+    nodeListcol3.setAttribute("width", "130");
+    nodeListcol4.setAttribute("width", "55px");
+    nodeListcol5.setAttribute("width", "43px");
+    nodeListcol6.setAttribute("flex", "1");
+    nodeListcols = document.createElement("listcols");
+    nodeListcols.appendChild(nodeListcol);
+    nodeListcols.appendChild(nodeListcol2);
+    nodeListcols.appendChild(nodeListcol3);
+    nodeListcols.appendChild(nodeListcol4);
+    nodeListcols.appendChild(nodeListcol5);
+    nodeListcols.appendChild(nodeListcol6);
+    nodeRichlistbox = document.createElement('richlistbox');
+    nodeRichlistbox.appendChild(nodeListhead);
+    nodeRichlistbox.appendChild(nodeListcols);
+    node = document.createElement("tabpanel");
+    node.appendChild(nodeRichlistbox);
+    return node;
 }
 
 function ouvreUrl(url){

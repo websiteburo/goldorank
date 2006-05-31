@@ -97,7 +97,7 @@
 </tabbox> 
       </vbox>-->
       
-      <vbox flex="1">
+<vbox flex="1">
     <tabcontrol>
         <tabbox> 
             <tabs id="lestabs"></tabs>
@@ -107,7 +107,7 @@
 </vbox>
 
 <!-- Modeles utilisés par cloneNode() -->
-<tabpanel id="tabpanel_modele" style="display:none;">
+<tabpanel id="tabpanel_modele">
   <richlistbox>
         <listhead>
             <listheader label=" " width="25" />
@@ -127,8 +127,8 @@
         </listcols>        
     </richlistbox>
 </tabpanel>
-        
-<richlistitem id="richlistitem_modele" style="display:none;" >
+
+<richlistitem id="richlistitem_modele">
     <listcell><checkbox checked="false" width="7" /></listcell> 
     <listcell width="160"><image /><label /></listcell>
     <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
@@ -136,5 +136,6 @@
     <listcell><label width="43px" /></listcell> 
     <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
 </richlistitem>   
+<!-- FIN modèles -->
 
 </window>
