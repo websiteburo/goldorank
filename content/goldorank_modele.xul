@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="goldorank.css"?>
+<!DOCTYPE window SYSTEM "chrome://goldorank/locale/entities.dtd">
+<window
+    id="goldorank_app"
+    class="dialog"
+    orient="vertical"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    title="Goldorank"
+    >
+<vbox class="body" align="left">
+        
+        <image src="charte/images_window/goldorank_header.gif" style="width: 805px; height: 39px;" />
+        
+    <!-- formulaire -->
+    <hbox>
+        <vbox>
+            <hbox style="-moz-box-align:baseline;">
+                <label control="motscles" value="&goldorank.goldorank.keywords; :" class="form_label" crop="start"/>
+                <textbox id="motscles" class="form_input" />
+            </hbox>
+            <hbox>
+                <label control="page" value="&goldorank.goldorank.page; :" class="form_label" crop="start"/>
+                <textbox id="page" class="form_input" /> 
+            </hbox>
+            <hbox>
+                <label control="maxRank" value="&goldorank.goldorank.max; :" class="form_label" crop="start"/>
+                <textbox id="maxRank" value="100" class="form_input" />
+            </hbox>
+            <hbox style="-moz-box-pack:center;" flex='1'>
+                <vbox style="-moz-box-pack:center;">
+                        <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" class="button" />
+                </vbox>
+            </hbox>
+        </vbox>
+    </hbox>
+            
+      
+<vbox flex="1">
+    <tabcontrol>
+        <tabbox> 
+            <tabs id="lestabs">
+            <label value="Categories" class="resultats_text" /><tab label="FR" /><tab label="US" />
+            </tabs>
+            <tabpanels id="lestabpanels" class="tableborder">
+            <tabpanel >
+  <richlistbox>
+        <listhead>
+            <listheader label=" " width="25" class="header_results" />
+            <listheader label="&goldorank.goldorank.engine;" width="165" class="header_results" />
+            <listheader label="&goldorank.goldorank.progress;" width="135" class="header_results" />
+            <listheader label="&goldorank.goldorank.rank;" width="70px" class="header_results" />
+            <listheader label="&goldorank.goldorank.page;" width="50px" class="header_results" />
+            <listheader label="&goldorank.goldorank.results;" flex="1" class="header_results" />
+          </listhead>
+        <listcols>
+            <listcol width="7" />
+            <listcol width="160" />
+            <listcol width="130" />
+            <listcol width="55px" />
+            <listcol width="43px" />
+            <listcol flex="1" />
+        </listcols>       
+<richlistitem >
+    <listcell><checkbox checked="false" width="7" /></listcell> 
+    <listcell width="160"><image /><label value="Google FR" class="resultats_text"/></listcell>
+    <listcell><progressmeter mode="determined" value="50" width="130" /></listcell>
+    <listcell><label width="55px" /></listcell> 
+    <listcell><label width="43px" /></listcell> 
+    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
+</richlistitem>  
+<richlistitem >
+    <listcell><checkbox checked="false" width="7" /></listcell> 
+    <listcell width="160"><image /><label value="Yahoo FR" class="resultats_text" /></listcell>
+    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+    <listcell><label width="55px" class="resultats_text" /></listcell> 
+    <listcell><label width="43px" class="resultats_text" /></listcell> 
+    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);"><menupopup label="kkk"><menuitem label="qdfqsdfqdsf" /><menuitem label="qdfqsdfqdsf" value="toto" /></menupopup></menulist></listcell>
+</richlistitem>  
+    </richlistbox>
+</tabpanel>
+<tabpanel >
+  <richlistbox>
+        <listhead>
+            <listheader label=" " width="25" class="header_results" />
+            <listheader label="&goldorank.goldorank.engine;" width="165" class="header_results" />
+            <listheader label="&goldorank.goldorank.progress;" width="135" class="header_results" />
+            <listheader label="&goldorank.goldorank.rank;" width="70px" class="header_results" />
+            <listheader label="&goldorank.goldorank.page;" width="50px" class="header_results" />
+            <listheader label="&goldorank.goldorank.results;" flex="1" class="header_results" />
+          </listhead>
+        <listcols>
+            <listcol width="7" />
+            <listcol width="160" />
+            <listcol width="130" />
+            <listcol width="55px" />
+            <listcol width="43px" />
+            <listcol flex="1" />
+        </listcols>       
+<richlistitem >
+    <listcell><checkbox checked="false" width="7" /></listcell> 
+    <listcell width="160"><image /><label /></listcell>
+    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+    <listcell><label width="55px" /></listcell> 
+    <listcell><label width="43px" /></listcell> 
+    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
+</richlistitem>  
+<richlistitem >
+    <listcell><checkbox checked="false" width="7" /></listcell> 
+    <listcell width="160"><image /><label /></listcell>
+    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
+    <listcell><label width="55px" /></listcell> 
+    <listcell><label width="43px" /></listcell> 
+    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
+</richlistitem>  
+    </richlistbox>
+</tabpanel>
+            </tabpanels>
+        </tabbox> 
+    </tabcontrol> 
+</vbox>
+
+</vbox>
+
+</window>
