@@ -23,7 +23,7 @@
 	background-color: #F6F6F4;
 }
 
-button, textbox, tabpanels, tabpanel, tab, richlistbox, listhead, listheader {
+button, textbox, tabpanels, tabpanel, tab, richlistbox, listhead, listheader, progressmeter {
     -moz-appearance:none;
 }
 

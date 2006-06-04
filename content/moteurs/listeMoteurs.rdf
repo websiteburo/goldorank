@@ -2,7 +2,8 @@
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:goldorank="urn:goldorank:rdf#">
 	<RDF:Seq about="urn:goldorank:moteurs">
                 <RDF:li RDF:resource="urn:goldorank:moteurs_fr" />
-		<RDF:li RDF:resource="urn:goldorank:moteurs_us" />
+		<RDF:li RDF:resource="urn:goldorank:moteurs_en" />
+        <RDF:li RDF:resource="urn:goldorank:moteurs_blogs" />
         </RDF:Seq>
         
         <RDF:Description about="urn:goldorank:moteurs_fr">
@@ -195,11 +196,11 @@
 		</RDF:li>
 	</RDF:Seq>
 
-    <RDF:Description about="urn:goldorank:moteurs_us">
-                <goldorank:langue>US</goldorank:langue>
-            <goldorank:logo_langue>chrome://goldorank/content/moteurs/us.gif</goldorank:logo_langue>
+    <RDF:Description about="urn:goldorank:moteurs_en">
+                <goldorank:langue>EN</goldorank:langue>
+            <goldorank:logo_langue>chrome://goldorank/content/moteurs/en.gif</goldorank:logo_langue>
         </RDF:Description>
-	<RDF:Seq about="urn:goldorank:moteurs_us">
+	<RDF:Seq about="urn:goldorank:moteurs_en">
                <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:google">
 				<goldorank:nom>Google</goldorank:nom>
@@ -303,7 +304,14 @@
                                 <goldorank:resultItemEnd><![CDATA[<!--IE-->]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
-                <RDF:li>
+	</RDF:Seq>
+
+    <RDF:Description about="urn:goldorank:moteurs_blogs">
+                <goldorank:langue>Blogs</goldorank:langue>
+                <goldorank:logo_langue>chrome://goldorank/content/moteurs/blogs.jpg</goldorank:logo_langue>
+        </RDF:Description>
+	<RDF:Seq about="urn:goldorank:moteurs_blogs">
+               <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:technorati">
 				<goldorank:nom>Technorati</goldorank:nom>
                                 <goldorank:description>Technorati</goldorank:description>
@@ -321,6 +329,26 @@
                                 <goldorank:resultListEnd><![CDATA[<div id="pages"]]></goldorank:resultListEnd>
                                 <goldorank:resultItemStart><![CDATA[<h3>]]></goldorank:resultItemStart>
                                 <goldorank:resultItemEnd><![CDATA[</h3>]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:ask_blogs">
+				<goldorank:nom>Ask blogs</goldorank:nom>
+                                <goldorank:description>Ask blogs</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_ask.gif</goldorank:logo>
+                
+                                <goldorank:serveur>www.ask.com</goldorank:serveur>
+                                <goldorank:url>/blogsearch?q=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;page=</goldorank:strDebutPage>
+                                <goldorank:parPage>true</goldorank:parPage>
+                                <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[class="L14">Next]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>page</goldorank:strNumPage>
+                                <goldorank:resultListStart><![CDATA[</script>]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[<form name="fb"]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<a class="L4" href="]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[</a>]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
 	</RDF:Seq>
