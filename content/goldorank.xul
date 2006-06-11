@@ -16,10 +16,10 @@
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         Goldorank<html:br/></html:html>
         
-        <image src="chrome://goldorank/content/charte/images_window/goldorank_header.gif" width="805" height="39" />
+       <!-- <image src="chrome://goldorank/content/charte/images_window/goldorank_header.gif" width="805" height="39" />-->
         
     <!-- formulaire -->
-    <hbox>
+    <hbox id="formulaire">
         <vbox>
             <hbox style="-moz-box-align:baseline;">
                 <label control="motscles" value="&goldorank.goldorank.keywords; :" style="width:150px" crop="start"/>
@@ -33,16 +33,17 @@
                 <label control="maxRank" value="&goldorank.goldorank.max; :" style="width:150px" crop="start"/>
                 <textbox id="maxRank" value="100"  style="width:350px" class="form" />
             </hbox>
-            <hbox style="-moz-box-pack:center;" flex='1'>
+            
+        </vbox>
+        <hbox style="-moz-box-pack:center;" flex='1'>
                 <vbox style="-moz-box-pack:center;">
                         <button id="valider" label="&goldorank.goldorank.search;" oncommand="rechercherS();" style="height:30px;margin:10px;" class="button" />
                 </vbox>
             </hbox>
-        </vbox>
     </hbox>
             
       
-<vbox flex="1">
+<vbox id="resultats" flex="1">
     <tabcontrol>
         <tabbox> 
             <tabs id="lestabs"></tabs>
