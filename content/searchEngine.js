@@ -184,10 +184,9 @@ function fulguropoing(){
             }
             nodeItem.setAttribute('label', urltxt);
             nodeItem.setAttribute('value', urlres);
-            //alert(numres+nodeItem.label);
             resultsCell.appendChild(nodeItem);
         }
-        resultsCell.parentNode.style.display = "block";
+        resultsCell.parentNode.setAttribute('style', 'display:block;');
         //On lance le  moteur suivant
         setTimeout("nextEngine()", 1);
     }
@@ -247,7 +246,6 @@ function engineGetResultats(strPage){
         if (urlMsn){
             urltrouvee = String(urlMsn).substr(1);
         }
-        
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
         //Avancement de la barre de progression
@@ -379,7 +377,7 @@ function rechercherS(){
         while (resultsCell.firstChild){
             resultsCell.removeChild(resultsCell.firstChild);
         }
-        resultsCell.parentNode.style.display = "none";
+        resultsCell.parentNode.setAttribute('style', 'display:none;');
         //Bouton stop
         if (resultsCell.parentNode.parentNode.length == 2){
             resultsCell.parentNode.parentNode.removeChild(nodeButton);

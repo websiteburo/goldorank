@@ -65,7 +65,8 @@
                                 <goldorank:resultListStart><![CDATA[Results</h2>]]></goldorank:resultListStart>
                                 <goldorank:resultListEnd><![CDATA[ </ul></li> </ul></div>]]></goldorank:resultListEnd>
                                 <goldorank:resultItemStart><![CDATA[<h3>]]></goldorank:resultItemStart>
-                                <goldorank:resultItemEnd><![CDATA[&amp;&amp;]]></goldorank:resultItemEnd>
+                                <!--<goldorank:resultItemEnd><![CDATA[&amp;&amp;]]></goldorank:resultItemEnd>-->
+                                <goldorank:resultItemEnd><![CDATA[</h3>]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
                 <RDF:li>
