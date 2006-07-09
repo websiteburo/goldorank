@@ -8,8 +8,8 @@ authorURL = "http://www.websiteburo.com"
 uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
 
 major_version = 0
-minor_version = 5
-build_version = 4
+minor_version = 6
+build_version = 0
 in_development = False
 
 version = "%d.%d.%d%s" % (
