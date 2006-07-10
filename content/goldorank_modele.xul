@@ -67,7 +67,7 @@
 <richlistitem  flex="1">
     <listcell><checkbox checked="false" width="7" /></listcell> 
     <listcell width="160"><image /><label value="Google FR" class="resultats_text"/></listcell>
-    <listcell><progressmeter mode="determined" value="50" width="130" /></listcell>
+    <listcell><progressmeter mode="determined" value="50" width="130" class="progress" /></listcell>
     <listcell><label width="55px" /></listcell> 
     <listcell><label width="43px" /></listcell> 
     <listcell flex="1" ><menulist flex="1" oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
