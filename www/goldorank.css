@@ -1,0 +1,252 @@
+H1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 1.6em;
+    PADDING-BOTTOM: 0px;
+    COLOR: #505050;
+    BORDER-BOTTOM: #505050 1px dotted;
+    FONT-FAMILY: arial,sans-serif;
+    LETTER-SPACING: 4px;
+    HEIGHT: 1em
+}
+H2
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 1.1em;
+    PADDING-BOTTOM: 1px;
+    MARGIN: 20px 0px;
+    COLOR: #ffffff;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: #2A3753 1px solid;
+    FONT-FAMILY: arial,sans-serif;
+    BACKGROUND-COLOR: #25479D
+}
+H3
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 1em;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 30px 0px 10px;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: #999999 1px dotted;
+    FONT-FAMILY: arial,sans-serif
+}
+H4 
+{ 
+    PADDING-RIGHT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 10px 0px 0px 0px;
+    PADDING-TOP: 10px; 
+    FONT-SIZE: 0.9em;
+    FONT-FAMILY: arial,sans-serif 	
+}
+
+A.ankh 
+{ 
+    COLOR: #505050; 
+}
+
+P
+{
+    FONT-SIZE: 0.8em;
+    COLOR: #303030;
+    LINE-HEIGHT: 1.5em;
+    FONT-FAMILY: arial,sans-serif
+}
+TH
+{
+    FONT-SIZE: 0.8em;
+    COLOR: #303030;
+    LINE-HEIGHT: 1.5em;
+    FONT-FAMILY: arial,sans-serif
+}
+TD
+{
+    FONT-SIZE: 0.8em;
+    COLOR: #303030;
+    LINE-HEIGHT: 1.5em;
+    FONT-FAMILY: arial,sans-serif
+}
+LI
+{
+    FONT-SIZE: 0.8em;
+    COLOR: #303030;
+    LINE-HEIGHT: 1.5em;
+    FONT-FAMILY: arial,sans-serif
+}
+S
+{
+    COLOR: #909090
+}
+A
+{
+    COLOR: #0033ff
+}
+
+A IMG
+{
+    BORDER-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    BORDER-LEFT: 0px;
+    BORDER-BOTTOM: 0px
+}
+.small
+{
+    FONT-SIZE: 0.7em;
+    COLOR: #707070
+}
+P.anchor
+{
+    FONT-SIZE: 0.8em;
+    MARGIN: 30px 0px;
+    TEXT-ALIGN: right
+}
+P.anchor A
+{
+    COLOR: #909090
+}
+DIV#footarea
+{
+    BORDER-TOP: #505050 1px dotted;
+    MARGIN-TOP: 15px; 
+    PADDING-TOP: 15px; 
+    COLOR: #303030;
+    FONT-SIZE: 0.8em;
+    FONT-FAMILY: arial,sans-serif; 
+    TEXT-ALIGN: center;
+}
+DIV.extension
+{
+    BORDER: #cccccc 2px solid;  
+    PADDING: 8px;
+    MARGIN-LEFT: 10px;  
+    WIDTH: 700px;
+    ALIGN: left;
+    moz-border-radius: 10px 
+}
+DIV.screenshot2
+{
+    MARGIN-RIGHT: 10px;  
+    WIDTH: 350px;
+    ALIGN: right;
+}
+DIV.disclaimer 
+{
+    font-family: arial, sans-serif;
+    font-size:70%;
+    color:#333;	
+}
+DIV.rightcol 
+{
+    font-family: arial, sans-serif; 
+    font-size:1.1em; 
+    line-height:2.0em; 
+    background-color: #EDF2F2; 
+    padding-left: 5px;
+    padding-right: 5px; 
+    padding-bottom: 5px; 
+    padding-top: 0px;
+    border:1px solid #cccccc; 
+    width:90%;
+}
+DIV.date 
+{   
+    font-size:1.1em; 
+    padding-bottom:3px;
+}
+DIV.title
+{
+    FONT-SIZE: 0.9em; 
+    FONT-WEIGHT: bold; 
+    FONT-FAMILY: arial,sans-serif;
+    LINE-HEIGHT: 1.7em;
+}
+DIV.content 
+{ 
+    FONT-SIZE: 0.8em; 
+    FONT-FAMILY: arial,sans-serif; 
+    LINE-HEIGHT: 1.5em;
+}
+DIV.whitelist
+{
+    background-color:#F6F6F6;
+    line-height: 1.5em; 
+    font-family: arial,sans-serif; 
+    border:1px solid #666666; 
+    font-size: 0.75em; 
+    padding: 5px;
+    color: #303030; 
+    line-height: 1.5em;
+}
+TABLE.downloadbox
+{
+    MARGIN: 10px 10px 0px 0px
+}
+TABLE.downloadbox TD.install
+{
+    BORDER-RIGHT: #cccccc 1px dotted;
+    PADDING-RIGHT: 20px;
+    BORDER-TOP: #cccccc 1px dotted;
+    PADDING-LEFT: 6px;
+    PADDING-BOTTOM: 6px;
+    BORDER-LEFT: #cccccc 1px dotted;
+    PADDING-TOP: 10px;
+    BORDER-BOTTOM: #cccccc 1px dotted;
+    WHITE-SPACE: nowrap
+}
+TABLE.escape 
+{   font-size:1.2em; 
+}
+.install
+{
+    MARGIN-LEFT: 18px
+}
+.install A.xpi
+{
+    FONT: bold 13pt arial,sans-serif;
+    COLOR: #0033ff
+}
+.install P
+{
+    FONT-SIZE: 10pt;
+    MARGIN: 0px 0px 5px 16px;
+    LINE-HEIGHT: 15pt
+}
+.install P
+{
+    MARGIN-LEFT: 20px
+}
+.install UL
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 20px 10px 6px 16px;
+    PADDING-TOP: 0px
+}
+.install UL LI
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 8pt;
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: Verdana;
+    LIST-STYLE-TYPE: none
+}
+.install UL LI IMG
+{
+
+    MARGIN: 2px 0px;
+    VERTICAL-ALIGN: top
+}
+A IMG.ss
+{
+    BORDER-RIGHT: #0066ff 2px solid;
+    BORDER-TOP: #0066ff 2px solid;
+    BORDER-LEFT: #0066ff 2px solid;
+    BORDER-BOTTOM: #0066ff 2px solid
+}
+

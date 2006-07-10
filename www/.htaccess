@@ -1,0 +1,4 @@
+# enable expirations
+ExpiresActive On
+# expire RDF files now
+ExpiresByType application/rdf+xml "now"
