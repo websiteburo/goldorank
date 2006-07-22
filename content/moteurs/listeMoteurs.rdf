@@ -333,7 +333,8 @@
 		</RDF:li>
                 <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:ask_blogs">
-				<goldorank:nom>Ask blogs</goldorank:nom>
+				<goldorank:debug>false</goldorank:debug>
+                                <goldorank:nom>Ask blogs</goldorank:nom>
                                 <goldorank:description>Ask blogs</goldorank:description>
 				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_ask.gif</goldorank:logo>
                 
@@ -348,6 +349,27 @@
                                 <goldorank:resultListStart><![CDATA[</script>]]></goldorank:resultListStart>
                                 <goldorank:resultListEnd><![CDATA[<form name="fb"]]></goldorank:resultListEnd>
                                 <goldorank:resultItemStart><![CDATA[<a class="L4" href="]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[</a>]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:icerocket_blogs">
+                                <goldorank:debug>false</goldorank:debug>
+				<goldorank:nom>Icerocket blogs</goldorank:nom>
+                                <goldorank:description>Icerocket blogs</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_icerocket.gif</goldorank:logo>
+                
+                                <goldorank:serveur>blogs.icerocket.com</goldorank:serveur>
+                                <goldorank:url>/search?q=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;p=</goldorank:strDebutPage>
+                                <goldorank:parPage>true</goldorank:parPage>
+                                <goldorank:decalageDebut>1</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[<b>Next</b></a>]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>p</goldorank:strNumPage>
+                                <goldorank:resultListStart><![CDATA[<b>Hot Topics:</b>]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[Your Blog not listed in our results]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<table cellspacing=2 cellpadding=0 border=0>]]></goldorank:resultItemStart>
                                 <goldorank:resultItemEnd><![CDATA[</a>]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>

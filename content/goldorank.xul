@@ -83,5 +83,4 @@
     <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
 </richlistitem>   
 <!-- FIN modèles -->
-
 </window>

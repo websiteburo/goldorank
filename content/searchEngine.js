@@ -1,3 +1,5 @@
+var debugWindow;
+var zoneDebug;
 var progressCell;
 var rankCell;
 var pageCell;
@@ -23,6 +25,17 @@ var rdf_logo_langue = rdfService.GetResource('urn:goldorank:rdf#logo_langue');
 var rdf_nom = rdfService.GetResource('urn:goldorank:rdf#nom');
 var rdf_logo = rdfService.GetResource('urn:goldorank:rdf#logo');
 var container = Components.classes["@mozilla.org/rdf/container;1"].createInstance(Components.interfaces.nsIRDFContainer);
+
+function debug(message){
+    if (!debugWindow){
+        debugWindow  = window.open('chrome://goldorank/content/debugWindow.xul', 'Debug', 'chrome,minimizable,resizable, width=730, height=600');
+    }
+    if (!zoneDebug){
+        alert('Launching debug...');//Do not remove (I don't now why)
+        zoneDebug = debugWindow.document.getElementById('debug');
+    }
+    zoneDebug.value = zoneDebug.value + message + "\n";
+}
 
 RegExp.escape = function(text) {
   if (!arguments.callee.sRE) {
@@ -144,6 +157,7 @@ function fulguropoing(){
         else {
             searchURL = searchURL + (listeResultats.length + parseInt(moteur.decalageDebut));
         }
+        if (moteur.debug) debug("searchURL : " + searchURL);
         //~ if (moteur.decalageDebut){
             //~ //Récupération du numéro de page calculé
             //~ regex = new RegExp(moteur.strNumPage+"=([^\\s&]*)");
@@ -161,6 +175,7 @@ function fulguropoing(){
         nextRes = regexpHasMore.exec(pageTestNext);
         if (!nextRes){
             if (!trouve){
+                //alert('pageTestNext');
                 rankCell.value = 'N/A';
                 pageCell.value = 'N/A';
             }
@@ -210,22 +225,31 @@ function nextEngine(){
 /********** OBJET SearchEngine **************/
 //Fonctions
 function engineGetResultats(strPage){
+    if (this.debug) debug(">> Analyse de strPage (engineGetResultats)...");
     trouve = 0;
     //On réduit la page à la zone utile
+    if (this.debug) debug(">> Recherche resultListStart...");
     debutZone = strPage.indexOf(this.resultListStart);
     if ( debutZone >= 0){
         strPage = strPage.substring(debutZone);
+        if (this.debug) debug("resultListStart : " + this.resultListStart + " : trouvé");
     }
+    if (this.debug) debug(">> Recherche resultListEnd...");
     finZone = strPage.indexOf(this.resultListEnd);
     if (finZone >= 0){
         strPage = strPage.substring(0, finZone);
+        if (this.debug) debug("resultListEnd : " + this.resultListEnd + " : trouvé");
     }
+    if (this.debug) debug("strPage : " + strPage + "\n\n\n");
     //On supprime les retours à la ligne
     strPage = strPage.replace(/\n/g, "");
     strPage = strPage.replace(/\r/g, "");
     //On recherche l'ensemble des resultats
-    var regex = new RegExp(RegExp.escape(this.resultItemStart) + '(.*?)' + RegExp.escape(this.resultItemEnd), "g");
+    strRegexp = RegExp.escape(this.resultItemStart) + '(.*?)' + RegExp.escape(this.resultItemEnd);
+    var regex = new RegExp(strRegexp, "g");
+    if (this.debug) debug(">> Recherche items (format = /" + strRegexp + "/)...");
     while ((resultats = regex.exec(strPage))!=null){
+        if (this.debug) debug("item trouve : " + resultats[1]);
         urltrouvee = /http:\/\/[^'"]*/.exec(resultats[1]);
         
         //Gestion de l'encodage %3a pour les sites de type yahoo
@@ -246,6 +270,7 @@ function engineGetResultats(strPage){
         if (urlMsn){
             urltrouvee = String(urlMsn).substr(1);
         }
+        
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
         //Avancement de la barre de progression
@@ -263,6 +288,7 @@ function engineGetResultats(strPage){
             break;
         }
     }
+    if (this.debug) debug(">> Fin recherche items");
     return trouve;
 }
 
@@ -273,10 +299,14 @@ function engineRecherche(searchText){
     numPage = 0;
     trouve = 0;
     moteur = this;
+    if (this.debug){
+        debug("\n################################\n#      " + this.nom + "\n################################");
+    }
     setTimeout('fulguropoing()', 1);
 }
 
 function engineGetProp(prop){
+    var valeur = "";
     var rdf_prop = rdfService.GetResource('urn:goldorank:rdf#'+prop);
     var txtProp = ds_moteurs.GetTarget(rdfService.GetResource(nodeEngine.id), rdf_prop, true);
     if (txtProp) {
@@ -317,6 +347,7 @@ function SearchEngine(nodeEngine){
         this.getResultats = engineGetResultats;
         
         //Recuperation des valeurs utiles du moteur        
+        this.debug = (this.getProp('debug') == 'true');
         this.serveur = this.getProp('serveur');
         this.nom = this.getProp('nom');
         this.url = this.getProp('url');
