@@ -42,10 +42,9 @@
             </hbox>
     </hbox>
             
-      
 <vbox id="resultats" flex="1">
-    <tabcontrol>
-        <tabbox> 
+    <tabcontrol flex="1">
+        <tabbox flex="1"> 
             <tabs id="lestabs"></tabs>
             <tabpanels id="lestabpanels"></tabpanels>
         </tabbox> 
@@ -53,34 +52,37 @@
 </vbox>
 
 <!-- Modeles utilisés par cloneNode() -->
-<tabpanel id="tabpanel_modele">
-  <richlistbox>
-        <listhead>
-            <listheader label=" " width="25" />
-            <listheader label="&goldorank.goldorank.engine;" width="165" />
-            <listheader label="&goldorank.goldorank.progress;" width="135" />
-            <listheader label="&goldorank.goldorank.rank;" width="70px" />
-            <listheader label="&goldorank.goldorank.page;" width="50px" />
-            <listheader label="&goldorank.goldorank.results;" flex="1" />
-          </listhead>
-        <listcols>
-            <listcol width="7" />
-            <listcol width="160" />
-            <listcol width="130" />
-            <listcol width="55px" />
-            <listcol width="43px" />
-            <listcol flex="1" />
-        </listcols>        
-    </richlistbox>
+<tabpanel id="tabpanel_modele" flex="1">
+<grid flex="1" class="simililist">
+  <columns>
+            <column />
+            <column flex="1" />
+            <column flex="2" />
+            <column flex="1" />
+            <column flex="1" />
+            <column flex="2" />
+  </columns>
+  <rows>
+    <row class="simililistHeader">
+            <label value=" " />
+            <label value="&goldorank.goldorank.engine;" />
+            <label value="&goldorank.goldorank.progress;" />
+            <label value="&goldorank.goldorank.rank;" />
+            <label value="&goldorank.goldorank.page;" />
+            <label value="&goldorank.goldorank.results;" />
+    </row>
+  </rows>
+</grid>
 </tabpanel>
 
-<richlistitem id="richlistitem_modele">
-    <listcell><checkbox checked="false" width="7" /></listcell> 
-    <listcell width="160"><image /><label /></listcell>
-    <listcell><progressmeter mode="determined" value="0" width="130" /></listcell>
-    <listcell><label width="55px" /></listcell> 
-    <listcell><label width="43px" /></listcell> 
-    <listcell flex="1" ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></listcell>
-</richlistitem>   
+<row id="row_modele">
+    <hbox ><checkbox checked="false" /></hbox>
+   <hbox ><vbox><spacer flex="1" /><image class=".engine-icon" /><spacer flex="1" /></vbox><label /></hbox>
+   <hbox><progressmeter mode="determined" value="0" flex="1" /></hbox>
+    <hbox ><label /></hbox>
+    <hbox ><label  /></hbox>
+    <hbox ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></hbox>
+</row>
+
 <!-- FIN modèles -->
 </window>

@@ -6,14 +6,27 @@
 	margin-bottom: 20px;
 }
 
-.engine-icon > .menulist-label-box > .menulist-icon,
-.engine-icon > .menu-iconic-left > .menu-iconic-icon {
+.engine-icon {
   width: 16px;
   height: 16px;
   min-height: 16px;
 }
 
-.engine-icon > .menu-iconic-left {
-  display: -moz-box;
-  min-height: 16px;
+/* Simulation d'une liste */
+.simililist {
+	background-color: white;
+}
+
+.simililist column {
+	padding:0;
+	margin:0;
+}
+.simililistHeader label{
+	width:100%;
+	padding:0 0 0 3px;
+	margin:0;
+	background-color: lightgray;
+	border-style:solid;
+	border-color:white gray gray white;
+	border-width:1px;
 }

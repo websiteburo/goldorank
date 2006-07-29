@@ -136,7 +136,8 @@
 		</RDF:li>
                 <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:alice">
-				<goldorank:nom>Alice</goldorank:nom>
+				<goldorank:debug>false</goldorank:debug>
+                                <goldorank:nom>Alice</goldorank:nom>
                                 <goldorank:description>Alice/Tiscali/Nomade</goldorank:description>
 				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_alice.png</goldorank:logo>
                 
@@ -145,13 +146,13 @@
                                 <goldorank:strDebutPage>&amp;offset=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>0</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[class="linkRosso">Suivante]]></goldorank:hasNextPage>
+                                <goldorank:hasNextPage><![CDATA[linkRosso"><b>Suivante]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>offset</goldorank:strNumPage>
-                                <goldorank:resultListStart><![CDATA[LES RESULTATS]]></goldorank:resultListStart>
-                                <goldorank:resultListEnd><![CDATA[<div id="boxPaginazione"]]></goldorank:resultListEnd>
-                                <goldorank:resultItemStart><![CDATA[<div class="r">]]></goldorank:resultItemStart>
-                                <goldorank:resultItemEnd><![CDATA[</div>]]></goldorank:resultItemEnd>
+                                <goldorank:resultListStart><![CDATA[risultati]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[paginazione]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[<li>]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[</li>]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
                 <RDF:li>
@@ -371,6 +372,27 @@
                                 <goldorank:resultListEnd><![CDATA[Your Blog not listed in our results]]></goldorank:resultListEnd>
                                 <goldorank:resultItemStart><![CDATA[<table cellspacing=2 cellpadding=0 border=0>]]></goldorank:resultItemStart>
                                 <goldorank:resultItemEnd><![CDATA[</a>]]></goldorank:resultItemEnd>
+			</RDF:Description>
+		</RDF:li>
+                <RDF:li>
+			<RDF:Description about="urn:goldorank:moteurs:blogpulse_blogs">
+                                <goldorank:debug>false</goldorank:debug>
+				<goldorank:nom>Blogpulse</goldorank:nom>
+                                <goldorank:description>Blogpulse</goldorank:description>
+				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_blogpulse.png</goldorank:logo>
+                
+                                <goldorank:serveur>blogpulse.com</goldorank:serveur>
+                                <goldorank:url>/search?query=</goldorank:url>
+                                <goldorank:strDebutPage>&amp;offset=</goldorank:strDebutPage>
+                                <goldorank:parPage>false</goldorank:parPage>
+                                <goldorank:decalageDebut>0</goldorank:decalageDebut>
+                                <goldorank:hasNextPage><![CDATA[javascript:nextPage()]]></goldorank:hasNextPage>
+                                
+                                <goldorank:strNumPage>offset</goldorank:strNumPage>
+                                <goldorank:resultListStart><![CDATA[Search Results</span>]]></goldorank:resultListStart>
+                                <goldorank:resultListEnd><![CDATA[<a href="#top">top</a>]]></goldorank:resultListEnd>
+                                <goldorank:resultItemStart><![CDATA[Blog:</span>]]></goldorank:resultItemStart>
+                                <goldorank:resultItemEnd><![CDATA[Posting Date:</span>]]></goldorank:resultItemEnd>
 			</RDF:Description>
 		</RDF:li>
 	</RDF:Seq>
