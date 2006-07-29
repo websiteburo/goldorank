@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Goldorank&reg; - Extension for firefox : webranking analyser extnsion developped by websiteburo - 2006</title>
+<title>Goldorank&reg; - Extension for firefox : webranking analyser extension developed by websiteburo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <META NAME="DC.Title" CONTENT="WebSiteBuro Online Agency" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#title" /> 
@@ -10,7 +10,7 @@
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#creator" /> 
 <META NAME="DC.Subject" CONTENT="internet, web, solutions, bordeaux" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#subject" /> 
-<META NAME="DC.Description" CONTENT="Solutions internet. Conseils en strat&eacute;gie de communication, conception de sites. bordeaux" />
+<META NAME="DC.Description" CONTENT="Internet solutions. Communication strategies, websites creation. Bordeaux" />
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#description" />
 <META NAME="DC.Contributor" CONTENT="Franco, Thomas" />
 
@@ -26,18 +26,18 @@
 <META NAME="DC.Type" CONTENT="Text.Homepage.Organizational" />
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#type" />
 <META NAME="DC.Format" SCHEME="IMT" CONTENT="text/html" /> 
-<LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dub ?????lin_core_elements#format" />
+<LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#format" />
 <LINK REL=SCHEMA.imt HREF="http://sunsite.auc.dk/RFC/rfc/rfc2046.html" />
 <META NAME="DC.Identifier" CONTENT="http://www.websiteburo.com" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#identifier" />
-<META NAME="DC.Language" SCHEME="ISO639-1" CONTENT="fr" />
+<META NAME="DC.Language" SCHEME="ISO639-1" CONTENT="en" />
 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#language" />
 
 <META NAME="GOOGLEBOT" CONTENT="INDEX, FOLLOW" />
 
-<META NAME="dc.description" content="Websiteburo est une agence de création web, conception, réalisation web et multimédia, création site internet." />
-<META NAME="dc.keywords" content="referencement, positionnement, ranking" />
+<META NAME="dc.description" content="Goldorank is a webranking analyser Firefox extension developed by Websiteburo, a web agency from Bordeaux." />
+<META NAME="dc.keywords" content="referencing, ranking" />
 
 <LINK REL="SHORTCUT ICON" HREF="http://www.websiteburo.com/favicon.ico" type="image/x-icon" />
 <link rel="StyleSheet" type="text/css" href="goldorank.css" media="screen" />
@@ -59,49 +59,54 @@
     <table width="739" border="0" cellspacing="1" cellpadding="5">
       <tr> 
         <td width="4" valign="top" bgcolor="#E8E8E8"><img src="30x30.gif" width="30" height="30" /></td>
-        <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choisissez votre langue : </font><font size="1"><span class="style1">FR</span></font> <font color="#999999" size="1">| </font><font size="1"><span class="style2"><a href="index.html" class="style2">UK</a></span></font></td>
+                <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choose your language : </font><font size="1"><a href="index_fr.php" class="style2">FR</a></font> <font color="#999999" size="1">| </font><font size="1"><span class="style1">EN</span></font></td>
       </tr>
       <tr bgcolor="#F4F4F4"> 
-        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Extension Goldorank pour Firefox</font></b> - Analyse du positionnement  -  
+        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank 
+          for Firefox</font></b> - Webranking analyser extension a web agency by 
           <a href="http://www.websiteburo.com">Websiteburo</a> </td>
       </tr>
     </table>
     <h3>Introduction</h3>
-    <p>Goldorank est une extension pour le navigateur Firefox permettant de conna&icirc;tre de fa&ccedil;on rapide le positionnement d'une page ou d'une URL sur les principaux moteurs et annuaires. </p>
+    <p>Goldorank for Firefox is an extension that makes it easy to see your 
+      webranking in Firefox.</p>
 
 	<div class="extension">
-	  <h3 style="margin-top: 5px;">Installer Goldorank ? </h3>
+	  <h3 style="margin-top: 5px;">Install Goldorank Now</h3>
 	  <p style="clear: left;"><a href="goldorank.xpi"><img src="30x30.gif" alt="Extension" width="30" height="30" border="0" style="float: left; margin-right: 10px;" />goldorank.xpi</a> 
-        <font color="#999999" size="1">(Firefox 1.5 ou +) </font></p>
+        <font color="#999999" size="1">(Firefox 1.5 or newer required) </font></p>
 	</div>
 	
 
-    <h3>Comment installer l'extension  ?</h3>
-	<p>1.&nbsp;Cliquez sur le lien ci-dessus "goldorank.xpi".<br />
+    <h3>How to install this extension ?</h3>
+	<p>1.&nbsp;Click the "goldorank.xpi" link above.<br />
       <br />
-      2. Si vous voyez ce message en haut de page du navigateur, cliquez sur &#8220;Options,&#8221; 
-      &#8220;Autoriser,&#8221; &#8220;Fermer,&#8221; et recommen&ccedil;er l'installation de l'extension. <br />
+      2. If you see this message at the top of the page, click &#8220;Edit Options,&#8221; 
+      &#8220;Allow,&#8221; &#8220;Close,&#8221; and click the install link again.<br />
       <img src="options.gif" width="739" height="29" /><br />
       <br />
-    3. Red&eacute;marrer votre navigateur Firefox ainsi que toutes les fen&ecirc;tres ouverts en cours.<br>
-	4. L'extension est  install&eacute;e. </p>  	
+      3. Close the Firefox extensions window, then close all Firefox windows and 
+      restart the browser. </p>  	
 	
-    <h3>Comment &ccedil;a marche ?</h3>
+    <h3>Additional features</h3>
     <table width="100%" border="0" cellspacing="5" cellpadding="0">
       <tr>
-        <td width="13%"><img src="scrren.gif" width="268" height="217"></td>
-        <td width="87%" valign="top"><strong>- Clic droit </strong>sur la page pour activer <strong>Goldorank. </strong>.<br>
-        <br>
-        - Une fen&ecirc;tre apparait : vous pouvez &eacute;valuer le positionnement d'un mot cl&eacute; ou d'une phrase sur les principaux moteurs et annuaires. S&eacute;lectionnez les moteurs par pays et cliquez sur le bouton &quot;Search&quot;. <br>
-        <br> 
-        - Vous pouvez aussi s&eacute;lectionner un mot ou une phrase et par un simple <strong>clic droit</strong> lan&ccedil;er la recherche sur ce mot via la fen&ecirc;tre Goldorank. </td>
+        <td width="13%"><img src="scrren.gif" width="268" height="217" /></td>
+        <td width="87%" valign="top"><strong>Right Click</strong> to activate the Goldorank extension.<br />
+        <br />
+        - A simple window appears to evaluate the ranking of a  phrase or keyword for a page or domain. Select the engines by language and press <strong>Search.</strong><br />
+        <br /> 
+        - As well select a word and <strong>right click</strong> to know the ranking of your selection. Select the engines by language and press the <strong>search</strong> button. </td>
       </tr>
     </table>
-    <h3>Comment d&eacute;sinstaller l'extension de votre navigateur?</h3>
-	<p>1. Dans le menu du haut de votre navigateur cliquez sur "Outils" puis   "Extensions".<br />
-      2. Choisissez "Goldorank", et cliquez sur d&eacute;sinstaller.<br />
-      3. Confirmez l'op&eacute;ration : l'extension est d&eacute;sinstall&eacute;e. <br />
-      4. Red&eacute;marrez votre navigateur. </p>
+    <h3>Uninstall the extension from your browser ?</h3>
+	<p>1. In the Firefox browser, click "Tools" and select "Extensions". The Extensions 
+      window should appear. <br />
+      2. Click "Goldorank", then click the "Uninstall" button.<br />
+      3. Click the "OK" button in the confirmation window. The Extensions window 
+      should confirm that Goldorank has been uninstalled. <br />
+      4. Close the Extensions window, then close all Firefox windows and restart 
+      the browser.</p>
 
     <div id="footarea"><font size="2">©2006 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
 
