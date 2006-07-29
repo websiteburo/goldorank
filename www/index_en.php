@@ -62,9 +62,7 @@
                 <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choose your language : </font><font size="1"><a href="index_fr.php" class="style2">FR</a></font> <font color="#999999" size="1">| </font><font size="1"><span class="style1">EN</span></font></td>
       </tr>
       <tr bgcolor="#F4F4F4"> 
-        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank 
-          for Firefox</font></b> - Webranking analyser extension a web agency by 
-          <a href="http://www.websiteburo.com">Websiteburo</a> </td>
+        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.websiteburo.com">Websiteburo</a> </td>
       </tr>
     </table>
     <h3>Introduction</h3>
