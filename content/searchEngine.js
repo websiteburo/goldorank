@@ -148,6 +148,7 @@ var trouve = 0;
 var moteur;
 
 function fulguropoing(){
+    if (moteur.debug) debug("########FULGUROPOING###############");
     if (!trouve && (maxRank > listeResultats.length) && !stopMoteur){
         //On récupére les résultats de la page suivante
         numPage++;
@@ -175,6 +176,7 @@ function fulguropoing(){
         regexpHasMore = new RegExp(moteur.hasNextPage);
         nextRes = regexpHasMore.exec(pageTestNext);
         if (!nextRes){
+            if (moteur.debug) debug("Arrêt: il n'y a pas d'autres pages de résultat");
             if (!trouve){
                 //alert('pageTestNext');
                 rankCell.value = 'N/A';
@@ -186,6 +188,16 @@ function fulguropoing(){
         setTimeout("fulguropoing()", 1);
     }
     else {
+        //Debug : raisons de l'arrêt ?
+        if (moteur.debug) {
+            debug("ARRET DE LA RECHERCHE: ------------");
+            debug("trouve=" + trouve );
+            debug("maxRank=" + maxRank);
+            debug("listeResultats.length=" + listeResultats.length);
+            debug("stopMoteur="+stopMoteur);
+            debug("--------------------------------------");
+        }
+        
         resultsCell.parentNode.parentNode.removeChild(nodeButton);
         //On affiche la liste des resultats dans le combo-box
         for (var numres=0; numres<listeResultats.length; numres++){

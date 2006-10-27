@@ -9,7 +9,7 @@ do
 done
 
 #On enregistre la référence à l'extension (maj de la date)
-pwd > ~/.mozilla/firefox/vf0gy3uy.tests/extensions/{$ID}
+pwd > ~/.mozilla/firefox/fodmvo9b.tests/extensions/{$ID}
 
 #Relance de firefox tests
 export MOZ_NO_REMOTE=1

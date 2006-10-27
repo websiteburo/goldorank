@@ -36,7 +36,8 @@
 		</RDF:li>
                 <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:yahoo_fr">
-				<goldorank:nom>Yahoo FR</goldorank:nom>
+                                <goldorank:nom>Yahoo FR</goldorank:nom>
+                            <goldorank:debug>false</goldorank:debug>
                                 <goldorank:description>Yahoo FR</goldorank:description>
 				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_yahoo.gif</goldorank:logo>
                 
@@ -45,7 +46,7 @@
                                 <goldorank:strDebutPage>&amp;b=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[<b>Suiv.</b></a>]]></goldorank:hasNextPage>
+                                <goldorank:hasNextPage><![CDATA[<span>Suiv.</span></a>]]></goldorank:hasNextPage>
                                 
                                 <goldorank:strNumPage>b</goldorank:strNumPage>
                                 <goldorank:resultListStart>RESULTATS WEB</goldorank:resultListStart>
@@ -57,6 +58,7 @@
                 <RDF:li>
 			<RDF:Description about="urn:goldorank:moteurs:msn_fr">
 				<goldorank:nom>MSN FR</goldorank:nom>
+                                <goldorank:debug>false</goldorank:debug>
                                 <goldorank:description>MSN FR</goldorank:description>
 				<goldorank:logo>chrome://goldorank/content/moteurs/goldorank_MSN.png</goldorank:logo>
                 
@@ -65,7 +67,7 @@
                                 <goldorank:strDebutPage>&amp;first=</goldorank:strDebutPage>
                                 <goldorank:parPage>false</goldorank:parPage>
                                 <goldorank:decalageDebut>1</goldorank:decalageDebut>
-                                <goldorank:hasNextPage><![CDATA[>Suivant</a>]]></goldorank:hasNextPage>
+                                <goldorank:hasNextPage><![CDATA[<li class="nextPage]]></goldorank:hasNextPage>
                               
                                 <goldorank:strNumPage>first</goldorank:strNumPage>
                                 <goldorank:resultListStart><![CDATA[sultats</h2>]]></goldorank:resultListStart>
