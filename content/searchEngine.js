@@ -17,8 +17,22 @@ var nodeRichListItem;
 var nodeTabs;
 var nodeTabPanels;
 
+
+
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
-var ds_moteurs = rdfService.GetDataSourceBlocking('chrome://goldorank/content/moteurs/listeMoteurs.rdf');
+
+// Creation eventuelle du repertoire goldorank dans le profil de l'utilisateur
+var repUserProfile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
+repUserProfile.append("goldorank");
+if( !repUserProfile.exists() || !repUserProfile.isDirectory() ) {   // if it doesn't exist, create
+   repUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0664);
+}
+
+//On regarde si le fichier des moteurs existe dans le repertoire profil de l'utilisateur, sinon on utilise le fichier d'origine
+var fichierMoteurs = 'chrome://goldorank/content/moteurs/listeMoteurs.rdf';
+
+
+var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
 var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
 var rdf_langue = rdfService.GetResource('urn:goldorank:rdf#langue');
 var rdf_logo_langue = rdfService.GetResource('urn:goldorank:rdf#logo_langue');
