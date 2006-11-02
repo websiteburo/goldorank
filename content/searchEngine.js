@@ -22,15 +22,18 @@ var nodeTabPanels;
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 
 // Creation eventuelle du repertoire goldorank dans le profil de l'utilisateur
-var repUserProfile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
-repUserProfile.append("goldorank");
-if( !repUserProfile.exists() || !repUserProfile.isDirectory() ) {   // if it doesn't exist, create
-   repUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0664);
+var fichUserProfile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
+fichUserProfile.append("goldorank");
+if( !fichUserProfile.exists() || !fichUserProfile.isDirectory() ) {   // if it doesn't exist, create
+   fichUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0664);
 }
 
 //On regarde si le fichier des moteurs existe dans le repertoire profil de l'utilisateur, sinon on utilise le fichier d'origine
 var fichierMoteurs = 'chrome://goldorank/content/moteurs/listeMoteurs.rdf';
-
+fichUserProfile.append("listeMoteurs.rdf");
+if (fichUserProfile.exists()){
+	fichierMoteurs = 'file://'+fichUserProfile.path;
+}
 
 var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
 var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
