@@ -59,6 +59,7 @@ print >> file('content/contents.rdf', 'w'), """\
         chrome:description="%(description)s"
         chrome:localeVersion=""
         chrome:extension="true"
+	chrome:settingsURL="chrome://%(app)s/content/settings.xul"
         chrome:name="%(app)s">
     </RDF:Description>
 

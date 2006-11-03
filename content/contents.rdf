@@ -15,6 +15,7 @@
         chrome:description="Search engines position retriever by WebSiteBuro"
         chrome:localeVersion=""
         chrome:extension="true"
+	chrome:settingsURL="chrome://goldorank/content/settings.xul"
         chrome:name="goldorank">
     </RDF:Description>
 
