@@ -18,17 +18,16 @@
 <hbox flex="1">
   <groupbox flex="1">
   
-  
-  <tree id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs" >
+  <tree onselect="getSelectedEngine(this)" id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
   <treecols>
-   <treecol id="Name" label="&goldorank.goldorank.engine;" flex="1"/>
+   <treecol id="Name" label="&goldorank.goldorank.engine;" flex="1" primary="true"  />
   </treecols>
     <template>
       <rule>
         <treechildren>
-          <treeitem uri="rdf:*">
+          <treeitem uri="rdf:*"  >
             <treerow>
-              <treecell label="rdf:urn:goldorank:rdf#nom" />
+              <treecell label="rdf:urn:goldorank:rdf#nom" /> 
             </treerow>
           </treeitem>
         </treechildren>
@@ -36,7 +35,7 @@
     </template>
 </tree>
   </groupbox>
-  <groupbox flex="2">
+  <groupbox flex="3">
   </groupbox>
 </hbox>
 </dialog>
