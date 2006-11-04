@@ -1,16 +1,42 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
-<window
+<?xml-stylesheet href="chrome://goldorank/content/goldorank.css"?>
+<!DOCTYPE dialog SYSTEM "chrome://goldorank/locale/entities.dtd">
+<dialog
     id="goldorank_options"
     class="dialog"
     orient="vertical"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-    xmlns:html="http://www.w3.org/1999/xhtml">
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    title="Options"
+	onload="peupleValeurs();">
 
-    <spring flex="1"/>        
-    <html:html style="width: 100%; font-weight: bold; font-size: xx-large; font-family: sans-serif; text-align: center;">
-        GOLDORANK.<html:br/>
-        no options for now
-    </html:html>
-    <spring flex="1"/>        
-</window>
+<script src="searchEngine.js"></script>
+<script src="options.js"></script>
+	
+<hbox flex="1">
+  <groupbox flex="1">
+  
+  
+  <tree id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs" >
+  <treecols>
+   <treecol id="Name" label="&goldorank.goldorank.engine;" flex="1"/>
+  </treecols>
+    <template>
+      <rule>
+        <treechildren>
+          <treeitem uri="rdf:*">
+            <treerow>
+              <treecell label="rdf:urn:goldorank:rdf#nom" />
+            </treerow>
+          </treeitem>
+        </treechildren>
+      </rule>
+    </template>
+</tree>
+  </groupbox>
+  <groupbox flex="2">
+  </groupbox>
+</hbox>
+</dialog>

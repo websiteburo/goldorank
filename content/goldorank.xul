@@ -13,6 +13,7 @@
     onload="peupleValeurs();">
     <script src="prototype-1.4.0.js"></script>
     <script src="searchEngine.js"></script>
+	<script src="goldorank.js"></script>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         Goldorank<html:br/></html:html>
         

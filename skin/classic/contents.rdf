@@ -9,7 +9,7 @@
     <RDF:Description
         about="urn:mozilla:skin:classic/1.0"
         chrome:displayName="Goldorank"
-        chrome:author="Henri Bourcereau (ff)"
+        chrome:author="Henri Bourcereau"
         chrome:name="classic/1.0"
     >
         <chrome:packages>

@@ -7,6 +7,7 @@
         </RDF:Seq>
         
         <RDF:Description about="urn:goldorank:moteurs_fr">
+					<goldorank:nom>FR</goldorank:nom>
                     <goldorank:langue>FR</goldorank:langue>
                     <goldorank:logo_langue>chrome://goldorank/content/moteurs/france.gif</goldorank:logo_langue>
         </RDF:Description>
@@ -200,6 +201,7 @@
 	</RDF:Seq>
 
     <RDF:Description about="urn:goldorank:moteurs_en">
+		<goldorank:nom>EN</goldorank:nom>
                 <goldorank:langue>EN</goldorank:langue>
             <goldorank:logo_langue>chrome://goldorank/content/moteurs/en.gif</goldorank:logo_langue>
         </RDF:Description>
@@ -310,6 +312,7 @@
 	</RDF:Seq>
 
     <RDF:Description about="urn:goldorank:moteurs_blogs">
+				<goldorank:nom>Blogs</goldorank:nom>
                 <goldorank:langue>Blogs</goldorank:langue>
                 <goldorank:logo_langue>chrome://goldorank/content/moteurs/blogs.jpg</goldorank:logo_langue>
         </RDF:Description>
