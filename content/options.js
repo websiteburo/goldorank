@@ -5,9 +5,9 @@ function peupleValeurs(){
 }
 
 function getSelectedEngine(tree){
-	if (tree instanceof Components.interfaces.nsIXULTreeBuilder) {
-		alert('kkk');
-		desc_moteur = tree.getResourceAtIndex(tree.currentIndex);
+	//~ if (tree.view instanceof Components.interfaces.nsIXULTreeBuilder) {
+	if (tree.view instanceof Components.interfaces.nsITreeView) {
+		desc_moteur = tree.view.getResourceAtIndex(tree.currentIndex);
 		if (desc_moteur instanceof Components.interfaces.nsIRDFResource){
 			strNom = ds_moteurs.GetTarget(desc_moteur, rdf_nom, true);
 			alert(strNom);
