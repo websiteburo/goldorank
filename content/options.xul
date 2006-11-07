@@ -18,9 +18,9 @@
 <hbox flex="1">
   <groupbox flex="1">
   
-  <tree onselect="getSelectedEngine(this)" id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs">
+  <tree onselect="getSelectedEngine(this)" id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="chrome://goldorank/content/moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs" flags="dont-build-content">
   <treecols>
-   <treecol id="Name" label="&goldorank.goldorank.engine;" flex="1" primary="true"  />
+   <treecol id="nom" label="&goldorank.goldorank.engine;" flex="1" primary="true"  />
   </treecols>
     <template>
       <rule>
