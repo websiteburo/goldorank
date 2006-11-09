@@ -35,7 +35,65 @@
     </template>
 </tree>
   </groupbox>
-  <groupbox flex="3">
+  <groupbox flex="3" datasources="chrome://goldorank/content/moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs:google_fr">
+    <template>
+  <rule>
+  <vbox uri="rdf:*" >
+            <hbox style="-moz-box-align:baseline;">
+                <label control="nom" value="&goldorank.options.nom; :" style="width:150px" crop="start"/>
+                <textbox id="nom"  style="width:350px" class="form" value="rdf:urn:goldorank:rdf#nom" />
+            </hbox>
+            <hbox>
+                <label control="logo" value="&goldorank.options.logo; :" style="width:150px" crop="start"/>
+                <textbox id="logo" value="100"  style="width:350px" class="form" />
+            </hbox>
+			            <hbox style="-moz-box-align:baseline;">
+                <label control="serveur" value="&goldorank.options.serveur; :" style="width:150px" crop="start"/>
+                <textbox id="serveur"  style="width:350px" class="form" />
+            </hbox>
+            <hbox>
+                <label control="url" value="&goldorank.options.url; :" style="width:150px;" crop="start"/>
+                <textbox id="url"  style="width:350px;" class="form" /> 
+            </hbox>
+            <hbox>
+                <label control="strDebutPage" value="&goldorank.options.strDebutPage; :" style="width:150px" crop="start"/>
+                <textbox id="strDebutPage" value="100"  style="width:350px" class="form" />
+            </hbox>
+			<hbox style="-moz-box-align:baseline;">
+                <label control="parPage" value="&goldorank.options.parPage; :" style="width:150px" crop="start"/>
+                <textbox id="parPage"  style="width:350px" class="form" />
+            </hbox>
+            <hbox>
+                <label control="decalageDebut" value="&goldorank.options.decalageDebut; :" style="width:150px;" crop="start"/>
+                <textbox id="decalageDebut"  style="width:350px;" class="form" /> 
+            </hbox>
+            <hbox>
+                <label control="hasNextPage" value="&goldorank.options.hasNextPage; :" style="width:150px" crop="start"/>
+                <textbox id="hasNextPage" value="100"  style="width:350px" class="form" />
+            </hbox>
+			<hbox style="-moz-box-align:baseline;">
+                <label control="strNumPage" value="&goldorank.options.strNumPage; :" style="width:150px" crop="start"/>
+                <textbox id="strNumPage"  style="width:350px" class="form" />
+            </hbox>
+            <hbox>
+                <label control="resultListStart" value="&goldorank.options.resultListStart; :" style="width:150px;" crop="start"/>
+                <textbox id="resultListStart"  style="width:350px;" class="form" /> 
+            </hbox>
+            <hbox>
+                <label control="resultListEnd" value="&goldorank.options.resultListEnd; :" style="width:150px" crop="start"/>
+                <textbox id="resultListEnd" value="100"  style="width:350px" class="form" />
+            </hbox>
+			<hbox>
+                <label control="resultItemStart" value="&goldorank.options.resultItemStart; :" style="width:150px" crop="start"/>
+                <textbox id="resultItemStart" value="100"  style="width:350px" class="form" />
+            </hbox>
+			<hbox style="-moz-box-align:baseline;">
+                <label control="resultItemEnd" value="&goldorank.options.resultItemEnd; :" style="width:150px" crop="start"/>
+                <textbox id="resultItemEnd"  style="width:350px" class="form" />
+            </hbox>
+        </vbox>
+					</rule>
+			</template>
   </groupbox>
 </hbox>
 </dialog>
