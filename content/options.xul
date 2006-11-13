@@ -20,7 +20,7 @@
   
   <tree onselect="getSelectedEngine(this)" id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="chrome://goldorank/content/moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs" flags="dont-build-content">
   <treecols>
-   <treecol id="nom" label="&goldorank.goldorank.engine;" flex="1" primary="true"  />
+   <treecol id="moteurnom" label="&goldorank.goldorank.engine;" flex="1" primary="true"  />
   </treecols>
     <template>
       <rule>
@@ -35,19 +35,17 @@
     </template>
 </tree>
   </groupbox>
-  <groupbox flex="3" datasources="chrome://goldorank/content/moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs:google_fr">
-    <template>
-  <rule>
-  <vbox uri="rdf:*" >
+  <groupbox flex="3">
+  <vbox>
             <hbox style="-moz-box-align:baseline;">
                 <label control="nom" value="&goldorank.options.nom; :" style="width:150px" crop="start"/>
-                <textbox id="nom"  style="width:350px" class="form" value="rdf:urn:goldorank:rdf#nom" />
+                <textbox id="nom"  style="width:350px" class="form" value="?nom" />
             </hbox>
             <hbox>
                 <label control="logo" value="&goldorank.options.logo; :" style="width:150px" crop="start"/>
                 <textbox id="logo" value="100"  style="width:350px" class="form" />
             </hbox>
-			            <hbox style="-moz-box-align:baseline;">
+			<hbox style="-moz-box-align:baseline;">
                 <label control="serveur" value="&goldorank.options.serveur; :" style="width:150px" crop="start"/>
                 <textbox id="serveur"  style="width:350px" class="form" />
             </hbox>
@@ -92,8 +90,6 @@
                 <textbox id="resultItemEnd"  style="width:350px" class="form" />
             </hbox>
         </vbox>
-					</rule>
-			</template>
   </groupbox>
 </hbox>
 </dialog>
