@@ -32,8 +32,21 @@ fichUserProfile.append("listeMoteurs.rdf");
 if (fichUserProfile.exists()){
 	fichierMoteurs = 'file://'+fichUserProfile.path;
 }
+var baseFichierMoteurs = fichierMoteurs
 
-var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
+//~ var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
+//On utilise un in-memory-datasource pour bénéficier des fonctions de modification
+function parseRDFString(str, url) {
+	var memoryDS = Components.classes["@mozilla.org/rdf/datasource;1?name=in-memory-datasource"].createInstance(Components.interfaces.nsIRDFDataSource);
+	var ios=Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
+	baseUri=ios.newURI(url,null,null);
+	var parser=Components.classes["@mozilla.org/rdf/xml-parser;1"].createInstance(Components.interfaces.nsIRDFXMLParser);
+	parser.parseString(memoryDS,baseUri,str);
+	return memoryDS;
+}
+var strRDF = wget(fichierMoteurs);
+var ds_moteurs = parseRDFString(strRDF, "chrome://goldorank/content/moteurs/");
+
 var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
 var rdf_langue = rdfService.GetResource('urn:goldorank:rdf#langue');
 var rdf_logo_langue = rdfService.GetResource('urn:goldorank:rdf#logo_langue');
@@ -73,14 +86,15 @@ function wget(url){
     p.open("GET",url, false);
     p.send(null);
 
-    if ( p.status != "200" ) {
-      alert("Réception erreur " + p.status);
-    } 
-    else {
+    //~ if ( p.status != "200" ) {
+      //~ alert("Réception erreur " + p.status);
+    //~ } 
+    //~ else {
       contenu=p.responseText;
-    }
+    //~ }
     return contenu;
 }
+
 
 var nodeButton = document.createElement('button');
 nodeButton.height="25";

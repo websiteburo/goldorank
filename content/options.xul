@@ -10,6 +10,8 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     xmlns:html="http://www.w3.org/1999/xhtml"
     title="Options"
+	buttons="accept,cancel"
+	ondialogaccept="return saveRdfMoteur();"
 	onload="peupleValeurs();">
 
 <script src="searchEngine.js"></script>
@@ -18,7 +20,7 @@
 <hbox flex="1">
   <groupbox flex="1">
   
-  <tree onselect="getSelectedEngine(this)" id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="chrome://goldorank/content/moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs" flags="dont-build-content">
+  <tree onselect="getSelectedEngine(this)" id="listeMoteurs" flex="1" hidecolumnpicker="true" datasources="chrome://goldorank/content/moteurs/listeMoteurs.rdf" ref="urn:goldorank:moteurs" flags="dont-build-content" style="width:150px" >
   <treecols>
    <treecol id="moteurnom" label="&goldorank.goldorank.engine;" flex="1" primary="true"  />
   </treecols>
@@ -39,55 +41,55 @@
   <vbox>
             <hbox style="-moz-box-align:baseline;">
                 <label control="nom" value="&goldorank.options.nom; :" style="width:150px" crop="start"/>
-                <textbox id="nom"  style="width:350px" class="form" value="?nom" />
+                <textbox id="nom"  style="width:350px" class="form" value="?nom" onchange="setMoteurProperty(this)" />
             </hbox>
             <hbox>
                 <label control="logo" value="&goldorank.options.logo; :" style="width:150px" crop="start"/>
-                <textbox id="logo" value="100"  style="width:350px" class="form" />
+                <textbox id="logo" value="100"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
 			<hbox style="-moz-box-align:baseline;">
                 <label control="serveur" value="&goldorank.options.serveur; :" style="width:150px" crop="start"/>
-                <textbox id="serveur"  style="width:350px" class="form" />
+                <textbox id="serveur"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
             <hbox>
                 <label control="url" value="&goldorank.options.url; :" style="width:150px;" crop="start"/>
-                <textbox id="url"  style="width:350px;" class="form" /> 
+                <textbox id="url"  style="width:350px;" class="form" onchange="setMoteurProperty(this)" /> 
             </hbox>
             <hbox>
                 <label control="strDebutPage" value="&goldorank.options.strDebutPage; :" style="width:150px" crop="start"/>
-                <textbox id="strDebutPage" value="100"  style="width:350px" class="form" />
+                <textbox id="strDebutPage" value="100"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
 			<hbox style="-moz-box-align:baseline;">
                 <label control="parPage" value="&goldorank.options.parPage; :" style="width:150px" crop="start"/>
-                <textbox id="parPage"  style="width:350px" class="form" />
+                <textbox id="parPage"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
             <hbox>
                 <label control="decalageDebut" value="&goldorank.options.decalageDebut; :" style="width:150px;" crop="start"/>
-                <textbox id="decalageDebut"  style="width:350px;" class="form" /> 
+                <textbox id="decalageDebut"  style="width:350px;" class="form" onchange="setMoteurProperty(this)" /> 
             </hbox>
             <hbox>
                 <label control="hasNextPage" value="&goldorank.options.hasNextPage; :" style="width:150px" crop="start"/>
-                <textbox id="hasNextPage" value="100"  style="width:350px" class="form" />
+                <textbox id="hasNextPage" value="100"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
 			<hbox style="-moz-box-align:baseline;">
                 <label control="strNumPage" value="&goldorank.options.strNumPage; :" style="width:150px" crop="start"/>
-                <textbox id="strNumPage"  style="width:350px" class="form" />
+                <textbox id="strNumPage"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
             <hbox>
                 <label control="resultListStart" value="&goldorank.options.resultListStart; :" style="width:150px;" crop="start"/>
-                <textbox id="resultListStart"  style="width:350px;" class="form" /> 
+                <textbox id="resultListStart"  style="width:350px;" class="form" onchange="setMoteurProperty(this)" /> 
             </hbox>
             <hbox>
                 <label control="resultListEnd" value="&goldorank.options.resultListEnd; :" style="width:150px" crop="start"/>
-                <textbox id="resultListEnd" value="100"  style="width:350px" class="form" />
+                <textbox id="resultListEnd" value="100"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
 			<hbox>
                 <label control="resultItemStart" value="&goldorank.options.resultItemStart; :" style="width:150px" crop="start"/>
-                <textbox id="resultItemStart" value="100"  style="width:350px" class="form" />
+                <textbox id="resultItemStart" value="100"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
 			<hbox style="-moz-box-align:baseline;">
                 <label control="resultItemEnd" value="&goldorank.options.resultItemEnd; :" style="width:150px" crop="start"/>
-                <textbox id="resultItemEnd"  style="width:350px" class="form" />
+                <textbox id="resultItemEnd"  style="width:350px" class="form" onchange="setMoteurProperty(this)" />
             </hbox>
         </vbox>
   </groupbox>
