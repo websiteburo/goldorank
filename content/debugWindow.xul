@@ -11,5 +11,5 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     title="Debug">
    <!-- Fenêtre d'affichage des messages de debugage -->
-<textbox id="debug" multiline="true" cols="80" rows="32" />
+<textbox id="debug" multiline="true" cols="80" rows="32" flex="1" />
 </window>

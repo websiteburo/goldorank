@@ -16,12 +16,11 @@
 <!ENTITY goldorank.options.logo "Logo">
 <!ENTITY goldorank.options.serveur "Serveur">
 <!ENTITY goldorank.options.url "Url">
-<!ENTITY goldorank.options.strDebutPage "strDebutPage">
-<!ENTITY goldorank.options.parPage "parPage">
-<!ENTITY goldorank.options.decalageDebut "decalageDebut">
-<!ENTITY goldorank.options.hasNextPage "hasNextPage">
-<!ENTITY goldorank.options.strNumPage "strNumPage">
-<!ENTITY goldorank.options.resultListStart "resultListStart">
-<!ENTITY goldorank.options.resultListEnd "resultListEnd">
-<!ENTITY goldorank.options.resultItemStart "resultItemStart">
-<!ENTITY goldorank.options.resultItemEnd "resultItemEnd">
+<!ENTITY goldorank.options.strDebutPage "Paramètre de début de page">
+<!ENTITY goldorank.options.parPage "Navigation par page">
+<!ENTITY goldorank.options.decalageDebut "Décalage de début">
+<!ENTITY goldorank.options.hasNextPage "Marque de page suivante">
+<!ENTITY goldorank.options.resultListStart "Marque de début de liste">
+<!ENTITY goldorank.options.resultListEnd "Marque de fin de liste">
+<!ENTITY goldorank.options.resultItemStart "Marque de début de lien">
+<!ENTITY goldorank.options.resultItemEnd "Marque de fin de lien">

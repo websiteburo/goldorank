@@ -23,7 +23,7 @@ var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService
 var fichUserProfile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
 fichUserProfile.append("goldorank");
 if( !fichUserProfile.exists() || !fichUserProfile.isDirectory() ) {   // if it doesn't exist, create
-   fichUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0664);
+   fichUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0744);
 }
 
 //On regarde si le fichier des moteurs existe dans le repertoire profil de l'utilisateur, sinon on utilise le fichier d'origine
@@ -339,7 +339,7 @@ function SearchEngine(nodeEngine){
         this.resultListEnd = this.getProp('resultListEnd');
         this.resultItemStart = this.getProp('resultItemStart');
         this.resultItemEnd = this.getProp('resultItemEnd');
-        this.strNumPage = this.getProp('strNumPage');
+        //~ this.strNumPage = this.getProp('strNumPage');
         this.hasNextPage = this.getProp('hasNextPage');
         
         //~ this.goldorank_offset = this.getProp('goldorank_offset');

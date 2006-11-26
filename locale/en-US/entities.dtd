@@ -14,14 +14,13 @@
 
 <!ENTITY goldorank.options.nom "Nom">
 <!ENTITY goldorank.options.logo "Logo">
-<!ENTITY goldorank.options.serveur "Serveur">
+<!ENTITY goldorank.options.serveur "Server">
 <!ENTITY goldorank.options.url "Url">
-<!ENTITY goldorank.options.strDebutPage "strDebutPage">
-<!ENTITY goldorank.options.parPage "parPage">
-<!ENTITY goldorank.options.decalageDebut "decalageDebut">
-<!ENTITY goldorank.options.hasNextPage "hasNextPage">
-<!ENTITY goldorank.options.strNumPage "strNumPage">
-<!ENTITY goldorank.options.resultListStart "resultListStart">
-<!ENTITY goldorank.options.resultListEnd "resultListEnd">
-<!ENTITY goldorank.options.resultItemStart "resultItemStart">
-<!ENTITY goldorank.options.resultItemEnd "resultItemEnd">
+<!ENTITY goldorank.options.strDebutPage "Page begining parameter">
+<!ENTITY goldorank.options.parPage "By page navigation">
+<!ENTITY goldorank.options.decalageDebut "Begin offset">
+<!ENTITY goldorank.options.hasNextPage "Next page mark">
+<!ENTITY goldorank.options.resultListStart "List start mark">
+<!ENTITY goldorank.options.resultListEnd "List end mark">
+<!ENTITY goldorank.options.resultItemStart "Link start mark">
+<!ENTITY goldorank.options.resultItemEnd "Link end mark">
