@@ -32,6 +32,7 @@ function getSelectedEngine(tree){
 			for (a in proprietesMoteur) {
 				prop = proprietesMoteur[a];
 				document.getElementById(prop).value = getMoteurProperty(desc_moteur, prop);
+				document.getElementById(prop).parentNode.setAttribute('style', '');
 			}
 		}
     }
@@ -86,8 +87,34 @@ function saveRdfMoteur(){
 	#define PR_EXCL         0x80
 	*/
 	fileOutputStream.init( file, 0x04 | 0x08 | 0x20, 644, 0 );
-	var output = stringOutputStream.data;
+	var output = stringOutputStream.data.safeEntities();
+	//~ debug(output);
 	var result = fileOutputStream.write( output, output.length );
 	fileOutputStream.close();
 	stringOutputStream.close();
+}
+
+function tester(){
+	searchURL = 'http://' + getMoteurProperty(desc_moteur, 'serveur') + getMoteurProperty(desc_moteur, 'url') + 'test' ;
+	strPage = wget(searchURL);
+	
+	//On recherche les elements definissant le moteur
+	propsToCheck = new Array('hasNextPage', 'resultListStart', 'resultListEnd', 'resultItemStart', 'resultItemEnd');
+	checkok = true;
+	for (a in propsToCheck) {
+		prop = propsToCheck[a];
+		regexp = new RegExp( getMoteurProperty(desc_moteur, prop));
+		result = regexp.exec(strPage);
+		
+		if (result != null){
+			document.getElementById(prop).parentNode.setAttribute('style', 'background-color:green;');
+		}
+		else {
+			checkok = false;
+			document.getElementById(prop).parentNode.setAttribute('style', 'background-color:red;');
+		}
+	}
+	if (!checkok){
+		debug(strPage);
+	}
 }

@@ -24,3 +24,4 @@
 <!ENTITY goldorank.options.resultListEnd "Marque de fin de liste">
 <!ENTITY goldorank.options.resultItemStart "Marque de début de lien">
 <!ENTITY goldorank.options.resultItemEnd "Marque de fin de lien">
+<!ENTITY goldorank.options.tester "Tester">
