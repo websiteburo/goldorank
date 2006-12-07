@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Goldorank&reg; - Extension for firefox : webranking analyser extension developed by websiteburo</title>
+<title>Goldorank - Extension for firefox : webranking analyser extension developed by websiteburo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <META NAME="DC.Title" CONTENT="WebSiteBuro Online Agency" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#title" /> 
@@ -65,6 +65,8 @@
         <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.websiteburo.com">Websiteburo</a> </td>
       </tr>
     </table>
+	<br /><img src="CaptureGoldorank.png" alt="Goldorank"/>
+	<br />
     <h3>Introduction</h3>
     <p>Goldorank for Firefox is an extension that makes it easy to see your 
       webranking in Firefox.</p>
@@ -109,4 +111,9 @@
     <div id="footarea"><font size="2">©2006 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
 
 </div>
-</center></body></html>
+</center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-190685-4";
+urchinTracker();
+</script></body></html>
