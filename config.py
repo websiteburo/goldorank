@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+#yo test
 app = 'goldorank'
 name = 'Goldorank'
 description = 'Search engines position retriever by WebSiteBuro'
