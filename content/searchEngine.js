@@ -33,7 +33,7 @@ function getVersionRdf(fichier){
 	version = 0;
 	strRdf = wget(fichier);
 	var match = /NS1:version="([^"]*)"/.exec(strRdf);
-	if (match.length > 1){
+	if (match && match.length > 1){
 		version = match[1];
 	}
 	return version;

@@ -11,6 +11,5 @@ system("./www/update.rdf.build")
 copy("%(app)s.xpi" % v, "www/%(app)s.xpi" % v)
 copy("%(app)s.xpi" % v, "www/%(updateFile)s" % v)
 
-system("svn add www/%(updateFile)s" % v)
-system("svn ci -m 'Published %(app)s %(version)s build' " +
-    "www/%(app)s.xpi www/%(updateFile)s www/update.rdf" % v)
+#system("svn add www/%(updateFile)s" % v)
+#system("svn ci -m 'Published %(app)s %(version)s build' www/%(app)s.xpi www/%(updateFile)s www/update.rdf" % v)

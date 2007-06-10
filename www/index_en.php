@@ -108,7 +108,7 @@
       4. Close the Extensions window, then close all Firefox windows and restart 
       the browser.</p>
 
-    <div id="footarea"><font size="2">©2006 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
+    <div id="footarea"><font size="2">©2007 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
 
 </div>
 </center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">

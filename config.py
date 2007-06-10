@@ -11,7 +11,7 @@ uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
 
 major_version = 0
 minor_version = 7
-build_version = 2
+build_version = 3
 in_development = False
 
 version = "%d.%d.%d%s" % (

@@ -3,7 +3,7 @@
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:goldorank:moteurs:version_base"
-	  NS1:version="0.7.2" />
+	  NS1:version="0.7.3" />
 	  	
   <RDF:Description RDF:about="urn:goldorank:moteurs:voila_fr"
                    NS1:nom="Voila"
@@ -193,7 +193,7 @@
                    NS1:resultListEnd="&lt;/ol&gt;"
                    NS1:resultItemStart="&lt;li&gt;"
                    NS1:nom="Yahoo FR"
-                   NS1:debug="true"
+                   NS1:debug="false"
                    NS1:resultItemEnd="yschurl" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:yahoo"
                    NS1:description="Yahoo"
@@ -316,7 +316,7 @@
                    NS1:resultListStart="&lt;div class=&quot;resultset&quot;&gt;"
                    NS1:resultItemStart="class=&quot;result&quot;"
                    NS1:resultItemEnd="&lt;/a&gt;"
-                   NS1:debug="true"
+                   NS1:debug="false"
                    NS1:resultListEnd="&lt;div class=&quot;hr&quot;&gt;" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:altavista_fr"
                    NS1:nom="Altavista FR"

@@ -105,7 +105,7 @@
       3. Confirmez l'op&eacute;ration : l'extension est d&eacute;sinstall&eacute;e. <br />
       4. Red&eacute;marrez votre navigateur. </p>
 
-    <div id="footarea"><font size="2">©2006 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
+    <div id="footarea"><font size="2">©2007 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
 
 </div>
 </center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
