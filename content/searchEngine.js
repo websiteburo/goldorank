@@ -19,22 +19,6 @@ var nodeTabPanels;
 
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 
-// Creation eventuelle du repertoire goldorank dans le profil de l'utilisateur
-var fichUserProfile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
-fichUserProfile.append("goldorank");
-if( !fichUserProfile.exists() || !fichUserProfile.isDirectory() ) {   // if it doesn't exist, create
-   fichUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0744);
-}
-
-//On regarde si le fichier des moteurs existe dans le repertoire profil de l'utilisateur, sinon on utilise le fichier d'origine
-var fichierMoteurs = 'chrome://goldorank/content/moteurs/listeMoteurs.rdf';
-fichUserProfile.append("listeMoteurs.rdf");
-if (fichUserProfile.exists()){
-	fichierMoteurs = 'file://'+fichUserProfile.path;
-}
-var baseFichierMoteurs = fichierMoteurs
-
-//~ var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
 //On utilise un in-memory-datasource pour bénéficier des fonctions de modification
 function parseRDFString(str, url) {
 	var memoryDS = Components.classes["@mozilla.org/rdf/datasource;1?name=in-memory-datasource"].createInstance(Components.interfaces.nsIRDFDataSource);
@@ -44,6 +28,38 @@ function parseRDFString(str, url) {
 	parser.parseString(memoryDS,baseUri,str);
 	return memoryDS;
 }
+
+function getVersionRdf(fichier){
+	version = 0;
+	strRdf = wget(fichier);
+	var match = /NS1:version="([^"]*)"/.exec(strRdf);
+	if (match.length > 1){
+		version = match[1];
+	}
+	return version;
+}
+
+// Creation eventuelle du repertoire goldorank dans le profil de l'utilisateur
+var fichUserProfile = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile);
+fichUserProfile.append("goldorank");
+if( !fichUserProfile.exists() || !fichUserProfile.isDirectory() ) {   // if it doesn't exist, create
+   fichUserProfile.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0744);
+}
+
+//On regarde si le fichier des moteurs existe dans le repertoire profil de l'utilisateur et s'il correspond à la dernière version de goldorank, sinon on utilise le fichier d'origine
+var fichierMoteurs = 'chrome://goldorank/content/moteurs/listeMoteurs.rdf';
+var derniereVersion = getVersionRdf(fichierMoteurs);
+
+fichUserProfile.append("listeMoteurs.rdf");
+if (fichUserProfile.exists()){
+	//On compare les versions
+	version = getVersionRdf('file://'+fichUserProfile.path);
+	if (version == derniereVersion){
+		fichierMoteurs = 'file://'+fichUserProfile.path;
+	}
+}
+
+//~ var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
 var strRDF = wget(fichierMoteurs);
 var ds_moteurs = parseRDFString(strRDF, "chrome://goldorank/content/moteurs/");
 
@@ -220,9 +236,16 @@ function engineGetResultats(strPage){
     strRegexp = RegExp.escape(this.resultItemStart) + '(.*?)' + RegExp.escape(this.resultItemEnd);
     var regex = new RegExp(strRegexp, "g");
     if (this.debug) debug(">> Recherche items (format = /" + strRegexp + "/)...");
+    regexpHttp = /http:\/\/[^'"]*/;
     while ((resultats = regex.exec(strPage))!=null){
-        if (this.debug) debug("item trouve : " + resultats[1]);
-        urltrouvee = /http:\/\/[^'"]*/.exec(resultats[1]);
+	strItem = resultats[1];
+        if (this.debug) debug("item trouve : " + strItem);
+
+	//On récupère l'url placée à la position n°resultItemNumUrl
+	for (i=0; i<this.resultItemNumUrl; i++){
+	  strItem = strItem.replace(regexpHttp,"");
+	}
+        urltrouvee = regexpHttp.exec(strItem);
         
         //Gestion de l'encodage %3a pour les sites de type yahoo
         urlyahoo = /http%3a\/\/[^'"]*/.exec(urltrouvee);
@@ -333,9 +356,10 @@ function SearchEngine(nodeEngine){
         this.resultListEnd = this.getProp('resultListEnd');
         this.resultItemStart = this.getProp('resultItemStart');
         this.resultItemEnd = this.getProp('resultItemEnd');
+        this.resultItemNumUrl = this.getProp('resultItemNumUrl');
         //~ this.strNumPage = this.getProp('strNumPage');
         this.hasNextPage = this.getProp('hasNextPage');
-		if (this.debug) debug("hasNextPage : " + this.hasNextPage);
+	if (this.debug) debug("hasNextPage : " + this.hasNextPage);
         
         //~ this.goldorank_offset = this.getProp('goldorank_offset');
         //~ if (!this.goldorank_offset){

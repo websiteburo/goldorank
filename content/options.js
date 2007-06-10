@@ -28,7 +28,7 @@ function getSelectedEngine(tree){
 	if (tree.view instanceof Components.interfaces.nsIXULTreeBuilder) {
         desc_moteur = tree.view.getResourceAtIndex(tree.currentIndex);
         if (desc_moteur instanceof Components.interfaces.nsIRDFResource){
-			proprietesMoteur = new Array('nom', 'serveur', 'url', 'strDebutPage', 'parPage', 'decalageDebut', 'hasNextPage', 'resultListStart', 'resultListEnd', 'resultItemStart', 'resultItemEnd', 'debug');
+			proprietesMoteur = new Array('nom', 'serveur', 'url', 'strDebutPage', 'parPage', 'decalageDebut', 'hasNextPage', 'resultListStart', 'resultListEnd', 'resultItemStart', 'resultItemEnd', 'resultItemNumUrl', 'debug');
 			for (a in proprietesMoteur) {
 				prop = proprietesMoteur[a];
 				document.getElementById(prop).value = getMoteurProperty(desc_moteur, prop);
