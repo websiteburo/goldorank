@@ -52,6 +52,10 @@
     </tabcontrol> 
 </vbox>
 
+<vbox style="-moz-box-pack:center;">
+	<button id="reportButton" label="&goldorank.goldorank.generateReport;" oncommand="generateReport();" style="display:none;" class="button" />
+</vbox>
+
 <!-- Modeles utilisés par cloneNode() -->
 <tabpanel id="tabpanel_modele" flex="1">
 <grid flex="1" class="simililist">

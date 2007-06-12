@@ -207,6 +207,10 @@ function nextEngine(){
             nextEngine();
         }
     } 
+    else {
+	    //Recherche terminee
+	    document.getElementById('reportButton').setAttribute('style', 'display:block;');
+    }
 }
 
 

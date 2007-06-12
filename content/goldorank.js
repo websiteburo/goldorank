@@ -68,50 +68,66 @@ function peupleValeurs(){
 }
 
 function rechercherS(){
-    //Valeurs de recherche
-    searchText = document.getElementById('motscles').value;
-    searchText = searchText ? searchText : "A";
-    pageCherchee = document.getElementById('page').value;
-    regexPageCherchee = new RegExp('(http://)?'+RegExp.escape(pageCherchee)+'/?');
-    maxRank = document.getElementById('maxRank').value;
-    
-    //nodeEngine = nodeTabPanels.childNodes[nodeTabs.selectedIndex].firstChild.childNodes[2];
-    nodeEngine = nodeTabPanels.childNodes[nodeTabs.selectedIndex].firstChild.childNodes[1].childNodes[1];
-    //On réinitialise l'affichage
-    var moteur = nodeEngine;
-    while (moteur){
-        //progressCell
-        moteur.childNodes[2].firstChild.value = '0';
-        //rankCell
-        moteur.childNodes[3].firstChild.value = '';
-        //pageCell
-        moteur.childNodes[4].firstChild.value = '';
-        //resultsCell
-        resultsCell = moteur.childNodes[5].firstChild.firstChild
-        while (resultsCell.firstChild){
-            resultsCell.removeChild(resultsCell.firstChild);
-        }
-        resultsCell.parentNode.setAttribute('style', 'display:none;');
-        //Bouton stop
-        if (resultsCell.parentNode.parentNode.length == 2){
-            resultsCell.parentNode.parentNode.removeChild(nodeButton);
-        }
-        moteur = moteur.nextSibling;
-    }
+	//Valeurs de recherche
+	searchText = document.getElementById('motscles').value;
+	searchText = searchText ? searchText : "A";
+	pageCherchee = document.getElementById('page').value;
+	regexPageCherchee = new RegExp('(http://)?'+RegExp.escape(pageCherchee)+'/?');
+	maxRank = document.getElementById('maxRank').value;
 
-    var engine;
-    if (nodeEngine){
-        engine = new SearchEngine(nodeEngine);
-        if (engine.engineInitialized){
-            //On effectue la recherche
-            resultsCell.parentNode.parentNode.appendChild(nodeButton);
-            engine.recherche(searchText);
-        }
-        else nextEngine();
-    }    
+	//nodeEngine = nodeTabPanels.childNodes[nodeTabs.selectedIndex].firstChild.childNodes[2];
+	nodeEngine = nodeTabPanels.childNodes[nodeTabs.selectedIndex].firstChild.childNodes[1].childNodes[1];
+	//On réinitialise l'affichage
+	var moteur = nodeEngine;
+	while (moteur){
+		//progressCell
+		moteur.childNodes[2].firstChild.value = '0';
+		//rankCell
+		moteur.childNodes[3].firstChild.value = '';
+		//pageCell
+		moteur.childNodes[4].firstChild.value = '';
+		//resultsCell
+		resultsCell = moteur.childNodes[5].firstChild.firstChild
+			while (resultsCell.firstChild){
+				resultsCell.removeChild(resultsCell.firstChild);
+			}
+		resultsCell.parentNode.setAttribute('style', 'display:none;');
+		//Bouton stop
+		if (resultsCell.parentNode.parentNode.length == 2){
+			resultsCell.parentNode.parentNode.removeChild(nodeButton);
+		}
+		moteur = moteur.nextSibling;
+	}
+
+	var engine;
+	if (nodeEngine){
+		engine = new SearchEngine(nodeEngine);
+		if (engine.engineInitialized){
+			//On effectue la recherche
+			resultsCell.parentNode.parentNode.appendChild(nodeButton);
+			engine.recherche(searchText);
+		}
+		else nextEngine();
+	}    
 }
 
 function ouvreUrl(url){
-    var tBrowser = opener.document.getElementById("content") ;
-    tBrowser.selectedTab = tBrowser.addTab(url) ;
+	var tBrowser = opener.document.getElementById("content") ;
+	tBrowser.selectedTab = tBrowser.addTab(url) ;
+}
+
+function generateReport(){
+	var tBrowser = window.opener.getBrowser() ;
+	tBrowser.selectedTab = tBrowser.addTab("chrome://goldorank/content/report.html");
+	setTimeout("report()",  1000);
+}
+function report(){
+	doc = window.opener.getBrowser().selectedBrowser.contentDocument; 
+	divRecherche = doc.getElementById('recherche');
+	divURL = doc.getElementById('url');
+	divResults = doc.getElementById('results');
+
+	divRecherche.innerHTML =  document.getElementById('motscles').value;
+	divURL.innerHTML = document.getElementById('page').value;
+	divResults.innerHTML = "tout plein de resultats!!!";
 }

@@ -1,6 +1,7 @@
 ﻿<!ENTITY goldorank.browser.menuitem.label "Goldorank">
 <!ENTITY goldorank.browser.menuitem.accesskey "G">
 <!ENTITY goldorank.goldorank.search "Recherche">
+<!ENTITY goldorank.goldorank.generateReport "Générer un rapport">
 <!ENTITY goldorank.goldorank.keywords "Mots clés">
 <!ENTITY goldorank.goldorank.page "Page">
 <!ENTITY goldorank.goldorank.engine "Moteur">
