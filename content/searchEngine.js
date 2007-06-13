@@ -208,11 +208,14 @@ function nextEngine(){
         }
     } 
     else {
-	    //Recherche terminee
-	    document.getElementById('reportButton').setAttribute('style', 'display:block;');
+        //Recherche terminee
+	finirRecherche();
     }
 }
 
+function finirRecherche(){
+	document.getElementById('reportButton').setAttribute('style', 'display:block;');
+}
 
 /********** OBJET SearchEngine **************/
 //Fonctions

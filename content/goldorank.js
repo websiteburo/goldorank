@@ -116,13 +116,17 @@ function ouvreUrl(url){
 	tBrowser.selectedTab = tBrowser.addTab(url) ;
 }
 
+var report_page;
 function generateReport(){
-	var tBrowser = window.opener.getBrowser() ;
-	tBrowser.selectedTab = tBrowser.addTab("chrome://goldorank/content/report.html");
+	//var tBrowser = window.opener.getBrowser() ;
+	//tBrowser.selectedTab = tBrowser.addTab("chrome://goldorank/content/report.html");
+	report_page = window.open("chrome://goldorank/content/report.html", 'report_page');
 	setTimeout("report()",  1000);
 }
 function report(){
-	doc = window.opener.getBrowser().selectedBrowser.contentDocument; 
+	//doc = window.opener.getBrowser().selectedBrowser.contentDocument; 
+	doc = report_page.document;
+
 	divRecherche = doc.getElementById('recherche');
 	divURL = doc.getElementById('url');
 	divResults = doc.getElementById('results');
