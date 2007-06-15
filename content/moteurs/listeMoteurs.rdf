@@ -3,7 +3,7 @@
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:goldorank:moteurs:version_base"
-	  NS1:version="0.7.3" />
+	  NS1:version="0.7.5" />
 	  	
   <RDF:Description RDF:about="urn:goldorank:moteurs:voila_fr"
                    NS1:nom="Voila"
@@ -30,7 +30,7 @@
                    NS1:strDebutPage="&amp;first="
                    NS1:parPage="false"
                    NS1:decalageDebut="1"
-                   NS1:hasNextPage="&lt;li class=&quot;nextPage"
+                   NS1:hasNextPage="&lt;li class=&quot;nextPage&quot;"
                    NS1:strNumPage="first"
                    NS1:resultListStart="sultats&lt;/h2&gt;"
                    NS1:resultListEnd="&lt;/ul&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt;"
@@ -51,7 +51,7 @@
                    NS1:resultListEnd="&lt;/ul&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt;"
                    NS1:resultItemStart="&lt;h3&gt;"
                    NS1:resultItemEnd="&lt;/h3&gt;"
-                   NS1:hasNextPage="&lt;li class=&quot;nextPage"
+                   NS1:hasNextPage="&lt;li class=&quot;nextPage&quot;"
                    NS1:debug="false" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:technorati"
                    NS1:nom="Technorati"

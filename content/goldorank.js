@@ -128,12 +128,10 @@ function report(){
 	//doc = window.opener.getBrowser().selectedBrowser.contentDocument; 
 	doc = report_page.document;
 
-	divRecherche = doc.getElementById('recherche');
-	divURL = doc.getElementById('url');
-	divResults = doc.getElementById('results');
-
-	divRecherche.innerHTML =  document.getElementById('motscles').value;
-	divURL.innerHTML = document.getElementById('page').value;
+	doc.getElementById('recherche').innerHTML =  document.getElementById('motscles').value;
+	doc.getElementById('url').innerHTML = document.getElementById('page').value;
+  var currentTime = new Date();
+	doc.getElementById('date').innerHTML = currentTime.toLocaleString();
 
   //On parcourt les moteurs et on affiche les résultats obtenus
   nodeTabPanels = document.getElementById('lestabpanels');
@@ -142,10 +140,9 @@ function report(){
     checkedCell = nodeEngine.childNodes[0].firstChild;
     rankCell = nodeEngine.childNodes[3].firstChild;
     pageCell = nodeEngine.childNodes[4].firstChild;
-    //engine = new SearchEngine(nodeEngine);
-		//if (engine.engineInitialized){ 
 		if (checkedCell.checked){ 
-      divResults.innerHTML += "<p><b>"+engine.nom+"</b><br />Position : "+rankCell.value+"<br />Page : "+pageCell.value+"</p>";
+      //doc.getElementById('results').innerHTML += "<table><tr><td colspan='2'><img src='"+nodeEngine.childNodes[1].firstChild.childNodes[1].src+"'> <b>"+nodeEngine.childNodes[1].childNodes[1].value+"</b></td></tr><tr><td>Position : "+rankCell.value+"</td></tr><tr><td>Page : "+pageCell.value+"</td></tr></table>";
+      doc.getElementById('results').innerHTML += "<div class='moteur'><img src='"+nodeEngine.childNodes[1].firstChild.childNodes[1].src+"'> <b>"+nodeEngine.childNodes[1].childNodes[1].value+"</b><br />Position : "+rankCell.value+"<br />Page : "+pageCell.value+"</div>";
     }
     nodeEngine = nodeEngine.nextSibling;
   }
