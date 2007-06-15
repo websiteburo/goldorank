@@ -116,6 +116,7 @@ function ouvreUrl(url){
 	tBrowser.selectedTab = tBrowser.addTab(url) ;
 }
 
+/**************Génération des rapports *************/
 var report_page;
 function generateReport(){
 	//var tBrowser = window.opener.getBrowser() ;
@@ -133,5 +134,19 @@ function report(){
 
 	divRecherche.innerHTML =  document.getElementById('motscles').value;
 	divURL.innerHTML = document.getElementById('page').value;
-	divResults.innerHTML = "tout plein de resultats!!!";
+
+  //On parcourt les moteurs et on affiche les résultats obtenus
+  nodeTabPanels = document.getElementById('lestabpanels');
+	nodeEngine = nodeTabPanels.childNodes[nodeTabs.selectedIndex].firstChild.childNodes[1].childNodes[1];
+  while (nodeEngine){
+    checkedCell = nodeEngine.childNodes[0].firstChild;
+    rankCell = nodeEngine.childNodes[3].firstChild;
+    pageCell = nodeEngine.childNodes[4].firstChild;
+    //engine = new SearchEngine(nodeEngine);
+		//if (engine.engineInitialized){ 
+		if (checkedCell.checked){ 
+      divResults.innerHTML += "<p><b>"+engine.nom+"</b><br />Position : "+rankCell.value+"<br />Page : "+pageCell.value+"</p>";
+    }
+    nodeEngine = nodeEngine.nextSibling;
+  }
 }

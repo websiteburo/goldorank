@@ -208,8 +208,8 @@ function nextEngine(){
         }
     } 
     else {
-        //Recherche terminee
-	finirRecherche();
+      //Recherche terminee
+      finirRecherche();
     }
 }
 
@@ -366,7 +366,7 @@ function SearchEngine(nodeEngine){
         this.resultItemNumUrl = this.getProp('resultItemNumUrl');
         //~ this.strNumPage = this.getProp('strNumPage');
         this.hasNextPage = this.getProp('hasNextPage');
-	if (this.debug) debug("hasNextPage : " + this.hasNextPage);
+        if (this.debug) debug("hasNextPage : " + this.hasNextPage);
         
         //~ this.goldorank_offset = this.getProp('goldorank_offset');
         //~ if (!this.goldorank_offset){
