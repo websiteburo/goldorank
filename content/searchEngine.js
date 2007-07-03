@@ -244,60 +244,69 @@ function engineGetResultats(strPage){
     var regex = new RegExp(strRegexp, "g");
     if (this.debug) debug(">> Recherche items (format = /" + strRegexp + "/)...");
     regexpHttp = /http:\/\/[^'"]*/;
+    regexpHttpConf = null;
     if (this.resultItemRegexp != ''){
-	    regexpHttp = new RegExp(this.resultItemRegexp);
+	    regexpHttpConf = new RegExp(this.resultItemRegexp);
     }	
     while ((resultats = regex.exec(strPage))!=null){
-	strItem = resultats[1];
-        if (this.debug) debug("item trouve : " + strItem);
+      urltrouvee = null;
+      strItem = resultats[1];
+      if (this.debug) debug("item trouve : " + strItem);
 
 	//On récupère l'url placée à la position n°resultItemNumUrl
 /*	for (i=0; i<this.resultItemNumUrl; i++){
 	  strItem = strItem.replace(regexpHttp,"");
 	}*/
+
+      //Si la regexp est fournie dans la conf du moteur
+      if (regexpHttpConf != null){
+        urltrouvee = regexpHttpConf.exec(strItem);
+        if (urltrouvee != null){
+          //On récupère la première parenthèse capturante
+          urltrouvee = 'http://' + urltrouvee[urltrouvee.length -1];
+        }
+      }
+
+      //Si la regexp du moteur est défaillante ou si elle n'a pas été fournie
+      if (urltrouvee == null){
         urltrouvee = regexpHttp.exec(strItem);
-	if (urltrouvee.length==1){
-	//S'il n'y avait pas de regexp indiqué pour le moteur : traitement classique
-		//Gestion de l'encodage %3a pour les sites de type yahoo
-		urlyahoo = /http%3a\/\/[^'"]*/.exec(urltrouvee);
-		if (urlyahoo){
-			urltrouvee = String(urlyahoo).replace('%3a',':');
-		}
-
-		//Gestion de voila
-		urlvoila = /http%3A%2F%2F[^&]*/.exec(urltrouvee);
-		if (urlvoila){
-			urltrouvee = String(urlvoila).replace('%3A',':');
-			urltrouvee = urltrouvee.replace(/%2F/g,'/');
-		}
-
-		//Gestion de MSN.com
-		urlMsn = /\?http:\/\/.*/.exec(urltrouvee);
-		if (urlMsn){
-			urltrouvee = String(urlMsn).substr(1);
-		}
-	}
-	else {
-		//On récupère la première parenthèse capturante
-		urltrouvee = 'http://' + urltrouvee[urltrouvee.length -1];
-	}
-        
-        listeResultats.push(urltrouvee);
-        rankCell.value = listeResultats.length;
-        //Avancement de la barre de progression
-        progressCell.value = (100 * listeResultats.length / maxRank) ;
-        //Est-ce que c'est l'url recherchée?
-        if (String(urltrouvee).match(regexPageCherchee)){
-            progressCell.value = 100;
-            trouve=1;
-            break;
+        //S'il n'y avait pas de regexp indiqué pour le moteur : traitement classique
+        //Gestion de l'encodage %3a pour les sites de type yahoo
+        urlyahoo = /http%3a\/\/[^'"]*/.exec(urltrouvee);
+        if (urlyahoo){
+          urltrouvee = String(urlyahoo).replace('%3a',':');
         }
-        else if (maxRank <= listeResultats.length){
-            //Fin des recherches atteintes sans avoir trouvé la page
-            rankCell.value = '>'+maxRank;
-            pageCell.value = '>'+numPage;
-            break;
+
+        //Gestion de voila
+        urlvoila = /http%3A%2F%2F[^&]*/.exec(urltrouvee);
+        if (urlvoila){
+          urltrouvee = String(urlvoila).replace('%3A',':');
+          urltrouvee = urltrouvee.replace(/%2F/g,'/');
         }
+
+        //Gestion de MSN.com
+        urlMsn = /\?http:\/\/.*/.exec(urltrouvee);
+        if (urlMsn){
+          urltrouvee = String(urlMsn).substr(1);
+        }
+      }
+
+      listeResultats.push(urltrouvee);
+      rankCell.value = listeResultats.length;
+      //Avancement de la barre de progression
+      progressCell.value = (100 * listeResultats.length / maxRank) ;
+      //Est-ce que c'est l'url recherchée?
+      if (String(urltrouvee).match(regexPageCherchee)){
+        progressCell.value = 100;
+        trouve=1;
+        break;
+      }
+      else if (maxRank <= listeResultats.length){
+        //Fin des recherches atteintes sans avoir trouvé la page
+        rankCell.value = '>'+maxRank;
+        pageCell.value = '>'+numPage;
+        break;
+      }
     }
     if (this.debug) debug(">> Fin recherche items");
     return trouve;
