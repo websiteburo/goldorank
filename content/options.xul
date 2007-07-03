@@ -89,8 +89,8 @@
                 <textbox id="resultItemEnd"  style="width:350px" class="form" onchange="setMoteurProperty(this)" flex="1" />
 			</hbox>
 			<hbox style="-moz-box-align:baseline;">
-                <label class="intituleOptions" control="resultItemNumUrl" value="&goldorank.options.resultItemNumUrl; :" crop="start"/>
-                <textbox id="resultItemNumUrl"  style="width:350px" class="form" onchange="setMoteurProperty(this)" flex="1" />
+                <label class="intituleOptions" control="resultItemRegexp" value="&goldorank.options.resultItemRegexp; :" crop="start"/>
+                <textbox id="resultItemRegexp"  style="width:350px" class="form" onchange="setMoteurProperty(this)" flex="1" />
 			</hbox>
 <hbox style="-moz-box-align:baseline;">
                 <label class="intituleOptions" control="debug" value="Debug :" crop="start"/>

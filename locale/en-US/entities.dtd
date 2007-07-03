@@ -25,5 +25,5 @@
 <!ENTITY goldorank.options.resultListEnd "List end mark">
 <!ENTITY goldorank.options.resultItemStart "Link start mark">
 <!ENTITY goldorank.options.resultItemEnd "Link end mark">
-<!ENTITY goldorank.options.resultItemNumUrl "Position of the url to retrieve">
+<!ENTITY goldorank.options.resultItemRegexp "URL Regular expression">
 <!ENTITY goldorank.options.tester "Test">

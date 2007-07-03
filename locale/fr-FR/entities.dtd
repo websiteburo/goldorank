@@ -25,5 +25,5 @@
 <!ENTITY goldorank.options.resultListEnd "Marque de fin de liste">
 <!ENTITY goldorank.options.resultItemStart "Marque de début de lien">
 <!ENTITY goldorank.options.resultItemEnd "Marque de fin de lien">
-<!ENTITY goldorank.options.resultItemNumUrl "Position de l'url à récupérer">
+<!ENTITY goldorank.options.resultItemRegexp "Expression régulière pour l'url">
 <!ENTITY goldorank.options.tester "Tester">

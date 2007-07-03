@@ -244,34 +244,43 @@ function engineGetResultats(strPage){
     var regex = new RegExp(strRegexp, "g");
     if (this.debug) debug(">> Recherche items (format = /" + strRegexp + "/)...");
     regexpHttp = /http:\/\/[^'"]*/;
+    if (this.resultItemRegexp != ''){
+	    regexpHttp = new RegExp(this.resultItemRegexp);
+    }	
     while ((resultats = regex.exec(strPage))!=null){
 	strItem = resultats[1];
         if (this.debug) debug("item trouve : " + strItem);
 
 	//On récupère l'url placée à la position n°resultItemNumUrl
-	for (i=0; i<this.resultItemNumUrl; i++){
+/*	for (i=0; i<this.resultItemNumUrl; i++){
 	  strItem = strItem.replace(regexpHttp,"");
-	}
+	}*/
         urltrouvee = regexpHttp.exec(strItem);
-        
-        //Gestion de l'encodage %3a pour les sites de type yahoo
-        urlyahoo = /http%3a\/\/[^'"]*/.exec(urltrouvee);
-        if (urlyahoo){
-            urltrouvee = String(urlyahoo).replace('%3a',':');
-        }
-        
-        //Gestion de voila
-        urlvoila = /http%3A%2F%2F[^&]*/.exec(urltrouvee);
-        if (urlvoila){
-            urltrouvee = String(urlvoila).replace('%3A',':');
-            urltrouvee = urltrouvee.replace(/%2F/g,'/');
-        }
-        
-        //Gestion de MSN.com
-        urlMsn = /\?http:\/\/.*/.exec(urltrouvee);
-        if (urlMsn){
-            urltrouvee = String(urlMsn).substr(1);
-        }
+	if (urltrouvee.length==1){
+	//S'il n'y avait pas de regexp indiqué pour le moteur : traitement classique
+		//Gestion de l'encodage %3a pour les sites de type yahoo
+		urlyahoo = /http%3a\/\/[^'"]*/.exec(urltrouvee);
+		if (urlyahoo){
+			urltrouvee = String(urlyahoo).replace('%3a',':');
+		}
+
+		//Gestion de voila
+		urlvoila = /http%3A%2F%2F[^&]*/.exec(urltrouvee);
+		if (urlvoila){
+			urltrouvee = String(urlvoila).replace('%3A',':');
+			urltrouvee = urltrouvee.replace(/%2F/g,'/');
+		}
+
+		//Gestion de MSN.com
+		urlMsn = /\?http:\/\/.*/.exec(urltrouvee);
+		if (urlMsn){
+			urltrouvee = String(urlMsn).substr(1);
+		}
+	}
+	else {
+		//On récupère la première parenthèse capturante
+		urltrouvee = 'http://' + urltrouvee[urltrouvee.length -1];
+	}
         
         listeResultats.push(urltrouvee);
         rankCell.value = listeResultats.length;
@@ -363,7 +372,8 @@ function SearchEngine(nodeEngine){
         this.resultListEnd = this.getProp('resultListEnd');
         this.resultItemStart = this.getProp('resultItemStart');
         this.resultItemEnd = this.getProp('resultItemEnd');
-        this.resultItemNumUrl = this.getProp('resultItemNumUrl');
+        //this.resultItemNumUrl = this.getProp('resultItemNumUrl');
+        this.resultItemRegexp = this.getProp('resultItemRegexp');
         //~ this.strNumPage = this.getProp('strNumPage');
         this.hasNextPage = this.getProp('hasNextPage');
         if (this.debug) debug("hasNextPage : " + this.hasNextPage);
