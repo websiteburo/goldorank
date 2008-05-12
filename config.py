@@ -1,18 +1,19 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-#yo test
 app = 'goldorank'
 name = 'Goldorank'
 description = 'Search engines position retriever by WebSiteBuro'
 author = 'Henri Bourcereau'
 authorURL = "http://www.websiteburo.com"
 uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
+#clé publique de 'goldorank' générée par /usr/local/mccoy/mccoy 
+updateKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqA8cSkYutSOSs/PoxLBe/KWMNUmq7snZwKxLvaoZCcSn19LZusq9LKnQrsrawB+aLzCXX2U6i1xA0owmf1VSdC0xZQhzecdHBribyHAPkEu8wx0fy1ADCxxXJ52xkRNi8pOVOuI9nX9DN9GuL3M/zCfIftgCb3fkEmVqIZvcISQIDAQAB'
 
 major_version = 0
-minor_version = 7
-build_version = 9
-in_development = False
+minor_version = 8
+build_version = 0
+in_development = True
 
 version = "%d.%d.%d%s" % (
     major_version,
@@ -28,7 +29,7 @@ updateFile = "%(app)s-%(version)s.xpi" % vars()
 updateLink = "%(homepageURL)s/%(updateFile)s" % vars()
 firefoxUID = 'ec8030f7-c20a-464f-9b0e-13a3a9e97384'
 firefoxMinVersion = '1.5'
-firefoxMaxVersion = '2.5'
+firefoxMaxVersion = '3.0.*'
 
 overlays = (
     # overlay this on that

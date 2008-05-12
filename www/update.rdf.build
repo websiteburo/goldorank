@@ -3,6 +3,7 @@
 import sys
 sys.path.append('.')
 from config import *
+from os import system
 
 print >> file('www/update.rdf', 'w'), """\
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -30,3 +31,6 @@ print >> file('www/update.rdf', 'w'), """\
        </em:targetApplication>
    </rdf:Description>
 </rdf:RDF>""" % vars()
+
+print "Veuillez signer l'extension avec mccoy"
+system("sudo /usr/local/mccoy/mccoy")

@@ -41,6 +41,7 @@ print >> file('install.rdf', 'w'), """\
 <em:creator>%(author)s</em:creator>
 <em:homepageURL>%(homepageURL)s</em:homepageURL>
 <em:updateURL>%(updateURL)s</em:updateURL>
+<em:updateKey>%(updateKey)s</em:updateKey>
 
 <!-- Front End Integration Hooks (used by Extension Manager)-->
 <em:optionsURL>chrome://%(app)s/content/options.xul</em:optionsURL>
