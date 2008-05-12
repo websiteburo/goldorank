@@ -4,6 +4,9 @@ import sys
 sys.path.append('.')
 from config import *
 from os import system
+import hashlib
+
+updateHash = 'sha1:'+hashlib.sha1(open('www/goldorank.xpi','rb').read()).digest()
 
 print >> file('www/update.rdf', 'w'), """\
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -16,6 +19,7 @@ print >> file('www/update.rdf', 'w'), """\
        </em:updates>
        <em:version>%(version)s</em:version>
        <em:updateLink>%(updateLink)s</em:updateLink>
+       <em:updateHash>%(updateHash)s</em:updateHash>
    </rdf:Description>
 
    <!-- Mise a jour 1 -->
@@ -27,6 +31,7 @@ print >> file('www/update.rdf', 'w'), """\
                <em:minVersion>%(firefoxMinVersion)s</em:minVersion>
                <em:maxVersion>%(firefoxMaxVersion)s</em:maxVersion>
                <em:updateLink>%(updateLink)s</em:updateLink>
+               <em:updateHash>%(updateHash)s</em:updateHash>
            </rdf:Description>
        </em:targetApplication>
    </rdf:Description>
