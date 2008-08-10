@@ -14,6 +14,9 @@
     <script src="prototype-1.4.0.js"></script>
     <script src="searchEngine.js"></script>
 	<script src="goldorank.js"></script>
+<stringbundleset id="stringbundleset">
+   <stringbundle id="string-bundle" src="chrome://goldorank/locale/goldorank.properties"/>
+</stringbundleset>
     <html:html style="width: 100%; font-weight: bold; font-size: x-large; font-family: sans-serif; text-align: center;">
         Goldorank<html:br/></html:html>
         
@@ -56,38 +59,6 @@
 	<button id="reportButton" label="&goldorank.goldorank.generateReport;" oncommand="generateReport();" style="display:none;" class="button" />
 </vbox>
 
-<!-- Modeles utilisés par cloneNode() -->
-<tabpanel id="tabpanel_modele" flex="1">
-<grid flex="1" class="simililist">
-  <columns>
-            <column />
-            <column flex="1" />
-            <column flex="2" />
-            <column flex="1" />
-            <column flex="1" />
-            <column flex="2" />
-  </columns>
-  <rows>
-    <row class="simililistHeader">
-            <label value=" " />
-            <label value="&goldorank.goldorank.engine;" />
-            <label value="&goldorank.goldorank.progress;" />
-            <label value="&goldorank.goldorank.rank;" />
-            <label value="&goldorank.goldorank.page;" />
-            <label value="&goldorank.goldorank.results;" />
-    </row>
-  </rows>
-</grid>
-</tabpanel>
 
-<row id="row_modele">
-    <hbox ><checkbox checked="false" /></hbox>
-   <hbox ><vbox><spacer flex="1" /><image class=".engine-icon" /><spacer flex="1" /></vbox><label /></hbox>
-   <hbox><progressmeter mode="determined" value="0" flex="1" /></hbox>
-    <hbox ><label /></hbox>
-    <hbox ><label  /></hbox>
-    <hbox ><menulist oncommand="ouvreUrl(this.value);" style="display:none;"><menupopup></menupopup></menulist></hbox>
-</row>
 
-<!-- FIN modèles -->
 </window>
