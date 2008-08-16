@@ -8,7 +8,7 @@
     <menupopup id="menu_ToolsPopup">
         <menuitem
             id="GoldorankMenuItem"
-            oncommand="open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=750, height=480');"
+            oncommand="window.open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=750, height=480');"
             insertafter="javascriptConsole,devToolsSeparator"
             label="&goldorank.browser.menuitem.label;"
             accesskey="&goldorank.browser.menuitem.accesskey;"
@@ -19,7 +19,7 @@
     <menuseparator id="goldorank-context-separator"/>
            <menuitem
         id="GoldorankMenuItem"
-        oncommand="open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=750, height=480');"
+        oncommand="window.open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=750, height=480');"
         label="&goldorank.browser.menuitem.label;"
         accesskey="&goldorank.browser.menuitem.accesskey;"
     />

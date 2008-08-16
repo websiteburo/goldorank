@@ -12,7 +12,7 @@ updateKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqA8cSkYutSOSs/PoxLBe/KWMNUmq
 
 major_version = 0
 minor_version = 8
-build_version = 0
+build_version = 1
 in_development = True
 
 version = "%d.%d.%d%s" % (

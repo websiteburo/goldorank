@@ -41,13 +41,13 @@ function peupleValeurs(){
     nodeLabel1 = document.createElement('label');
     nodeLabel1.setAttribute('value', ''+stringsBundle.getString('stEngine'));
     nodeLabel2 = document.createElement('label');
-    //nodeLabel2.setAttribute('value', stringsBundle.getString('stProgress');
+    nodeLabel2.setAttribute('value', stringsBundle.getString('stProgress'));
     nodeLabel3 = document.createElement('label');
-    //nodeLabel3.setAttribute('value', stringsBundle.getString('stRank'));
+    nodeLabel3.setAttribute('value', stringsBundle.getString('stRank'));
     nodeLabel4 = document.createElement('label');
-    //nodeLabel4.setAttribute('value', stringsBundle.getString('stPage'));
+    nodeLabel4.setAttribute('value', stringsBundle.getString('stPage'));
     nodeLabel5 = document.createElement('label');
-    //nodeLabel5.setAttribute('value',stringsBundle.getString('stResults'));
+    nodeLabel5.setAttribute('value',stringsBundle.getString('stResults'));
     nodeRoww.appendChild(nodeLabel);
     nodeRoww.appendChild(nodeLabel1);
     nodeRoww.appendChild(nodeLabel2);
@@ -161,7 +161,7 @@ function peupleValeurs(){
         //untabpanel.setAttribute('style', 'display:inline;');
       }
     }
-    nodeTabs.firstChild.selected='true';
+    nodeTabs.selectedIndex=0;
     nodeTabPanel.setAttribute('style', 'display:none;');
     nodeRow.setAttribute('style', 'display:none;');
 }
