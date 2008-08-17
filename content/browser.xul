@@ -4,7 +4,6 @@
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
     id="GoldorankBrowserOverlay"
 >
-<script src="browser.js"></script>
     <menupopup id="menu_ToolsPopup">
         <menuitem
             id="GoldorankMenuItem"

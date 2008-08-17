@@ -19,16 +19,6 @@ var nodeTabPanels;
 
 var rdfService = Components.classes["@mozilla.org/rdf/rdf-service;1"].getService(Components.interfaces.nsIRDFService);
 
-//On utilise un in-memory-datasource pour bénéficier des fonctions de modification
-function parseRDFString(str, url) {
-	var memoryDS = Components.classes["@mozilla.org/rdf/datasource;1?name=in-memory-datasource"].createInstance(Components.interfaces.nsIRDFDataSource);
-	var ios=Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
-	baseUri=ios.newURI(url,null,null);
-	var parser=Components.classes["@mozilla.org/rdf/xml-parser;1"].createInstance(Components.interfaces.nsIRDFXMLParser);
-	parser.parseString(memoryDS,baseUri,str);
-	return memoryDS;
-}
-
 function getVersionRdf(fichier){
 	version = 0;
 	strRdf = wget(fichier);
@@ -47,21 +37,22 @@ if( !fichUserProfile.exists() || !fichUserProfile.isDirectory() ) {   // if it d
 }
 
 //On regarde si le fichier des moteurs existe dans le repertoire profil de l'utilisateur et s'il correspond à la dernière version de goldorank, sinon on utilise le fichier d'origine
-var fichierMoteurs = 'chrome://goldorank/content/moteurs/listeMoteurs.rdf';
-var derniereVersion = getVersionRdf(fichierMoteurs);
+var fichierMoteursChrome = 'chrome://goldorank/content/moteurs/listeMoteurs.rdf';
+var derniereVersion = getVersionRdf(fichierMoteursChrome);
 
 fichUserProfile.append("listeMoteurs.rdf");
+var fichierMoteurs = 'file://'+fichUserProfile.path;
 if (fichUserProfile.exists()){
-	//On compare les versions
 	version = getVersionRdf('file://'+fichUserProfile.path);
-	if (version == derniereVersion){
-		fichierMoteurs = 'file://'+fichUserProfile.path;
-	}
 }
 
-//~ var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
-var strRDF = wget(fichierMoteurs);
-var ds_moteurs = parseRDFString(strRDF, "chrome://goldorank/content/moteurs/");
+if ((!fichUserProfile.exists()) || (version != derniereVersion)){
+  var ds_moteurschrome = rdfService.GetDataSourceBlocking(fichierMoteursChrome);
+  ds_moteurschrome.QueryInterface(Components.interfaces.nsIRDFRemoteDataSource);
+  ds_moteurschrome.FlushTo(fichierMoteurs);
+}
+
+var ds_moteurs = rdfService.GetDataSourceBlocking(fichierMoteurs);
 
 var rdf_moteurs = rdfService.GetResource('urn:goldorank:moteurs');
 var rdf_langue = rdfService.GetResource('urn:goldorank:rdf#langue');
@@ -79,7 +70,6 @@ function debug(message){
         zoneDebug = debugWindow.document.getElementById('debug');
     }
     zoneDebug.value = zoneDebug.value + message + "\n";
-    //alert('Launching debug suite...');//Do not remove (I don't now why)
 }
 
 RegExp.escape = function(text) {
