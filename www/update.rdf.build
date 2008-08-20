@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#-*- coding: utf-8 -*-
 
 import sys
 sys.path.append('.')
@@ -6,9 +7,18 @@ from config import *
 from os import system
 import hashlib
 
-updateHash = 'sha1:'+hashlib.sha1(open('www/goldorank.xpi','rb').read()).digest()
+#updateHash = 'sha1:'+hashlib.sha1(open('www/goldorank.xpi','rb').read()).digest()
+updateHash = 'sha1:'+hashlib.sha1(open('www/goldorank.xpi','rb').read()).hexdigest()
 
-print >> file('www/update.rdf', 'w'), """\
+print >> file("www/%(updateInfoFile)s" % vars(), 'w'), """\
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>%(whatsnew)s</body>
+</html>
+""" % vars()
+
+print >> file('www/update_unsigned.rdf', 'w'), """\
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:em="http://www.mozilla.org/2004/em-rdf#">
    <rdf:Description rdf:about="urn:mozilla:extension:{%(uid)s}">
@@ -31,11 +41,11 @@ print >> file('www/update.rdf', 'w'), """\
                <em:minVersion>%(firefoxMinVersion)s</em:minVersion>
                <em:maxVersion>%(firefoxMaxVersion)s</em:maxVersion>
                <em:updateLink>%(updateLink)s</em:updateLink>
+               <em:updateInfoURL>%(homepageURL)s/%(updateInfoFile)s</em:updateInfoURL>
                <em:updateHash>%(updateHash)s</em:updateHash>
            </rdf:Description>
        </em:targetApplication>
    </rdf:Description>
 </rdf:RDF>""" % vars()
 
-print "Veuillez signer l'extension avec mccoy"
-system("sudo /usr/local/mccoy/mccoy")
+system("/opt/bard-spock/spock -i urn:mozilla:extension:{%(uid)s}:%(version)s -d %(nssDirectory)s -v %(version)s -u %(updateLink)s www/update_unsigned.rdf > www/update.rdf" % vars())
