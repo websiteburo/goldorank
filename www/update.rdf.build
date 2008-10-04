@@ -24,7 +24,7 @@ print >> file('www/update_unsigned.rdf', 'w'), """\
    <rdf:Description rdf:about="urn:mozilla:extension:%(uid)s">
        <em:updates><!-- Liste des mises a jour -->
            <rdf:Seq>
-               <rdf:li rdf:resource="urn:mozilla:extension:{%(uid)s}:%(version)s"/>
+               <rdf:li rdf:resource="urn:mozilla:extension:%(uid)s:%(version)s"/>
            </rdf:Seq>
        </em:updates>
        <em:version>%(version)s</em:version>
