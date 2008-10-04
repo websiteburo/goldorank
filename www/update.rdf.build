@@ -21,7 +21,7 @@ print >> file("www/%(updateInfoFile)s" % vars(), 'w'), """\
 print >> file('www/update_unsigned.rdf', 'w'), """\
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-   <rdf:Description rdf:about="urn:mozilla:extension:{%(uid)s}">
+   <rdf:Description rdf:about="urn:mozilla:extension:%(uid)s">
        <em:updates><!-- Liste des mises a jour -->
            <rdf:Seq>
                <rdf:li rdf:resource="urn:mozilla:extension:{%(uid)s}:%(version)s"/>
@@ -33,7 +33,7 @@ print >> file('www/update_unsigned.rdf', 'w'), """\
    </rdf:Description>
 
    <!-- Mise a jour 1 -->
-   <rdf:Description rdf:about="urn:mozilla:extension:{%(uid)s}:%(version)s">
+   <rdf:Description rdf:about="urn:mozilla:extension:%(uid)s:%(version)s">
        <em:version>%(version)s</em:version>
        <em:targetApplication><!-- Application cible : Firefox -->
            <rdf:Description>
@@ -48,4 +48,4 @@ print >> file('www/update_unsigned.rdf', 'w'), """\
    </rdf:Description>
 </rdf:RDF>""" % vars()
 
-system("/opt/bard-spock/spock -i urn:mozilla:extension:{%(uid)s}:%(version)s -d %(nssDirectory)s -v %(version)s -u %(updateLink)s www/update_unsigned.rdf > www/update.rdf" % vars())
+system("/opt/bard-spock/spock -i urn:mozilla:extension:%(uid)s:%(version)s -d %(nssDirectory)s -v %(version)s -u %(updateLink)s www/update_unsigned.rdf > www/update.rdf" % vars())

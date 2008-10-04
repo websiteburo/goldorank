@@ -6,14 +6,19 @@ name = 'Goldorank'
 description = 'Search engines position retriever by WebSiteBuro'
 author = 'Henri Bourcereau'
 authorURL = "http://www.websiteburo.com"
-uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
+
+#uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
 #clé publique de 'goldorank' générée par mccoy (sans mot de passe pour utilisation par spock)
-updateKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZQlUWmH3uuZ6UE4QswRRjGoiXJwdWB+U072dnBXrZB/533kYwRJwZYBzIozayvUrvxojQDa7ZjJ47o8qPJ57F/+b0YM5kcoppVJZ6U0sEbxL+8X8Cgn8TTg7jbaKQyzr+/uqxYebUzPnr9MEYf2mW2j1UFOZ5A6Nbj78GyLEg4wIDAQAB'
+#updateKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZQlUWmH3uuZ6UE4QswRRjGoiXJwdWB+U072dnBXrZB/533kYwRJwZYBzIozayvUrvxojQDa7ZjJ47o8qPJ57F/+b0YM5kcoppVJZ6U0sEbxL+8X8Cgn8TTg7jbaKQyzr+/uqxYebUzPnr9MEYf2mW2j1UFOZ5A6Nbj78GyLEg4wIDAQAB'
+
+uid = 'goldorank@websiteburo.com'
+#clé publique de 'goldorank' générée par mccoy (sans mot de passe pour utilisation par spock)
+updateKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZ5BxILWr1SzZwhFmSv+0AuHxWw8JFJJ5IhJHlkNKsEyevTYGyV6N0yyzvTObKJ9PtmC5e14ZYhXlhp6dMaAUh1KsDilRgIiuNaEr7tZTwHAPv55RnZTMHF0Q6XLMkSq2/Iyk2LWbsy4H5cEqvrM7CxEIeTXAAWB0OJ7YH8XmMLQIDAQAB'
 nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
 minor_version = 8
-build_version = 3
+build_version = 7
 in_development = False
 whatsnew = '<ul><li>Compatible with Firefox 3</li><li>Some corrections in search engines definitions</li></ul>'
 

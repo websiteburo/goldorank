@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+from config import *
+from os import system, remove, listdir
+
+# Mise à jour du numéro de version de goldorank dans listeMoteurs.rdf
+system("sed -i -e 's/NS1:version=\"\\([^\"]*\\)\"/NS1:version=\""+version+"\"/' content/moteurs/listeMoteurs.rdf")
+

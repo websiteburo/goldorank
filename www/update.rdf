@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-<RDF:Description about="urn:mozilla:extension:{e4b43b01-1ccb-476a-92d2-9a193ad4ff50}:0.8.3">
-  <em:signature>MIGTMA0GCSqGSIb3DQEBDQUAA4GBABv/MPbgp/4IUOtR3lzFY93nx+dvAMSA6i22/Gv0hYQI4QDcToSGctssO1NcCIy48eJtEfygr66XNTk1o6NlA2qIcNURulbRCQGZjHcuBMOR+H9azm91eNseHOZiWPVHRDCJT1dmdsbEsZKuNf5jQAe/hJ3Px2FI9B2tCzd+MhFW</em:signature>
+<RDF:Description about="urn:mozilla:extension:goldorank@websiteburo.com:0.8.7">
+  <em:signature>MIGTMA0GCSqGSIb3DQEBDQUAA4GBAFvFMAMMNsVMkBN7GAPU3bjH/xPHaHZOQ2iL+lTHnok9fVOy6LJOQAtcqsb8jMIQyd2D8x6kNNl0sfYkDxIzxVPXMWEHac+XRcguRpOF3tOys5MBzM6/CdXrhXhfrbMIHoEgcBdJhfdCYR4CcEXhe0u0ComrusPV0XXAOirA3iVE</em:signature>
   <em:targetApplication>
     <RDF:Description>
       <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
       <em:maxVersion>3.0.*</em:maxVersion>
       <em:minVersion>1.5</em:minVersion>
-      <em:updateHash>sha1:2aa6a58eeea726f0a78f41ef97a9a44ee732a6e4</em:updateHash>
-      <em:updateInfoURL>http://www.websiteburo.com/goldorank/updateinfo0.8.3.xhtml</em:updateInfoURL>
-      <em:updateLink>http://www.websiteburo.com/goldorank/goldorank-0.8.3.xpi</em:updateLink>
+      <em:updateHash>sha1:259b3d5046cd054c982ab88f15676b3dfd8e16b7</em:updateHash>
+      <em:updateLink>http://www.websiteburo.com/goldorank/goldorank-0.8.7.xpi</em:updateLink>
     </RDF:Description>
   </em:targetApplication>
-  <em:version>0.8.3</em:version>
+  <em:version>0.8.7</em:version>
 </RDF:Description>
 </RDF:RDF>
