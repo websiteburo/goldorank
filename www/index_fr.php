@@ -49,6 +49,11 @@
 	font-weight: bold;
 }
 .style2 {font-size:11px;color: #FFFFFF;text-decoration:none;}
+.Style3 {color: #FFFFFF}
+.Style4 {
+	color: #FF0000;
+	font-weight: bold;
+}
 
 -->
 </style>
@@ -61,15 +66,17 @@
         <td width="4" valign="top" bgcolor="#E8E8E8"><img src="30x30.gif" width="30" height="30" /></td>
         <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choisissez votre langue : </font><font size="1"><span class="style1">FR</span></font> <font color="#999999" size="1">| </font><font size="1"><span class="style2"><a href="index_en.php" class="style2">EN</a></span></font></td>
       </tr>
-      <tr bgcolor="#F4F4F4"> 
-        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Extension Goldorank pour Firefox</font></b> - Analyse du positionnement  -  
-          <a href="http://www.websiteburo.com">Websiteburo</a> </td>
+      <tr bgcolor="#F4F4F4">
+        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Extension Goldorank pour Firefox</font></b> - Analyse du positionnement  - <a href="http://www.websiteburo.com">Websiteburo</a></td>
+      </tr>
+      <tr bgcolor="#F4F4F4">
+        <td colspan="2" valign="top" bgcolor="#CC3300"><span class="Style3"><strong>Si vous avez la version ant&egrave;rieure &agrave; la 0.8 :</strong> il est n&eacute;cessaire de la d&eacute;sinstaller <strong>avant</strong> d'installer la nouvelle version !</span></td>
       </tr>
     </table>
 	<br /><img src="CaptureGoldorank.png" alt="Goldorank"/>
 	<br />
     <h3>Introduction</h3>
-    <p>Goldorank est une extension pour le navigateur Firefox permettant de conna&icirc;tre de fa&ccedil;on rapide le positionnement d'une page ou d'une URL sur les principaux moteurs et annuaires. </p>
+    <p>Goldorank est une extension pour le navigateur Firefox permettant de conna&icirc;tre de fa&ccedil;on rapide le positionnement d'une page ou d'une URL sur les principaux moteurs et annuaires. <span class="Style4">Si vous avez la version ant&egrave;rieure &agrave; la 0.8 : il est n&eacute;cessaire de la d&eacute;sinstaller avant d'installer la nouvelleversion.</span></p>
 
 	<div class="extension">
 	  <h3 style="margin-top: 5px;">Installer Goldorank ? </h3>
