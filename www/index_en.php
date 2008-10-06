@@ -49,6 +49,15 @@
 	font-weight: bold;
 }
 .style2 {font-size:11px;color: #FFFFFF;text-decoration:none;}
+.Style3 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0,10;
+	color: #FFFFFF;
+}
+.Style4 {
+	color: #FF0000;
+	font-weight: bold;
+}
 
 -->
 </style>
@@ -61,15 +70,18 @@
         <td width="4" valign="top" bgcolor="#E8E8E8"><img src="30x30.gif" width="30" height="30" /></td>
                 <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choose your language : </font><font size="1"><a href="index_fr.php" class="style2">FR</a></font> <font color="#999999" size="1">| </font><font size="1"><span class="style1">EN</span></font></td>
       </tr>
+      <tr bgcolor="#F4F4F4">
+        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.websiteburo.com">Websiteburo</a></td>
+      </tr>
       <tr bgcolor="#F4F4F4"> 
-        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.websiteburo.com">Websiteburo</a> </td>
+        <td colspan="2" valign="top" bgcolor="#CC3300"><span class="Style3"><strong>If you have the previous version to the 0.8 </strong>: it is necessary to uninstall <strong>before</strong>  install the new version !</span></td>
       </tr>
     </table>
 	<br /><img src="CaptureGoldorank.png" alt="Goldorank"/>
 	<br />
     <h3>Introduction</h3>
     <p>Goldorank for Firefox is an extension that makes it easy to see your 
-      webranking in Firefox.</p>
+    webranking in Firefox. <span class="Style4">If you have the previous version to the 0.8 : it is necessart ton uninstall before install the new version of Goldorank !</span></p>
 
 	<div class="extension">
 	  <h3 style="margin-top: 5px;">Install Goldorank Now</h3>
