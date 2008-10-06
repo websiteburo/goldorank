@@ -21,7 +21,7 @@ nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
 minor_version = 8
-build_version = 10
+build_version = 11
 in_development = False
 whatsnew = '<ul><li>Compatible with Firefox 3</li><li>Some corrections in search engines definitions</li></ul>'
 

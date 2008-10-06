@@ -3,7 +3,7 @@
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <RDF:Description RDF:about="urn:goldorank:moteurs:version_base"
-                   NS1:version="0.8.10" />
+                   NS1:version="0.8.11" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:orange"
                    NS1:description="Orange"
                    NS1:logo="chrome://goldorank/content/moteurs/goldorank_orange.png"

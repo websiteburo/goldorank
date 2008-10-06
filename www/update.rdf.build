@@ -7,7 +7,6 @@ from config import *
 from os import system
 import hashlib
 
-#updateHash = 'sha1:'+hashlib.sha1(open('www/goldorank.xpi','rb').read()).digest()
 updateHash = 'sha1:'+hashlib.sha1(open('www/goldorank.xpi','rb').read()).hexdigest()
 
 print >> file("www/%(updateInfoFile)s" % vars(), 'w'), """\
@@ -18,11 +17,12 @@ print >> file("www/%(updateInfoFile)s" % vars(), 'w'), """\
 </html>
 """ % vars()
 
-print >> file('www/update_unsigned.rdf', 'w'), """\
+#print >> file('www/update_unsigned.rdf', 'w'), """\
+print >> file('www/update.rdf', 'w'), """\
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
          xmlns:em="http://www.mozilla.org/2004/em-rdf#">
    <rdf:Description rdf:about="urn:mozilla:extension:%(uid)s">
-       <em:updates><!-- Liste des mises a jour -->
+       <em:updates>
            <rdf:Seq>
                <rdf:li rdf:resource="urn:mozilla:extension:%(uid)s:%(version)s"/>
            </rdf:Seq>
@@ -32,10 +32,9 @@ print >> file('www/update_unsigned.rdf', 'w'), """\
        <em:updateHash>%(updateHash)s</em:updateHash>
    </rdf:Description>
 
-   <!-- Mise a jour 1 -->
    <rdf:Description rdf:about="urn:mozilla:extension:%(uid)s:%(version)s">
        <em:version>%(version)s</em:version>
-       <em:targetApplication><!-- Application cible : Firefox -->
+       <em:targetApplication>
            <rdf:Description>
                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                <em:minVersion>%(firefoxMinVersion)s</em:minVersion>
@@ -48,4 +47,8 @@ print >> file('www/update_unsigned.rdf', 'w'), """\
    </rdf:Description>
 </rdf:RDF>""" % vars()
 
-system("/opt/bard-spock/spock -i urn:mozilla:extension:%(uid)s:%(version)s -d %(nssDirectory)s -v %(version)s -u %(updateLink)s www/update_unsigned.rdf > www/update.rdf" % vars())
+print "Utilisez mccoy pour signer update.rdf avec la clef 'goldorank'"
+print "Si besoin pointer le repertoire personnel mccoy (~/.mozilla/mccoy/machinmachin.default) vers %(nssDirectory)s" % vars()
+system("/opt/mccoy/mccoy")
+#spock ne fonctionne pas : supprime des infos...
+#system("/opt/bard-spock/spock -i urn:mozilla:extension:%(uid)s:%(version)s -d %(nssDirectory)s -v %(version)s -u %(updateLink)s www/update_unsigned.rdf > www/update.rdf" % vars())

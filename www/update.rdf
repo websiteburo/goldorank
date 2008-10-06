@@ -1,42 +1,27 @@
 <?xml version="1.0"?>
-<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-<RDF:Description about="urn:mozilla:extension:goldorank@websiteburo.com:0.8.10">
-  <em:signature>MIGTMA0GCSqGSIb3DQEBDQUAA4GBAFKcC6tVO+mvkw0JD+Y4BYvXnmT6GG7K41xkIhT+6kO30FJW1b2aF+K8Tc1OBv+gPH3knh0aczIstHrB5Kk8YY6Zj6x0TsBYoD7YfmXB3Lw+0lycmBwPqvo/E/MzAg57hsBDsJjA4TmaI2KXodgxe0cy9KSNY4NnP4ZSXJ3hZV/H</em:signature>
-  <em:targetApplication>
-    <RDF:Description>
-      <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-      <em:maxVersion>3.0.*</em:maxVersion>
-      <em:minVersion>1.5</em:minVersion>
-      <em:updateHash>sha1:b973783756d28138d063c2d6d49289d69df31a9f</em:updateHash>
-      <em:updateInfoURL>http://www.websiteburo.com/goldorank/updateinfo0.8.10.xhtml</em:updateInfoURL>
-      <em:updateLink>http://www.websiteburo.com/goldorank/goldorank-0.8.10.xpi</em:updateLink>
-    </RDF:Description>
-  </em:targetApplication>
-  <em:version>0.8.10</em:version>
-</RDF:Description>
-</RDF:RDF>
-<!--
-<?xml version="1.0"?>
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="rdf:#$YGCb6"
+  <RDF:Description RDF:about="rdf:#$fK6gx2"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-                   em:minVersion="3.0"
+                   em:minVersion="1.5"
                    em:maxVersion="3.0.*"
-                   em:updateLink="http://extensions.geckozone.org/xpi/mozff/OpenBook-2.0.0.0.xpi"
-                   em:updateHash="sha1:CBBA8913926513EBCDFFBB8F3066F1C320A2A491" />
-  <RDF:Seq RDF:about="rdf:#$VGCb6">
-    <RDF:li RDF:resource="urn:mozilla:extension:{aba3f5c2-35d5-4960-bdfc-de9c162e39ce}:2.0.0.0"/>
+                   em:updateLink="http://www.websiteburo.com/goldorank/goldorank-0.8.11.xpi"
+                   em:updateInfoURL="http://www.websiteburo.com/goldorank/updateinfo0.8.11.xhtml"
+                   em:updateHash="sha1:cf2218cbd79e93f8ac12eacf82dee7e5d23581e8" />
+  <RDF:Seq RDF:about="rdf:#$9K6gx2">
+    <RDF:li RDF:resource="urn:mozilla:extension:goldorank@websiteburo.com:0.8.11"/>
   </RDF:Seq>
-  <RDF:Description RDF:about="urn:mozilla:extension:{aba3f5c2-35d5-4960-bdfc-de9c162e39ce}:2.0.0.0"
-                   em:version="2.0.0.0"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAIiYyFcTThEblQbcOvpeoVPNlCrSOYYRlqWVjAT+ao0ZeG4XX+qe1FDtpHz6yeM6Nmg8WHS5WCaTf2leKjYNNbKnVTj4Xpspf/ertJIiTz0Qon+sywFD6SpMtIyEZNqr4h1FiEsz2XVDaFnDf5fLNyUqdqDfPW6gCQ4vjfSC7v4T">
-    <em:targetApplication RDF:resource="rdf:#$YGCb6"/>
+  <RDF:Description RDF:about="urn:mozilla:extension:goldorank@websiteburo.com:0.8.11"
+                   em:version="0.8.11"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAHhqyg0xpsjqY+kPov7mJRtli0j3LxyzNHrgpdIydjC+HsJaQPljpyD8n7HsVo42F95UF3vy4GW32BJwUt+0LX7hmTM8qzZVF35+Ex9cLbg/alElwehKtM4omYU64k0QbsHPdV6UChIp9gnDM9l+rlaRRWTPX+vwciYuwGzIl38s">
+    <em:targetApplication RDF:resource="rdf:#$fK6gx2"/>
   </RDF:Description>
-  <RDF:Description RDF:about="urn:mozilla:extension:{aba3f5c2-35d5-4960-bdfc-de9c162e39ce}"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBACoSYCabJe4phDmCobUao7D+6Xt2EWxSoResCo/9CmS5M9+qWDoRvDtX6JpdCQoZfj4jcZkg56ZrNdSmVWCVVvj8nZTbhAIpGIGP8WXr02j0k5iWtq7bX5z3+DD4nVTTB/0RX37m9tIUKE0nH//gFNGi+xCwYvl68qJNfcFv2FIK">
-    <em:updates RDF:resource="rdf:#$VGCb6"/>
+  <RDF:Description RDF:about="urn:mozilla:extension:goldorank@websiteburo.com"
+                   em:version="0.8.11"
+                   em:updateLink="http://www.websiteburo.com/goldorank/goldorank-0.8.11.xpi"
+                   em:updateHash="sha1:cf2218cbd79e93f8ac12eacf82dee7e5d23581e8"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAGEMl2tLYEJR0QllJ1DlyhypIEKrb9dpMm+U9/ahRLTlFLXPtcR3myU0UgV06pT/4/QdJIsKcxJWUluvp6jNFz+5VOe+UyYC5CJKXaM0gyKTkafIQfFLkT0L/mllpmSgcq6+LiZ4w1+QDk3x0IdwXc+BiTyr8X6XPEjaCi6/Uhn3">
+    <em:updates RDF:resource="rdf:#$9K6gx2"/>
   </RDF:Description>
-</RDF:RDF> 
--->
+</RDF:RDF>
