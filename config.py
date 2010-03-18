@@ -20,10 +20,10 @@ updateKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCZ5BxILWr1SzZwhFmSv+0AuHxWw8J
 nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
-minor_version = 8
-build_version = 14
+minor_version = 9
+build_version = 0
 in_development = False
-whatsnew = '<ul><li>Firefox 3.5 compatibility</li></ul>'
+whatsnew = '<ul><li>Toolbar button</li><li>Link to result page</li></ul>'
 
 version = "%d.%d.%d%s" % (
     major_version,
@@ -34,13 +34,14 @@ version = "%d.%d.%d%s" % (
 )
 
 homepageURL = "http://www.websiteburo.com/%(app)s" % vars()
+iconURL = "logo.png"
 updateURL = "%(homepageURL)s/update.rdf" % vars()
 updateInfoFile = "updateinfo%(version)s.xhtml" % vars() 
 updateFile = "%(app)s-%(version)s.xpi" % vars()
 updateLink = "%(homepageURL)s/%(updateFile)s" % vars()
 firefoxUID = 'ec8030f7-c20a-464f-9b0e-13a3a9e97384'
 firefoxMinVersion = '1.5'
-firefoxMaxVersion = '3.5.*'
+firefoxMaxVersion = '3.6.*'
 
 overlays = (
     # overlay this on that
@@ -49,6 +50,8 @@ overlays = (
 )
 stylesheets = (
     # overlay this on that
+    ('%(app)s/content/goldorank.css' % vars(), 'global/content/customizeToolbar.xul' % vars()),
+    ('%(app)s/content/goldorank.css' % vars(), 'browser/content/browser.xul' % vars()),
 )
 
 skins = {

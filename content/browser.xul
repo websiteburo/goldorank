@@ -23,4 +23,17 @@
         accesskey="&goldorank.browser.menuitem.accesskey;"
     />
     </popup>
+
+    <toolbarpalette id="BrowserToolbarPalette">
+      <toolbarbutton id="goldorank-button"/>
+    </toolbarpalette>
+    <!-- button details -->
+    <toolbarbutton id="goldorank-button"
+      label="&goldorank.browser.menuitem.label;"
+      tooltiptext="Open Goldorank"
+      oncommand="window.open('chrome://goldorank/content/goldorank.xul', 'Goldorank', 'chrome,minimizable,resizable, width=750, height=480');"
+      class="toolbarbutton-1 chromeclass-toolbar-additional custombutton"
+      />
+
+
 </overlay>

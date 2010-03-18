@@ -9,7 +9,7 @@
 
     <!-- package information -->
     <RDF:Description about="urn:mozilla:package:goldorank"
-        chrome:displayName="Goldorank 0.8.14"
+        chrome:displayName="Goldorank 0.9.0"
         chrome:author="Henri Bourcereau"
         chrome:authorURL="http://www.websiteburo.com"
         chrome:description="Search engines position retriever by WebSiteBuro"
@@ -34,7 +34,21 @@
     <!-- stylesheet information -->
     <RDF:Seq about="urn:mozilla:stylesheets">
         
+            <RDF:li resource="chrome://browser/content/browser.xul"/>
+        
+
+            <RDF:li resource="chrome://global/content/customizeToolbar.xul"/>
+        
     </RDF:Seq>
+    
+        <RDF:Seq about="chrome://global/content/customizeToolbar.xul">
+                <RDF:li>chrome://goldorank/content/goldorank.css</RDF:li>
+        </RDF:Seq>
+    
+
+        <RDF:Seq about="chrome://browser/content/browser.xul">
+                <RDF:li>chrome://goldorank/content/goldorank.css</RDF:li>
+        </RDF:Seq>
     
 
 </RDF:RDF>

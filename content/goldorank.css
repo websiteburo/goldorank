@@ -36,3 +36,12 @@
 .intituleOptions {
 	width:220px;
 }
+
+/* Goldorank toolbar button */
+#goldorank-button, #wrapper-custom-button-1 {list-style-image: url("chrome://goldorank/content/toolbarbutton.png");}
+/* common style for all custom buttons */
+.custombutton {-moz-image-region: rect( 0px 24px 24px  0px);}
+.custombutton:hover {-moz-image-region: rect(24px 24px 48px  0px);}
+[iconsize="small"] .custombutton {-moz-image-region: rect( 0px 40px 16px 24px);}
+[iconsize="small"] .custombutton:hover {-moz-image-region: rect(24px 40px 40px 24px);}
+

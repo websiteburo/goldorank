@@ -3,6 +3,7 @@ nodeButton.height="25";
 nodeButton.setAttribute('label', 'STOP');
 nodeButton.setAttribute('oncommand', 'interruptionMoteur();');
 
+
 function peupleValeurs(){
     document.getElementById('motscles').value=opener.content.document.getSelection();
     document.getElementById('page').value=opener.content.document.location;
@@ -89,8 +90,13 @@ function peupleValeurs(){
     nodeLabelr1 = document.createElement('label');
     nodeHbox3.appendChild(nodeLabelr1);
     nodeHbox4 = document.createElement('hbox');
-    nodeLabelr2 = document.createElement('label');
-    nodeHbox4.appendChild(nodeLabelr2);
+
+    //nodeLabelr2 = document.createElement('label');
+    nodeButtonr2 = document.createElement('button');
+    nodeButtonr2.height="25";
+    nodeButtonr2.setAttribute('label', '');
+    nodeHbox4.appendChild(nodeButtonr2);
+
     nodeHbox5 = document.createElement('hbox');
     nodeMenulist = document.createElement('menulist');
     nodeMenulist.setAttribute('oncommand', 'ouvreUrl(this.value);');
@@ -241,7 +247,7 @@ function report(){
     pageCell = nodeEngine.childNodes[4].firstChild;
 		if (checkedCell.checked){ 
       //doc.getElementById('results').innerHTML += "<table><tr><td colspan='2'><img src='"+nodeEngine.childNodes[1].firstChild.childNodes[1].src+"'> <b>"+nodeEngine.childNodes[1].childNodes[1].value+"</b></td></tr><tr><td>Position : "+rankCell.value+"</td></tr><tr><td>Page : "+pageCell.value+"</td></tr></table>";
-      doc.getElementById('results').innerHTML += "<div class='moteur'><img src='"+nodeEngine.childNodes[1].firstChild.childNodes[1].src+"'> <b>"+nodeEngine.childNodes[1].childNodes[1].value+"</b><br />Position : "+rankCell.value+"<br />Page : "+pageCell.value+"</div>";
+      doc.getElementById('results').innerHTML += "<div class='moteur'><img src='"+nodeEngine.childNodes[1].firstChild.childNodes[1].src+"'> <b>"+nodeEngine.childNodes[1].childNodes[1].value+"</b><br />Position : "+rankCell.value+"<br />Page : "+pageCell.label.value+"</div>";
     }
     nodeEngine = nodeEngine.nextSibling;
   }

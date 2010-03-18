@@ -75,3 +75,8 @@ function tester(){
 		debug(strPage);
 	}
 }
+
+function export(){
+  sql = "INSERT INTO `moteurs` (`nom`, `url`, `serveur`, `regexPos`, `strDebutPage`, `taillePage`, `decalageDebut`, `logo`, `parPage`, `strDebutListe`, `strFinListe`, `strDebutLien`, `strFinLien`, `strMarquePageSuiv`) VALUES ('"+getMoteurProperty(desc_moteur, 'nom').replace(/'/g,"\'")+"', '"+getMoteurProperty(desc_moteur, 'url').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'serveur').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'regexpos').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'strDebutPage').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'taillepage').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'decalageDebut').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'logo').replace(/chrome:\/\/goldorank\/content\/moteurs\//, "").replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'parPage').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'resultListStart').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'resultListEnd').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'resultItemStart').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'resultItemEnd').replace(/'/g,"\\'")+"', '"+getMoteurProperty(desc_moteur, 'hasNextPage').replace(/'/g,"\\'")+"');";
+  alert(sql);
+}

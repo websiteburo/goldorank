@@ -133,7 +133,10 @@ function fulguropoing(){
             //~ }
             //~ else{alert('pb offset')};
         //~ }
-        pageCell.value = numPage;
+        //pageCell.value = numPage;
+        //pageCell.label.value = "<html:a href='"+searchURL+"'>" + numPage + "</html:a>";
+        pageCell.setAttribute('label', numPage);
+        pageCell.setAttribute('oncommand', 'ouvreUrl("'+searchURL+'");');
         strPage = wget(searchURL);
         pageTestNext = strPage;
         trouve = moteur.getResultats(strPage);
