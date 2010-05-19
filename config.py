@@ -21,9 +21,9 @@ nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
 minor_version = 9
-build_version = 0
+build_version = 1
 in_development = False
-whatsnew = '<ul><li>Toolbar button</li><li>Link to result page</li></ul>'
+whatsnew = '<ul><li>works with google, bing and yahoo changes</li></ul>'
 
 version = "%d.%d.%d%s" % (
     major_version,
