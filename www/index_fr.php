@@ -69,14 +69,14 @@
       <tr bgcolor="#F4F4F4">
         <td colspan="2" valign="top"><b><font color="#666666" size="-0">Extension Goldorank pour Firefox</font></b> - Analyse du positionnement  - <a href="http://www.websiteburo.com">Websiteburo</a></td>
       </tr>
-      <tr bgcolor="#F4F4F4">
+      <!--tr bgcolor="#F4F4F4">
         <td colspan="2" valign="top" bgcolor="#CC3300"><span class="Style3"><strong>Si vous avez une version ant&eacute;rieure &agrave; la 0.8 :</strong> il est n&eacute;cessaire de la d&eacute;sinstaller <strong>avant</strong> d'installer la nouvelle version !</span></td>
-      </tr>
+      </tr-->
     </table>
 	<br /><img src="CaptureGoldorank.png" alt="Goldorank"/>
 	<br />
     <h3>Introduction</h3>
-    <p>Goldorank est une extension pour le navigateur Firefox permettant de conna&icirc;tre de fa&ccedil;on rapide le positionnement d'une page ou d'une URL sur les principaux moteurs et annuaires. <span class="Style4">Si vous avez une version ant&eacute;rieure &agrave; la 0.8 : il est n&eacute;cessaire de la d&eacute;sinstaller avant d'installer la nouvelleversion.</span></p>
+    <p>Goldorank est une extension pour le navigateur Firefox permettant de conna&icirc;tre de fa&ccedil;on rapide le positionnement d'une page ou d'une URL sur les principaux moteurs et annuaires. <span class="Style4">Si vous avez une version ant&eacute;rieure &agrave; la 0.8 : il est n&eacute;cessaire de la d&eacute;sinstaller avant d'installer la nouvelle version.</span></p>
 
 	<div class="extension">
 	  <h3 style="margin-top: 5px;">Installer Goldorank ? </h3>
@@ -112,7 +112,7 @@
       3. Confirmez l'op&eacute;ration : l'extension est d&eacute;sinstall&eacute;e. <br />
       4. Red&eacute;marrez votre navigateur. </p>
 
-    <div id="footarea"><font size="2">©2007 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
+    <div id="footarea"><font size="2">2007-2011 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
 
 </div>
 </center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">

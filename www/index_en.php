@@ -73,9 +73,9 @@
       <tr bgcolor="#F4F4F4">
         <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.websiteburo.com">Websiteburo</a></td>
       </tr>
-      <tr bgcolor="#F4F4F4"> 
+      <!--tr bgcolor="#F4F4F4"> 
         <td colspan="2" valign="top" bgcolor="#CC3300"><span class="Style3"><strong>If you have the previous version to the 0.8 </strong>: it is necessary to uninstall <strong>before</strong>  install the new version !</span></td>
-      </tr>
+      </tr-->
     </table>
 	<br /><img src="CaptureGoldorank.png" alt="Goldorank"/>
 	<br />
