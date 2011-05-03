@@ -21,9 +21,9 @@ nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
 minor_version = 9
-build_version = 1
+build_version = 2
 in_development = False
-whatsnew = '<ul><li>works with google, bing and yahoo changes</li></ul>'
+whatsnew = '<ul><li>Firefox 4 compatibility</li></ul>'
 
 version = "%d.%d.%d%s" % (
     major_version,
@@ -41,7 +41,7 @@ updateFile = "%(app)s-%(version)s.xpi" % vars()
 updateLink = "%(homepageURL)s/%(updateFile)s" % vars()
 firefoxUID = 'ec8030f7-c20a-464f-9b0e-13a3a9e97384'
 firefoxMinVersion = '1.5'
-firefoxMaxVersion = '3.6.*'
+firefoxMaxVersion = '4.0.*'
 
 overlays = (
     # overlay this on that
