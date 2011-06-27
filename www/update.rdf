@@ -2,26 +2,26 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Seq RDF:about="rdf:#$TtnEz">
-    <RDF:li RDF:resource="urn:mozilla:extension:goldorank@websiteburo.com:0.9.2"/>
-  </RDF:Seq>
-  <RDF:Description RDF:about="rdf:#$ZtnEz"
+  <RDF:Description RDF:about="rdf:#$ILOqD1"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="1.5"
-                   em:maxVersion="4.0.*"
-                   em:updateLink="http://www.websiteburo.com/goldorank/goldorank-0.9.2.xpi"
-                   em:updateInfoURL="http://www.websiteburo.com/goldorank/updateinfo0.9.2.xhtml"
-                   em:updateHash="sha1:146f4b6f48d03c70f047919b599d3b4b1286307a" />
-  <RDF:Description RDF:about="urn:mozilla:extension:goldorank@websiteburo.com:0.9.2"
-                   em:version="0.9.2"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBACwKJbEiO7k3FlQgYKTF8kaNFx7CNY9RDyRkqvM8k0S09kxEERjyf46kWpopFcNyOYy/vjokwMc3urbSEKEONaerzwmj0P0G+pgQZTuCpZdzyJOxUyzNJfJ6EJly/L6g10U7HgmKpUtcBak6E8559VU93SPvu/cDZYXMQNhiJJUx">
-    <em:targetApplication RDF:resource="rdf:#$ZtnEz"/>
+                   em:maxVersion="5.0.*"
+                   em:updateLink="http://www.websiteburo.com/goldorank/goldorank-0.9.3.xpi"
+                   em:updateInfoURL="http://www.websiteburo.com/goldorank/updateinfo0.9.3.xhtml"
+                   em:updateHash="sha1:75d5aaf184bc03c41f32ca40b25b7460dacc4cfb" />
+  <RDF:Description RDF:about="urn:mozilla:extension:goldorank@websiteburo.com:0.9.3"
+                   em:version="0.9.3"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAH0Fxgp7kI9/qMBG8dAa0+xdIrsrB8o7bJvTSuIp8gw7qC0CPhQMpzztAbSuWTp97IAu/UQ4SqpMDcz8exM3TdnXTu/2fqe+dsb/DCstuNjgjYd/VTwE/TljGmXMIOxM8ikzFuNrZnKnFE6p8TPKuLipoIz14FyGJEIl7fnqO5ti">
+    <em:targetApplication RDF:resource="rdf:#$ILOqD1"/>
   </RDF:Description>
+  <RDF:Seq RDF:about="rdf:#$CLOqD1">
+    <RDF:li RDF:resource="urn:mozilla:extension:goldorank@websiteburo.com:0.9.3"/>
+  </RDF:Seq>
   <RDF:Description RDF:about="urn:mozilla:extension:goldorank@websiteburo.com"
-                   em:version="0.9.2"
-                   em:updateLink="http://www.websiteburo.com/goldorank/goldorank-0.9.2.xpi"
-                   em:updateHash="sha1:146f4b6f48d03c70f047919b599d3b4b1286307a"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAGPldxVX3+FGGSew1wv+h7xXpgrv1jiYR4DwsCVaRT9Ojqg+saE/CUw54KUzKIgtzJqwZyptOgPk8c8RpBJffUSlTv0RASqfJH3pt4fdga+sot0SKr7kJi69tcR3Djjf/jmrhdBR+m7oViYe6vK+l55wlhp71jfsdgTnSSlbzaqf">
-    <em:updates RDF:resource="rdf:#$TtnEz"/>
+                   em:version="0.9.3"
+                   em:updateLink="http://www.websiteburo.com/goldorank/goldorank-0.9.3.xpi"
+                   em:updateHash="sha1:75d5aaf184bc03c41f32ca40b25b7460dacc4cfb"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAC7WD2Pmos2unNT0nT+Oz9eAP2HTz54N0XGVmeNFBVJYT99yj2VQwEXf/9DY2we6n1MmvhJW8YKqod8mwaAGRFHyOCkT2miRS+rGQSMKAs1tnugh4QtkUNp/WCCQebiz5TCUnIbsXTLPGNhxgSocsbUyXNhIxJyT0E2FmXSp4HF7">
+    <em:updates RDF:resource="rdf:#$CLOqD1"/>
   </RDF:Description>
 </RDF:RDF>

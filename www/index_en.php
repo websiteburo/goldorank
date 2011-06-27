@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>Goldorank - Extension for firefox : webranking analyser extension developed by websiteburo</title>
+<title>Goldorank - Extension for firefox : webranking analyser extension developed by WSB</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <META NAME="DC.Title" CONTENT="WebSiteBuro Online Agency" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#title" /> 
-<META NAME="DC.Creator.CorporateName" CONTENT="WebSiteBuro" />
+<META NAME="DC.Creator.CorporateName" CONTENT="WSB" />
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#creator" /> 
-<META NAME="DC.Creator.CorporateName.Address" CONTENT="contact@websiteburo.com" /> 
+<META NAME="DC.Creator.CorporateName.Address" CONTENT="contact@wsb-agency.com" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#creator" /> 
 <META NAME="DC.Subject" CONTENT="internet, web, solutions, bordeaux" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#subject" /> 
@@ -28,7 +28,7 @@
 <META NAME="DC.Format" SCHEME="IMT" CONTENT="text/html" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#format" />
 <LINK REL=SCHEMA.imt HREF="http://sunsite.auc.dk/RFC/rfc/rfc2046.html" />
-<META NAME="DC.Identifier" CONTENT="http://www.websiteburo.com" /> 
+<META NAME="DC.Identifier" CONTENT="http://www.wsb-agency.com" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#identifier" />
 <META NAME="DC.Language" SCHEME="ISO639-1" CONTENT="en" />
 
@@ -71,7 +71,7 @@
                 <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choose your language : </font><font size="1"><a href="index_fr.php" class="style2">FR</a></font> <font color="#999999" size="1">| </font><font size="1"><span class="style1">EN</span></font></td>
       </tr>
       <tr bgcolor="#F4F4F4">
-        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.websiteburo.com">Websiteburo</a></td>
+        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Goldorank Firefox extension</font></b> - Webranking analyser  - <a href="http://www.wsb-agency.com">WSB</a></td>
       </tr>
       <!--tr bgcolor="#F4F4F4"> 
         <td colspan="2" valign="top" bgcolor="#CC3300"><span class="Style3"><strong>If you have the previous version to the 0.8 </strong>: it is necessary to uninstall <strong>before</strong>  install the new version !</span></td>
@@ -120,7 +120,7 @@
       4. Close the Extensions window, then close all Firefox windows and restart 
       the browser.</p>
 
-    <div id="footarea"><font size="2">©2007 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
+    <div id="footarea"><font size="2">©2007-2011 <a href="http://www.wsb-agency.com">WSB</a></font></div>
 
 </div>
 </center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">

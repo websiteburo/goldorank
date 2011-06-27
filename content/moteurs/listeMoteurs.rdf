@@ -85,7 +85,7 @@
                    NS1:hasNextPage="Suivant  &lt;/span&gt;"
                    NS1:resultListStart="&lt;ol id=&quot;rso" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:version_base"
-                   NS1:version="0.9.2" />
+                   NS1:version="0.9.3" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:google"
                    NS1:nom="Google"
                    NS1:description="Google"

@@ -1,12 +1,12 @@
 <html>
 <head>
-<title>Goldorank - Extension pour firefox : analyse du positionnement sur les moteurs de recherche - Websiteburo</title>
+<title>Goldorank - Extension pour firefox : analyse du positionnement sur les moteurs de recherche - WSB</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <META NAME="DC.Title" CONTENT="WebSiteBuro Online Agency" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#title" /> 
 <META NAME="DC.Creator.CorporateName" CONTENT="WebSiteBuro" />
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#creator" /> 
-<META NAME="DC.Creator.CorporateName.Address" CONTENT="contact@websiteburo.com" /> 
+<META NAME="DC.Creator.CorporateName.Address" CONTENT="contact@wsb-agency.com" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#creator" /> 
 <META NAME="DC.Subject" CONTENT="internet, web, solutions, bordeaux" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#subject" /> 
@@ -28,7 +28,7 @@
 <META NAME="DC.Format" SCHEME="IMT" CONTENT="text/html" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#format" />
 <LINK REL=SCHEMA.imt HREF="http://sunsite.auc.dk/RFC/rfc/rfc2046.html" />
-<META NAME="DC.Identifier" CONTENT="http://www.websiteburo.com" /> 
+<META NAME="DC.Identifier" CONTENT="http://www.wsb-agency.com" /> 
 <LINK REL=SCHEMA.dc HREF="http://purl.org/metadata/dublin_core_elements#identifier" />
 <META NAME="DC.Language" SCHEME="ISO639-1" CONTENT="fr" />
 
@@ -36,7 +36,7 @@
 
 <META NAME="GOOGLEBOT" CONTENT="INDEX, FOLLOW" />
 
-<META NAME="dc.description" content="Websiteburo est une agence de création web, conception, réalisation web et multimédia, création site internet." />
+<META NAME="dc.description" content="WSB est une agence de création web, conception, réalisation web et multimédia, création site internet." />
 <META NAME="dc.keywords" content="referencement, positionnement, ranking" />
 
 <LINK REL="SHORTCUT ICON" HREF="http://www.websiteburo.com/favicon.ico" type="image/x-icon" />
@@ -67,7 +67,7 @@
         <td width="712" bgcolor="#000000"><font color="#999999" size="1">Choisissez votre langue : </font><font size="1"><span class="style1">FR</span></font> <font color="#999999" size="1">| </font><font size="1"><span class="style2"><a href="index_en.php" class="style2">EN</a></span></font></td>
       </tr>
       <tr bgcolor="#F4F4F4">
-        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Extension Goldorank pour Firefox</font></b> - Analyse du positionnement  - <a href="http://www.websiteburo.com">Websiteburo</a></td>
+        <td colspan="2" valign="top"><b><font color="#666666" size="-0">Extension Goldorank pour Firefox</font></b> - Analyse du positionnement  - <a href="http://www.wsb-agency.com">WSB</a></td>
       </tr>
       <!--tr bgcolor="#F4F4F4">
         <td colspan="2" valign="top" bgcolor="#CC3300"><span class="Style3"><strong>Si vous avez une version ant&eacute;rieure &agrave; la 0.8 :</strong> il est n&eacute;cessaire de la d&eacute;sinstaller <strong>avant</strong> d'installer la nouvelle version !</span></td>
@@ -112,7 +112,7 @@
       3. Confirmez l'op&eacute;ration : l'extension est d&eacute;sinstall&eacute;e. <br />
       4. Red&eacute;marrez votre navigateur. </p>
 
-    <div id="footarea"><font size="2">2007-2011 <a href="http://www.websiteburo.com">Websiteburo</a></font></div>
+    <div id="footarea"><font size="2">2007-2011 <a href="http://www.wsb-agency.com">WSB</a></font></div>
 
 </div>
 </center><script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
