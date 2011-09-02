@@ -11,7 +11,7 @@ do
 done
 
 #On enregistre la référence à l'extension (maj de la date)
-pwd > ~/.mozilla/firefox/$DIRTESTSPROFILE/extensions/{$ID}
+pwd > ~/.mozilla/firefox/$DIRTESTSPROFILE/extensions/$ID
 
 #Relance de firefox tests
 export MOZ_NO_REMOTE=1

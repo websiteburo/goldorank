@@ -8,6 +8,7 @@ def manifest():
 
     # content archive for the chrome URL
     yield """content %(app)s jar:chrome/%(app)s.jar!/content/""" % v
+#    yield """content %(app)s chrome/content/""" % v
 
     # XUL overlay this on that
     for this, that in overlays:
@@ -23,6 +24,7 @@ def manifest():
         yield (
             """skin %(app)s %(name)s/%(skin_version)s """ +
             """jar:chrome/%(app)s.jar!/skin/%(name)s/""" 
+#            """chrome/skin/%(name)s/""" 
         ) % v
 
     # locales
@@ -32,6 +34,7 @@ def manifest():
         yield (
             """locale %(app)s %(name)s """ + 
             """jar:chrome/%(app)s.jar!/locale/%(name)s/"""
+#            """chrome/locale/%(name)s/"""
         ) % v
 
 print >> file('chrome.manifest', 'w'), "\n".join(manifest())
