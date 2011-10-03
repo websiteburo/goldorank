@@ -3,9 +3,9 @@
 
 app = 'goldorank'
 name = 'Goldorank'
-description = 'Search engines position retriever by WebSiteBuro'
+description = 'Search engines position retriever by WSB'
 author = 'Henri Bourcereau'
-authorURL = "http://www.websiteburo.com"
+authorURL = "http://www.wsb-agency.com"
 
 #uid = 'e4b43b01-1ccb-476a-92d2-9a193ad4ff50'
 #clé publique de 'goldorank' générée par mccoy (sans mot de passe pour utilisation par spock)
@@ -21,9 +21,9 @@ nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
 minor_version = 9
-build_version = 4
+build_version = 5
 in_development = False
-whatsnew = '<ul><li>Firefox 6+ compatibility</li></ul>'
+whatsnew = '<ul><li>Google update</li></ul>'
 
 version = "%d.%d.%d%s" % (
     major_version,
