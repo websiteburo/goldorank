@@ -21,7 +21,7 @@ nssDirectory = '/home/henri/.mozilla/mccoy/2osghvae.default/'
 
 major_version = 0
 minor_version = 9
-build_version = 5
+build_version = 6
 in_development = False
 whatsnew = '<ul><li>Google update</li></ul>'
 

@@ -2,8 +2,20 @@
 <RDF:RDF xmlns:NS1="urn:goldorank:rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Description RDF:about="urn:goldorank:moteurs:bing_fr"
-                   NS1:nom="BING FR"
+  <RDF:Seq RDF:about="urn:goldorank:moteurs_fr">
+    <RDF:li RDF:resource="urn:goldorank:moteurs:google_fr"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs:yahoo_fr"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs:bing_fr"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs:orange"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs:ask_fr"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:goldorank:moteurs_fr"
+                   NS1:logo_langue="chrome://goldorank/content/moteurs/france.gif"
+                   NS1:langue="FR"
+                   NS1:nom="FR" />
+  <RDF:Description RDF:about="urn:goldorank:moteurs:bing_nl"
+                   NS1:nom="BING NL"
+                   NS1:description="BING NL"
                    NS1:logo="chrome://goldorank/content/moteurs/goldorank_bing.png"
                    NS1:strDebutPage="&amp;first="
                    NS1:parPage="false"
@@ -11,12 +23,12 @@
                    NS1:strNumPage="first"
                    NS1:resultItemStart="&lt;h3&gt;"
                    NS1:resultItemEnd="&lt;/h3&gt;"
-                   NS1:debug="false"
                    NS1:serveur="www.bing.com"
-                   NS1:url="/search?mkt=fr-FR&amp;q="
+                   NS1:url="/search?mkt=nl-NL&amp;q="
                    NS1:resultListStart="&lt;div id=&quot;results&quot;&gt;"
                    NS1:resultListEnd="&lt;/ul&gt;&lt;/div&gt;"
-                   NS1:hasNextPage="Suivant&lt;/a&gt;" />
+                   NS1:hasNextPage="sb_pagN"
+                   NS1:debug="false" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:yahoo_nl"
                    NS1:description="Yahoo NL"
                    NS1:logo="chrome://goldorank/content/moteurs/goldorank_yahoo.gif"
@@ -33,6 +45,84 @@
                    NS1:hasNextPage="Volgende &amp;gt"
                    NS1:resultItemEnd="&lt;/div&gt;"
                    NS1:resultListStart="&lt;h2&gt;search results&lt;/h2&gt;"
+                   NS1:debug="false" />
+  <RDF:Description RDF:about="urn:goldorank:moteurs:bing_fr"
+                   NS1:nom="BING FR"
+                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_bing.png"
+                   NS1:strDebutPage="&amp;first="
+                   NS1:parPage="false"
+                   NS1:decalageDebut="1"
+                   NS1:strNumPage="first"
+                   NS1:resultItemStart="&lt;h3&gt;"
+                   NS1:resultItemEnd="&lt;/h3&gt;"
+                   NS1:debug="false"
+                   NS1:serveur="www.bing.com"
+                   NS1:url="/search?mkt=fr-FR&amp;q="
+                   NS1:resultListStart="&lt;div id=&quot;results&quot;&gt;"
+                   NS1:resultListEnd="&lt;/ul&gt;&lt;/div&gt;"
+                   NS1:hasNextPage="Suivant&lt;/a&gt;" />
+  <RDF:Description RDF:about="urn:goldorank:moteurs:yahoo"
+                   NS1:description="Yahoo"
+                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_yahoo.gif"
+                   NS1:serveur="search.yahoo.com"
+                   NS1:url="/search?p="
+                   NS1:strDebutPage="&amp;b="
+                   NS1:parPage="false"
+                   NS1:decalageDebut="1"
+                   NS1:strNumPage="b"
+                   NS1:resultListEnd="&lt;/ol&gt;"
+                   NS1:resultItemStart="&lt;li&gt;"
+                   NS1:nom="Yahoo"
+                   NS1:resultItemEnd="Cached&lt;/a&gt;"
+                   NS1:debug="false"
+                   NS1:hasNextPage="Next &amp;gt"
+                   NS1:resultListStart="Search results&lt;/h2&gt;" />
+  <RDF:Seq RDF:about="urn:goldorank:moteurs">
+    <RDF:li RDF:resource="urn:goldorank:moteurs_fr"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs_nl"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs_en"/>
+  </RDF:Seq>
+  <RDF:Seq RDF:about="urn:goldorank:moteurs_nl">
+    <RDF:li RDF:resource="urn:goldorank:moteurs:google_nl"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs:yahoo_nl"/>
+    <RDF:li RDF:resource="urn:goldorank:moteurs:bing_nl"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:goldorank:moteurs_nl"
+                   NS1:logo_langue="chrome://goldorank/content/moteurs/netherlands.gif"
+                   NS1:langue="NL"
+                   NS1:nom="NL" />
+  <RDF:Description RDF:about="urn:goldorank:moteurs:google_nl"
+                   NS1:nom="Google NL"
+                   NS1:description="Google NL"
+                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_google.gif"
+                   NS1:serveur="www.google.nl"
+                   NS1:url="/search?hl=nl&amp;q="
+                   NS1:strDebutPage="&amp;start="
+                   NS1:parPage="false"
+                   NS1:decalageDebut="0"
+                   NS1:strNumPage="start"
+                   NS1:regexpos="&lt;a class='res'(.*?)&gt;\/a"
+                   NS1:taillepage="10"
+                   NS1:resultItemStart="&lt;h3 class=r&gt;"
+                   NS1:resultItemEnd="&lt;/a&gt;"
+                   NS1:resultListEnd="&lt;/ol&gt;"
+                   NS1:debug="false"
+                   NS1:resultListStart=" id=&quot;rso"
+                   NS1:hasNextPage="id=&quot;pnnext" />
+  <RDF:Description RDF:about="urn:goldorank:moteurs:bing"
+                   NS1:nom="BING"
+                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_bing.png"
+                   NS1:strDebutPage="&amp;first="
+                   NS1:parPage="false"
+                   NS1:decalageDebut="1"
+                   NS1:strNumPage="first"
+                   NS1:resultItemStart="&lt;h3&gt;"
+                   NS1:resultItemEnd="&lt;/h3&gt;"
+                   NS1:hasNextPage="Next&lt;/a&gt;"
+                   NS1:serveur="www.bing.com"
+                   NS1:url="/search?mkt=en-US&amp;q="
+                   NS1:resultListStart="&lt;div id=&quot;results&quot;&gt;"
+                   NS1:resultListEnd="&lt;form"
                    NS1:debug="false" />
   <RDF:Seq RDF:about="urn:goldorank:moteurs_en">
     <RDF:li RDF:resource="urn:goldorank:moteurs:google"/>
@@ -61,77 +151,24 @@
                    NS1:resultItemStart="&lt;h3 class=&quot;r&quot;&gt;"
                    NS1:resultListStart=" id=&quot;rso"
                    NS1:hasNextPage="id=&quot;pnnext" />
-  <RDF:Description RDF:about="urn:goldorank:moteurs:bing"
-                   NS1:nom="BING"
-                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_bing.png"
-                   NS1:strDebutPage="&amp;first="
-                   NS1:parPage="false"
-                   NS1:decalageDebut="1"
-                   NS1:strNumPage="first"
-                   NS1:resultItemStart="&lt;h3&gt;"
-                   NS1:resultItemEnd="&lt;/h3&gt;"
-                   NS1:hasNextPage="Next&lt;/a&gt;"
-                   NS1:serveur="www.bing.com"
-                   NS1:url="/search?mkt=en-US&amp;q="
-                   NS1:resultListStart="&lt;div id=&quot;results&quot;&gt;"
-                   NS1:resultListEnd="&lt;form"
-                   NS1:debug="false" />
-  <RDF:Seq RDF:about="urn:goldorank:moteurs_fr">
-    <RDF:li RDF:resource="urn:goldorank:moteurs:google_fr"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs:yahoo_fr"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs:bing_fr"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs:orange"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs:ask_fr"/>
-  </RDF:Seq>
-  <RDF:Description RDF:about="urn:goldorank:moteurs_fr"
-                   NS1:logo_langue="chrome://goldorank/content/moteurs/france.gif"
-                   NS1:langue="FR"
-                   NS1:nom="FR" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:version_base"
-                   NS1:version="0.9.5" />
-  <RDF:Description RDF:about="urn:goldorank:moteurs:bing_nl"
-                   NS1:nom="BING NL"
-                   NS1:description="BING NL"
-                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_bing.png"
-                   NS1:strDebutPage="&amp;first="
-                   NS1:parPage="false"
+                   NS1:version="0.9.6" />
+  <RDF:Description RDF:about="urn:goldorank:moteurs:ask_fr"
+                   NS1:nom="Ask FR"
+                   NS1:description="Ask FR"
+                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_ask_fr.gif"
+                   NS1:serveur="fr.ask.com"
+                   NS1:url="/web?q="
+                   NS1:strDebutPage="&amp;page="
+                   NS1:parPage="true"
                    NS1:decalageDebut="1"
-                   NS1:strNumPage="first"
-                   NS1:resultItemStart="&lt;h3&gt;"
-                   NS1:resultItemEnd="&lt;/h3&gt;"
-                   NS1:serveur="www.bing.com"
-                   NS1:url="/search?mkt=nl-NL&amp;q="
-                   NS1:resultListStart="&lt;div id=&quot;results&quot;&gt;"
-                   NS1:resultListEnd="&lt;/ul&gt;&lt;/div&gt;"
-                   NS1:hasNextPage="sb_pagN"
-                   NS1:debug="false" />
-  <RDF:Seq RDF:about="urn:goldorank:moteurs_nl">
-    <RDF:li RDF:resource="urn:goldorank:moteurs:google_nl"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs:yahoo_nl"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs:bing_nl"/>
-  </RDF:Seq>
-  <RDF:Description RDF:about="urn:goldorank:moteurs_nl"
-                   NS1:logo_langue="chrome://goldorank/content/moteurs/netherlands.gif"
-                   NS1:langue="NL"
-                   NS1:nom="NL" />
-  <RDF:Description RDF:about="urn:goldorank:moteurs:google_nl"
-                   NS1:nom="Google NL"
-                   NS1:description="Google NL"
-                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_google.gif"
-                   NS1:serveur="www.google.nl"
-                   NS1:url="/search?hl=nl&amp;q="
-                   NS1:strDebutPage="&amp;start="
-                   NS1:parPage="false"
-                   NS1:decalageDebut="0"
-                   NS1:strNumPage="start"
-                   NS1:regexpos="&lt;a class='res'(.*?)&gt;\/a"
-                   NS1:taillepage="10"
-                   NS1:resultItemStart="&lt;h3 class=r&gt;"
-                   NS1:resultItemEnd="&lt;/a&gt;"
-                   NS1:resultListEnd="&lt;/ol&gt;"
+                   NS1:strNumPage="page"
                    NS1:debug="false"
-                   NS1:resultListStart=" id=&quot;rso"
-                   NS1:hasNextPage="id=&quot;pnnext" />
+                   NS1:resultListEnd="Essayez une recherche sur"
+                   NS1:hasNextPage="&lt;div id=&quot;paging&quot;"
+                   NS1:resultListStart="pad pl10 pr10"
+                   NS1:resultItemStart="&lt;a id=&quot;r"
+                   NS1:resultItemEnd="&lt;/a&gt;" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:yahoo_fr"
                    NS1:description="Yahoo FR"
                    NS1:logo="chrome://goldorank/content/moteurs/goldorank_yahoo.gif"
@@ -149,43 +186,6 @@
                    NS1:hasNextPage="Suiv. &amp;gt"
                    NS1:resultItemEnd="&lt;/div&gt;"
                    NS1:resultListStart="de recherche&lt;/h2&gt;" />
-  <RDF:Seq RDF:about="urn:goldorank:moteurs">
-    <RDF:li RDF:resource="urn:goldorank:moteurs_fr"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs_nl"/>
-    <RDF:li RDF:resource="urn:goldorank:moteurs_en"/>
-  </RDF:Seq>
-  <RDF:Description RDF:about="urn:goldorank:moteurs:ask_fr"
-                   NS1:nom="Ask FR"
-                   NS1:description="Ask FR"
-                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_ask_fr.gif"
-                   NS1:serveur="fr.ask.com"
-                   NS1:url="/web?q="
-                   NS1:strDebutPage="&amp;page="
-                   NS1:parPage="true"
-                   NS1:decalageDebut="1"
-                   NS1:strNumPage="page"
-                   NS1:debug="false"
-                   NS1:resultListEnd="Essayez une recherche sur"
-                   NS1:hasNextPage="&lt;div id=&quot;paging&quot;"
-                   NS1:resultListStart="pad pl10 pr10"
-                   NS1:resultItemStart="&lt;a id=&quot;r"
-                   NS1:resultItemEnd="&lt;/a&gt;" />
-  <RDF:Description RDF:about="urn:goldorank:moteurs:yahoo"
-                   NS1:description="Yahoo"
-                   NS1:logo="chrome://goldorank/content/moteurs/goldorank_yahoo.gif"
-                   NS1:serveur="search.yahoo.com"
-                   NS1:url="/search?p="
-                   NS1:strDebutPage="&amp;b="
-                   NS1:parPage="false"
-                   NS1:decalageDebut="1"
-                   NS1:strNumPage="b"
-                   NS1:resultListEnd="&lt;/ol&gt;"
-                   NS1:resultItemStart="&lt;li&gt;"
-                   NS1:nom="Yahoo"
-                   NS1:resultItemEnd="Cached&lt;/a&gt;"
-                   NS1:debug="false"
-                   NS1:hasNextPage="Next &amp;gt"
-                   NS1:resultListStart="Search results&lt;/h2&gt;" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:google"
                    NS1:nom="Google"
                    NS1:description="Google"
@@ -199,10 +199,10 @@
                    NS1:regexpos="&lt;a class='res'(.*?)&gt;\/a"
                    NS1:taillepage="10"
                    NS1:resultItemEnd="&lt;/a&gt;"
-                   NS1:resultListStart="&lt;div id=res"
                    NS1:resultItemStart="&lt;h3 class=&quot;r&quot;&gt;"
                    NS1:resultListEnd="&lt;/ol&gt;"
-                   NS1:hasNextPage="id=&quot;pnnext" />
+                   NS1:hasNextPage="id=&quot;pnnext"
+                   NS1:resultListStart=" id=&quot;rso" />
   <RDF:Description RDF:about="urn:goldorank:moteurs:orange"
                    NS1:description="Orange"
                    NS1:logo="chrome://goldorank/content/moteurs/goldorank_orange.png"
