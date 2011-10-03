@@ -33,7 +33,7 @@ version = "%d.%d.%d%s" % (
 
 )
 
-homepageURL = "http://www.websiteburo.com/%(app)s" % vars()
+homepageURL = "http://www.wsb-agency.com/%(app)s" % vars()
 iconURL = "logo.png"
 updateURL = "%(homepageURL)s/update.rdf" % vars()
 updateInfoFile = "updateinfo%(version)s.xhtml" % vars() 

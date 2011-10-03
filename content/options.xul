@@ -98,7 +98,7 @@
             </hbox>
 			<hbox style="-moz-box-align:baseline;">
 				 <button id="tester" label="&goldorank.options.tester;" oncommand="tester();" style="height:30px;margin:10px;" class="button" />
-         <!--<button id="export" label="Export" oncommand="export();" style="height:30px;margin:10px;" class="button" />-->
+         <!--<button id="export" label="Export" oncommand="showSql();" style="height:30px;margin:10px;" class="button" />-->
 			</hbox>
 		</vbox>
   </groupbox>

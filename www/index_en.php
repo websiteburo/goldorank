@@ -81,7 +81,7 @@
 	<br />
     <h3>Introduction</h3>
     <p>Goldorank for Firefox is an extension that makes it easy to see your 
-    webranking in Firefox. <span class="Style4">If you have the previous version to the 0.8 : it is necessart ton uninstall before install the new version of Goldorank !</span></p>
+    webranking in Firefox. <span class="Style4">If you have a version older than 0.8 you need to uninstall before installing the new version of Goldorank !</span></p>
 
 	<div class="extension">
 	  <h3 style="margin-top: 5px;">Install Goldorank Now</h3>

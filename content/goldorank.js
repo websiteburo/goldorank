@@ -192,7 +192,7 @@ function rechercherS(){
 		//pageCell
 		moteur.childNodes[4].firstChild.value = '';
 		//resultsCell
-		resultsCell = moteur.childNodes[5].firstChild.firstChild
+    resultsCell = moteur.childNodes[5].firstChild.firstChild;
 			while (resultsCell.firstChild){
 				resultsCell.removeChild(resultsCell.firstChild);
 			}
@@ -223,13 +223,7 @@ function ouvreUrl(url){
 
 /**************Génération des rapports *************/
 var report_page;
-function generateReport(){
-	//var tBrowser = window.opener.getBrowser() ;
-	//tBrowser.selectedTab = tBrowser.addTab("chrome://goldorank/content/report.html");
-	report_page = window.open("chrome://goldorank/content/report.html", 'report_page');
-	setTimeout("report()",  1000);
-}
-function report(){
+report = function(){
 	//doc = window.opener.getBrowser().selectedBrowser.contentDocument; 
 	doc = report_page.document;
 
@@ -251,4 +245,12 @@ function report(){
     }
     nodeEngine = nodeEngine.nextSibling;
   }
+};
+
+function generateReport(){
+	//var tBrowser = window.opener.getBrowser() ;
+	//tBrowser.selectedTab = tBrowser.addTab("chrome://goldorank/content/report.html");
+	report_page = window.open("chrome://goldorank/content/report.html", 'report_page');
+	setTimeout(report,  1000);
 }
+
